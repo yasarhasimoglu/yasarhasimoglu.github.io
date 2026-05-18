@@ -7,7 +7,58 @@
 <meta name="google-site-verification" content="y5UMMP--9cNsy-j9PXllyRH5hVZF0HVzm_k0n-baFe8">
 <meta name="description" content="Haşimoğlu Mimarlık İnşaat Limited Şirketi — Akvaryum tasarımı, konut, villa, rezidans ve tower projelerinde uzman mimarlık hizmetleri. İstanbul Ataşehir.">
 <meta name="keywords" content="mimarlık, akvaryum tasarımı, villa, rezidans, tower, kentsel dönüşüm, İstanbul, Haşimoğlu Mimarlık">
+<meta name="author" content="Haşimoğlu Mimarlık İnşaat Ltd. Şti.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="canonical" href="https://hmimar.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='14'%20fill='%230d0d0d'/%3E%3Ctext%20x='50'%20y='70'%20font-family='Georgia,serif'%20font-size='62'%20font-weight='700'%20fill='%23b89c5c'%20text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph / Sosyal medya -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Haşimoğlu Mimarlık İnşaat Ltd. Şti.">
+<meta property="og:title" content="HMİ | Haşimoğlu Mimarlık İnşaat Ltd. Şti.">
+<meta property="og:description" content="Akvaryum tasarımı, konut, villa, rezidans ve tower projelerinde uzman mimarlık ve inşaat hizmetleri. İstanbul Ataşehir.">
+<meta property="og:url" content="https://hmimar.com/">
+<meta property="og:image" content="https://hmimar.com/yasar.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HMİ | Haşimoğlu Mimarlık İnşaat Ltd. Şti.">
+<meta name="twitter:description" content="Akvaryum tasarımı, konut, villa, rezidans ve tower projelerinde uzman mimarlık ve inşaat hizmetleri.">
+<meta name="twitter:image" content="https://hmimar.com/yasar.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  "name": "Haşimoğlu Mimarlık İnşaat Ltd. Şti.",
+  "alternateName": "HMİ",
+  "url": "https://hmimar.com/",
+  "logo": "https://hmimar.com/yasar.png",
+  "image": "https://hmimar.com/yasar.png",
+  "description": "Akvaryum tasarımı, konut, villa, rezidans ve tower projelerinde uzman mimarlık ve inşaat hizmetleri.",
+  "foundingDate": "2022",
+  "telephone": "+905416085292",
+  "email": "info@hmimar.com",
+  "vatID": "4590739410",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B İç Kapı No:376",
+    "addressLocality": "Ataşehir",
+    "addressRegion": "İstanbul",
+    "postalCode": "34764",
+    "addressCountry": "TR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 40.9942, "longitude": 29.1228 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00" }
+  ],
+  "areaServed": "TR"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -117,12 +168,86 @@
   .footer-nav-col ul a:hover { color: var(--platinum); }
   .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.06); }
   .footer-bottom p { font-size: .72rem; color: var(--mid); letter-spacing: .05em; }
+
+  /* PROJECTS */
+  .projects { background: var(--off-black); }
+  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+  .projects-header-right { max-width: 360px; font-size: .9rem; line-height: 1.8; color: var(--mid); }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .project-card { position: relative; height: 360px; overflow: hidden; }
+  .project-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) brightness(.68); transition: transform .6s, filter .6s; }
+  .project-card:hover img { transform: scale(1.06); filter: grayscale(0%) brightness(.85); }
+  .project-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; background: linear-gradient(0deg, rgba(13,13,13,.88) 0%, transparent 62%); }
+  .project-overlay p { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .project-overlay h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--white); }
+
+  /* HAMBURGER */
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; z-index: 110; }
+  .nav-toggle span { width: 26px; height: 2px; background: var(--platinum); transition: transform .3s, opacity .3s; }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* BACK TO TOP */
+  .to-top { position: fixed; bottom: 30px; left: 30px; z-index: 998; width: 46px; height: 46px; border: 1px solid rgba(184,156,92,.4); background: rgba(13,13,13,.82); color: var(--gold); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s, background .25s, color .25s; font-size: 1rem; }
+  .to-top.show { opacity: 1; pointer-events: auto; }
+  .to-top:hover { background: var(--gold); color: var(--coal); }
+
+  /* RESPONSIVE */
+  @media (max-width: 980px) {
+    nav { padding: 20px 22px; }
+    .nav-toggle { display: flex; }
+    .logo-name { display: none; }
+    .nav-links { position: fixed; top: 0; bottom: 0; right: 0; width: min(78vw, 320px); background: var(--off-black); flex-direction: column; gap: 0; padding: 92px 36px; transform: translateX(105%); transition: transform .35s ease; border-left: 1px solid rgba(184,156,92,.15); }
+    .nav-links.open { transform: translateX(0); }
+    .nav-links a { font-size: .9rem; padding: 16px 0; display: block; opacity: .9; }
+
+    section { padding: 70px 22px; }
+    .hero { padding: 0 22px 60px; }
+    .hero-scroll { display: none; }
+    .hero-cta { flex-wrap: wrap; gap: 14px; }
+    .btn-primary, .btn-ghost { padding: 14px 30px; }
+
+    .about { grid-template-columns: 1fr; gap: 44px; }
+    .about-img-wrap { height: 360px; }
+    .about-img-badge { width: 110px; height: 110px; right: 0; bottom: -18px; }
+    .about-img-badge span:first-child { font-size: 2rem; }
+
+    .services-header, .projects-header { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 44px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card { height: 300px; }
+
+    .team-grid { grid-template-columns: 1fr; gap: 2px; }
+    .team-card { height: 420px; }
+
+    .contact { grid-template-columns: 1fr; gap: 50px; }
+    .form-row { grid-template-columns: 1fr; }
+
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { gap: 36px; flex-wrap: wrap; }
+    .footer-bottom { flex-direction: column; gap: 14px; align-items: flex-start; text-align: left; }
+
+    .whatsapp-btn { width: 52px; height: 52px; bottom: 22px; right: 22px; }
+    .to-top { bottom: 22px; left: 22px; width: 42px; height: 42px; }
+  }
+  @media (max-width: 560px) {
+    .ref-grid { gap: 30px; }
+    .hero-sub { font-size: .88rem; }
+    .contact-info-item .value { font-size: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  }
 </style>
 </head>
 <body>
 
 <!-- WHATSAPP BUTTON -->
-<a href="https://wa.me/905416085292" target="_blank" class="whatsapp-btn" title="WhatsApp ile ulaşın">💬</a>
+<a href="https://wa.me/905416085292" target="_blank" rel="noopener" class="whatsapp-btn" title="WhatsApp ile ulaşın">💬</a>
+
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" aria-label="Sayfanın başına dön" title="Yukarı çık">↑</button>
 
 <!-- NAV -->
 <nav id="nav">
@@ -130,12 +255,16 @@
     <span class="logo-abbr">HMİ</span>
     <span class="logo-name">Haşimoğlu Mimarlık İnşaat Ltd. Şti.</span>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#hakkimizda">Kurumsal</a></li>
     <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#projeler">Projeler</a></li>
     <li><a href="#ekip">Ekip</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -154,7 +283,7 @@
 <!-- ABOUT -->
 <section class="about" id="hakkimizda">
   <div class="about-img-wrap">
-    <img class="about-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="HMİ Ofis">
+    <img class="about-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="HMİ mimarlık ofisi" loading="lazy" decoding="async">
     <div class="about-img-badge">
       <span>2022</span>
       <span>Kuruluş</span>
@@ -220,6 +349,61 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section class="projects" id="projeler">
+  <div class="projects-header">
+    <div>
+      <p class="section-label">Projelerimiz</p>
+      <h2 class="section-title">Hayata Geçirdiğimiz<br><em>Çalışma Alanları</em></h2>
+    </div>
+    <p class="projects-header-right">Akvaryumdan kuleye, her ölçekte mimari uzmanlık. Aşağıdaki görseller temsilidir; gerçek proje fotoğraflarınızla değiştirilebilir.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&q=80" alt="Akvaryum tasarım projesi" loading="lazy" decoding="async">
+      <div class="project-overlay">
+        <p>Akvaryum</p>
+        <h3>Tünel & Dev Akvaryum</h3>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80" alt="Lüks villa projesi" loading="lazy" decoding="async">
+      <div class="project-overlay">
+        <p>Konut</p>
+        <h3>Lüks Villa</h3>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80" alt="Rezidans ve tower projesi" loading="lazy" decoding="async">
+      <div class="project-overlay">
+        <p>Yüksek Yapı</p>
+        <h3>Rezidans & Tower</h3>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="İç mekân tasarım projesi" loading="lazy" decoding="async">
+      <div class="project-overlay">
+        <p>İç Mimari</p>
+        <h3>İç Mekân Tasarımı</h3>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=900&q=80" alt="Kentsel dönüşüm projesi" loading="lazy" decoding="async">
+      <div class="project-overlay">
+        <p>Dönüşüm</p>
+        <h3>Kentsel Dönüşüm</h3>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=80" alt="Ticari ve kültürel yapı projesi" loading="lazy" decoding="async">
+      <div class="project-overlay">
+        <p>Ticari</p>
+        <h3>Ticari & Kültürel Yapı</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- REFERENCES -->
 <div class="references">
   <p class="ref-title">Çalıştığımız Firmalar</p>
@@ -237,7 +421,7 @@
   <h2 class="section-title">Uzman<br><em>Kadromuz</em></h2>
   <div class="team-grid">
     <div class="team-card">
-      <img src="yasar.png" alt="Yaşar Haşimoğlu">
+      <img src="yasar.png" alt="Yaşar Haşimoğlu — Kurucu Baş Mimar" loading="lazy" decoding="async">
       <div class="team-info">
         <p class="team-name">Yaşar Haşimoğlu</p>
         <p class="team-role">Kurucu Baş Mimar · Akvaryum Tasarım Uzmanı<br><span style="font-size:.6rem;opacity:.75">Okyanus Akvaryum Baş Mimarı (Şub. 2019 – Devam)</span></p>
@@ -280,7 +464,7 @@
       <p class="label">Çalışma Saatleri</p>
       <p class="value">Pzt – Cum: 09:00 – 18:00<br>Cumartesi: 10:00 – 14:00</p>
     </div>
-    <a href="https://wa.me/905416085292" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;margin-top:8px;text-decoration:none;">💬 WhatsApp ile Ulaşın</a>
+    <a href="https://wa.me/905416085292" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;margin-top:8px;text-decoration:none;">💬 WhatsApp ile Ulaşın</a>
     <div style="margin-top:36px;">
       <p class="label" style="margin-bottom:12px">Konum</p>
       <div style="position:relative;overflow:hidden;border:1px solid rgba(184,156,92,.2);">
@@ -328,7 +512,7 @@
       <div class="social-links">
         <a href="#" title="Instagram">📷</a>
         <a href="#" title="LinkedIn">💼</a>
-        <a href="https://wa.me/905416085292" title="WhatsApp">💬</a>
+        <a href="https://wa.me/905416085292" target="_blank" rel="noopener" title="WhatsApp">💬</a>
       </div>
     </div>
     <div class="footer-nav">
@@ -359,7 +543,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2022 Haşimoğlu Mimarlık İnşaat Limited Şirketi — Vergi No: 4590739410 Kozyatağı V.D. Tüm hakları saklıdır.</p>
+    <p>© 2022–2026 Haşimoğlu Mimarlık İnşaat Limited Şirketi — Vergi No: 4590739410 Kozyatağı V.D. Tüm hakları saklıdır.</p>
     <p>KVKK Aydınlatma Metni</p>
   </div>
 </footer>
@@ -375,11 +559,28 @@
     });
   }
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 60);
+    toTop.classList.toggle('show', y > 500);
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const setMenu = (open) => {
+    navLinks.classList.toggle('open', open);
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  };
+  navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.service-card, .team-card, .ref-item, .contact-info-item').forEach(el => {
+  document.querySelectorAll('.service-card, .project-card, .team-card, .ref-item, .contact-info-item').forEach(el => {
     el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity .6s ease, transform .6s ease';
     observer.observe(el);
   });
