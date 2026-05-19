@@ -289,8 +289,8 @@
   .projects { background: var(--off-black); }
   .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
   .projects-header-right { max-width: 360px; font-size: .9rem; line-height: 1.8; color: var(--mid); }
-  .pr-strip { overflow: hidden; cursor: grab; touch-action: pan-y; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .pr-track { display: flex; width: max-content; will-change: transform; }
+  .pr-strip { overflow: hidden; cursor: grab; touch-action: pan-y; }
+  .pr-track { display: flex; width: max-content; }
   .project-card { position: relative; height: 440px; width: 380px; flex: 0 0 380px; margin-right: 14px; overflow: hidden; }
   .project-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) brightness(.68); transition: transform .6s, filter .6s; }
   .project-card:hover img { transform: scale(1.06); filter: grayscale(0%) brightness(.85); }
@@ -311,8 +311,8 @@
   .bim-figure .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 26px; background: linear-gradient(0deg, rgba(13,13,13,.82), transparent); color: var(--on-dark); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; }
 
   .revit { background: var(--off-black); }
-  .rv-strip { overflow: hidden; margin-top: 50px; cursor: grab; touch-action: pan-y; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .rv-track { display: flex; width: max-content; will-change: transform; }
+  .rv-strip { overflow: hidden; margin-top: 50px; cursor: grab; touch-action: pan-y; }
+  .rv-track { display: flex; width: max-content; }
   .pr-strip.dragging, .rv-strip.dragging { cursor: grabbing; }
   .pr-strip.dragging *, .rv-strip.dragging * { user-select: none; }
   .rv-card { position: relative; height: 360px; width: 340px; flex: 0 0 340px; margin-right: 16px; overflow: hidden; cursor: pointer; }
@@ -363,7 +363,7 @@
     nav { padding: 20px 22px; backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(244,241,234,.97); }
     .nav-toggle { display: flex; }
     .logo-name { display: none; }
-    .nav-links { position: fixed; top: 0; bottom: 0; right: 0; width: min(82vw, 340px); height: 100%; background: var(--off-black); flex-direction: column; gap: 0; padding: 96px 36px; transform: translateX(105%); transition: transform .35s ease; border-left: 1px solid rgba(168,119,42,.25); box-shadow: -18px 0 40px rgba(13,13,13,.18); z-index: 105; overflow-y: auto; }
+    .nav-links { position: fixed; top: 0; right: 0; width: min(60vw, 226px); max-height: 100vh; background: var(--off-black); flex-direction: column; gap: 0; padding: 84px 24px 26px; transform: translateX(110%); transition: transform .3s ease; border-left: 1px solid rgba(168,119,42,.25); border-bottom: 1px solid rgba(168,119,42,.18); box-shadow: -14px 16px 38px rgba(13,13,13,.2); z-index: 105; overflow-y: auto; }
     .nav-links.open { transform: translateX(0); }
     .nav-links a { font-size: .9rem; padding: 16px 0; display: block; opacity: .9; }
 
@@ -901,6 +901,9 @@
   };
   navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) setMenu(false);
+  });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
@@ -997,32 +1000,41 @@
   }
 
   const SEARCH_INDEX = [
-    { t: "Kurumsal / Hakkımızda", u: "#hakkimizda", d: "Vizyon, firma, Haşimoğlu Mimarlık hakkında" },
-    { t: "Hizmetler", u: "#hizmetler", d: "Tüm mimarlık ve inşaat hizmetlerimiz" },
-    { t: "Akvaryum Tasarımı", u: "hizmetler/akvaryum-tasarimi.html", d: "Tünel akvaryum, dev akvaryum; Trabzon, National Aquarium Abu Dhabi, Magic Aquarium referansları" },
-    { t: "Mimari Tasarım", u: "hizmetler/mimari-tasarim.html", d: "Konut, ticari, kültürel ve endüstriyel yapılar" },
-    { t: "Villa & Rezidans & Tower", u: "hizmetler/villa-rezidans-tower.html", d: "Lüks villa, rezidans ve yüksek yapı projeleri" },
-    { t: "İç Mekân Tasarımı", u: "hizmetler/ic-mekan-tasarimi.html", d: "Konut, ofis ve ticari iç mimari" },
-    { t: "Kentsel Dönüşüm", u: "hizmetler/kentsel-donusum.html", d: "Riskli yapı tespiti, yenileme ve dönüşüm" },
-    { t: "Proje Danışmanlığı", u: "hizmetler/proje-danismanligi.html", d: "Fizibilite, ihale, yatırım değerlendirmesi" },
-    { t: "BIM & Revit Mimari Modelleme", u: "hizmetler/bim-revit.html", d: "Autodesk Revit, mimari ve statik BIM, koordinasyon, Family, metraj" },
-    { t: "BIM & Revit (özet)", u: "#bim", d: "Revit ile mimari modelleme uzmanlığı" },
-    { t: "Revit Mimari Proje Çalışmalarımız", u: "#revit-projeler", d: "Revit ile modellenen proje çalışmaları galerisi" },
-    { t: "Projeler", u: "#projeler", d: "Çalışma alanları ve proje kategorileri" },
-    { t: "Ekibimiz", u: "ekip.html", d: "Mimar ve mühendis kadromuz; Yaşar Haşimoğlu, Halit Haşimoğlu" },
-    { t: "İletişim", u: "#iletisim", d: "Telefon, e-posta, mesaj formu" },
-    { t: "Online Görüşme / Randevu", u: "#iletisim", d: "Google Meet ile online görüşme planlama; tek tıkla uygun zaman seçimi" },
-    { t: "Randevu", u: "#iletisim", d: "Online görüşme planlayın veya WhatsApp'tan yazın" },
-    { t: "Konumlar / Şubeler", u: "#konumlar", d: "Ataşehir merkez, Ümraniye ve Eskişehir şubeleri; harita ve yol tarifi" }
+    { t: "Kurucu & Baş Mimar — Yaşar Haşimoğlu", u: "ekip.html", d: "Firmanın kurucusu ve baş mimarı Yaşar Haşimoğlu; ortak: Halit Haşimoğlu", k: "kurucu kim kimdir sahibi sahip patron kim kurdu yönetici başmimar baş mimar yasar hasimoglu" },
+    { t: "Kurumsal / Hakkımızda", u: "#hakkimizda", d: "Vizyon, misyon, firma ve Haşimoğlu Mimarlık hakkında", k: "vizyon misyon hakkinda kurumsal firma sirket nedir biz kimiz" },
+    { t: "Ekibimiz", u: "ekip.html", d: "Mimar ve mühendis kadromuz; Yaşar Haşimoğlu, Halit Haşimoğlu, Khalid Al Jbr, Mohamed Al Mofleh, Haytham Kayed, Oğuzcan Kaya", k: "kurucu ortak kadro takim ekip mimar muhendis personel kim calisanlar" },
+    { t: "Hizmetler", u: "#hizmetler", d: "Tüm mimarlık ve inşaat hizmetlerimiz", k: "hizmet ne yapiyorsunuz mimarlik insaat" },
+    { t: "Akvaryum Tasarımı", u: "hizmetler/akvaryum-tasarimi.html", d: "Tünel akvaryum, dev akvaryum; Trabzon, National Aquarium Abu Dhabi, Magic Aquarium referansları", k: "akvaryum tunel okyanus akvaryum trabzon abu dhabi taskent su alti" },
+    { t: "Mimari Tasarım", u: "hizmetler/mimari-tasarim.html", d: "Konut, ticari, kültürel ve endüstriyel yapılar", k: "mimari tasarim proje cizim" },
+    { t: "Villa & Rezidans & Tower", u: "hizmetler/villa-rezidans-tower.html", d: "Lüks villa, rezidans ve yüksek yapı projeleri", k: "villa rezidans tower kule luks konut" },
+    { t: "İç Mekân Tasarımı", u: "hizmetler/ic-mekan-tasarimi.html", d: "Konut, ofis ve ticari iç mimari", k: "ic mimari dekorasyon ic mekan tasarim" },
+    { t: "Kentsel Dönüşüm", u: "hizmetler/kentsel-donusum.html", d: "Riskli yapı tespiti, yenileme ve dönüşüm", k: "kentsel donusum riskli yapi yenileme deprem" },
+    { t: "Proje Danışmanlığı", u: "hizmetler/proje-danismanligi.html", d: "Fizibilite, ihale, yatırım değerlendirmesi", k: "danismanlik fizibilite ihale yatirim" },
+    { t: "BIM & Revit Mimari Modelleme", u: "hizmetler/bim-revit.html", d: "Autodesk Revit, mimari ve statik BIM, koordinasyon, Family, metraj", k: "bim revit autodesk family statik koordinasyon modelleme metraj" },
+    { t: "Revit Mimari Proje Çalışmalarımız", u: "#revit-projeler", d: "Revit ile modellenen proje çalışmaları galerisi", k: "revit proje galeri bim modelleme" },
+    { t: "Projeler", u: "#projeler", d: "Çalışma alanları ve proje kategorileri", k: "projeler referans calisma alanlari portfoy" },
+    { t: "İletişim", u: "#iletisim", d: "Telefon, e-posta ve mesaj formu", k: "iletisim telefon numara mail eposta ulasim mesaj bize ulasin" },
+    { t: "Online Görüşme / Randevu", u: "#iletisim", d: "Google Meet ile online görüşme planlama; tek tıkla uygun zaman seçimi", k: "randevu toplanti gorusme online meet danismanlik appointment" },
+    { t: "Konumlar / Şubeler / Adres", u: "#konumlar", d: "Ataşehir merkez, Ümraniye ve Eskişehir şubeleri; harita ve yol tarifi", k: "adres nerede konum sube ofis harita yol tarifi atasehir umraniye eskisehir merkez" }
   ];
   const norm = s => s.toLowerCase().replace(/ı/g,'i').replace(/İ/g,'i').replace(/ş/g,'s').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ö/g,'o').replace(/ç/g,'c');
   const sModal = document.getElementById('searchModal');
   const sInput = document.getElementById('searchInput');
   const sRes = document.getElementById('searchResults');
+  const STOP = ['kim','kimdir','nedir','ne','nasil','kac','mi','mu','hangi','var','icin','ile','ve','bir','bana','siz','sizin','misiniz','mısınız','neler','nelerdir'];
   function renderSearch(q) {
-    const nq = norm(q.trim());
-    let list = SEARCH_INDEX;
-    if (nq) list = SEARCH_INDEX.filter(x => norm(x.t).includes(nq) || norm(x.d).includes(nq));
+    const toks = norm(q).split(/[^a-z0-9]+/).filter(w => w && !STOP.includes(w));
+    let list;
+    if (!toks.length) {
+      list = SEARCH_INDEX.slice();
+    } else {
+      list = SEARCH_INDEX.map(x => {
+        const hay = norm(x.t + ' ' + x.d + ' ' + (x.k || ''));
+        let score = 0;
+        toks.forEach(w => { if (hay.indexOf(w) !== -1) score++; });
+        return { x: x, s: score };
+      }).filter(o => o.s > 0).sort((a, b) => b.s - a.s).map(o => o.x);
+    }
     sRes.innerHTML = list.length
       ? list.map(x => '<a href="' + x.u + '"><span class="r-t">' + x.t + '</span><span class="r-d">' + x.d + '</span></a>').join('')
       : '<p class="search-empty">Sonuç bulunamadı. Farklı bir kelime deneyin.</p>';
