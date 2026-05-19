@@ -120,8 +120,10 @@
   .nav-links a:hover { opacity: 1; color: var(--gold-light); }
 
   .hero { height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 60px 80px; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: linear-gradient(165deg, rgba(184,156,92,.04) 0%, transparent 50%), linear-gradient(0deg, rgba(13,13,13,.85) 0%, rgba(13,13,13,.3) 60%, rgba(13,13,13,.6) 100%), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=80') center/cover no-repeat; animation: zoomout 8s ease forwards; }
-  @keyframes zoomout { from { transform: scale(1.06); } to { transform: scale(1.00); } }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; background: linear-gradient(165deg, rgba(184,156,92,.04) 0%, transparent 50%), linear-gradient(0deg, rgba(13,13,13,.85) 0%, rgba(13,13,13,.3) 60%, rgba(13,13,13,.6) 100%), var(--img) center/cover no-repeat; background-color: #161310; }
+  .hero-slide.active { opacity: 1; animation: zoomout 7s ease forwards; }
+  @keyframes zoomout { from { transform: scale(1.07); } to { transform: scale(1.00); } }
   .hero-tag { font-size: .65rem; font-weight: 400; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; animation: fadeup .8s .2s both; }
   .hero h1 { font-family: var(--serif); font-size: clamp(3.4rem, 7vw, 6.5rem); font-weight: 300; line-height: 1.05; color: var(--on-dark); max-width: 780px; animation: fadeup .9s .4s both; text-shadow: 0 2px 30px rgba(0,0,0,.45); }
   .hero h1 em { font-style: italic; color: var(--gold-light); }
@@ -399,7 +401,11 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" id="heroBg">
+    <div class="hero-slide active" style="--img:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=80')"></div>
+    <div class="hero-slide" style="--img:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=80')"></div>
+    <div class="hero-slide" style="--img:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=80')"></div>
+  </div>
   <p class="hero-tag">Kuruluş 2022 · İstanbul, Türkiye</p>
   <h1>Mekânı <em>Dönüştüren</em><br>Mimarlık</h1>
   <p class="hero-sub">Haşimoğlu Mimarlık İnşaat Limited Şirketi olarak; akvaryum tasarımı, konut, ticari ve kültürel yapılarda uçtan uca mimari danışmanlık ve inşaat hizmetleri sunuyoruz.</p>
@@ -822,6 +828,16 @@
   document.getElementById('kvkkClose').addEventListener('click', closeKvkk);
   kvkkModal.addEventListener('click', e => { if (e.target === kvkkModal) closeKvkk(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeKvkk(); });
+
+  const heroSlides = document.querySelectorAll('#heroBg .hero-slide');
+  if (heroSlides.length > 1) {
+    let hs = 0;
+    setInterval(() => {
+      heroSlides[hs].classList.remove('active');
+      hs = (hs + 1) % heroSlides.length;
+      heroSlides[hs].classList.add('active');
+    }, 6000);
+  }
 </script>
 </body>
 </html>
