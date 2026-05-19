@@ -188,6 +188,20 @@
   .contact-info-item .value { font-family: var(--serif); font-size: 1.1rem; color: var(--white); line-height: 1.5; }
   .contact-info-item .value a { color: var(--white); text-decoration: none; transition: color .2s; }
   .contact-info-item .value a:hover { color: var(--gold-light); }
+
+  .locations { background: var(--coal); }
+  .loc-head { margin-bottom: 50px; }
+  .loc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .loc-card { background: var(--graphite); border: 1px solid rgba(168,119,42,.2); display: flex; flex-direction: column; }
+  .loc-card iframe { width: 100%; height: 220px; border: 0; display: block; filter: grayscale(30%) contrast(1.04); }
+  .loc-body { padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1; }
+  .loc-tag { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+  .loc-name { font-family: var(--serif); font-size: 1.35rem; color: var(--white); margin-bottom: 10px; }
+  .loc-addr { font-size: .85rem; line-height: 1.7; color: var(--mid); flex: 1; }
+  .loc-addr .note { display: block; margin-top: 8px; font-size: .78rem; color: var(--gold); }
+  .loc-dir { margin-top: 20px; align-self: flex-start; display: inline-block; padding: 11px 26px; background: var(--gold); color: var(--ink); font-size: .64rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: background .25s, transform .2s; }
+  .loc-dir:hover { background: var(--gold-light); transform: translateY(-2px); }
+  @media (max-width: 980px) { .loc-grid { grid-template-columns: 1fr; } section.locations { padding: 64px 22px; } }
   .contact-form { display: flex; flex-direction: column; gap: 18px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .form-group { display: flex; flex-direction: column; }
@@ -328,6 +342,7 @@
     <li><a href="#projeler">Projeler</a></li>
     <li><a href="#ekip">Ekip</a></li>
     <li><a href="#randevu">Randevu</a></li>
+    <li><a href="#konumlar">Konumlar</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="navLinks">
@@ -721,18 +736,7 @@
       <p class="label">Çalışma Saatleri</p>
       <p class="value">Pzt – Cum: 09:00 – 18:00<br>Cumartesi: 10:00 – 14:00</p>
     </div>
-    <div class="contact-info-item">
-      <p class="label">Hizmet Bölgelerimiz</p>
-      <p class="value">İstanbul · Bursa · Eskişehir · Trabzon<br>ve Türkiye geneli</p>
-    </div>
     <a href="https://wa.me/905416085292" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;margin-top:8px;text-decoration:none;"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp ile Ulaşın</a>
-    <div style="margin-top:36px;">
-      <p class="label" style="margin-bottom:12px">Konum</p>
-      <div style="position:relative;overflow:hidden;border:1px solid rgba(184,156,92,.2);">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d755.6!2d29.1228!3d40.9942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55f06d764a6e5%3A0x5bb458790d3ae867!2sMetropol%20%C4%B0stanbul!5e0!3m2!1str!2str!4v1" width="100%" height="260" style="border:0;display:block;filter:grayscale(60%) contrast(1.1) brightness(0.82);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14b55f06d764a6e5:0x5bb458790d3ae867" target="_blank" rel="noopener" style="position:absolute;bottom:14px;right:14px;background:var(--gold);color:var(--ink);font-size:.65rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:10px 20px;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">📍 Yol Tarifi Al</a>
-      </div>
-    </div>
   </div>
   <div>
     <p class="section-label" style="margin-bottom:32px">Mesaj Gönderin</p>
@@ -760,6 +764,43 @@
         <button type="submit" class="btn-primary" style="width:100%;font-size:.75rem">Mesaj Gönder</button>
       </form>
       <div id="successMsg" style="display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);color:var(--gold);font-size:.85rem;text-align:center;">✅ Mesajınız alındı! En kısa sürede size dönüş yapacağız.</div>
+    </div>
+  </div>
+</section>
+
+<!-- KONUMLAR -->
+<section class="locations" id="konumlar">
+  <div class="loc-head">
+    <p class="section-label">Konumlarımız</p>
+    <h2 class="section-title">Merkez Ofis ve<br><em>Şubelerimiz</em></h2>
+  </div>
+  <div class="loc-grid">
+    <div class="loc-card">
+      <iframe src="https://www.google.com/maps?q=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Merkez Ofis konumu"></iframe>
+      <div class="loc-body">
+        <p class="loc-tag">Merkez Ofis</p>
+        <p class="loc-name">Ataşehir / İstanbul</p>
+        <p class="loc-addr">Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B, İç Kapı No:376, 34764 Ataşehir / İstanbul</p>
+        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul" target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+      </div>
+    </div>
+    <div class="loc-card">
+      <iframe src="https://www.google.com/maps?q=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ümraniye şubesi konumu"></iframe>
+      <div class="loc-body">
+        <p class="loc-tag">Şube</p>
+        <p class="loc-name">Ümraniye / İstanbul</p>
+        <p class="loc-addr">Tepeüstü, Çayırbaşı Sk. No:9, Okyanus Akvaryum Binası 1. Kat, 34771 Ümraniye / İstanbul</p>
+        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul" target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+      </div>
+    </div>
+    <div class="loc-card">
+      <iframe src="https://www.google.com/maps?q=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eskişehir şubesi konumu"></iframe>
+      <div class="loc-body">
+        <p class="loc-tag">Şube</p>
+        <p class="loc-name">Odunpazarı / Eskişehir</p>
+        <p class="loc-addr">75. Yıl Mah. 75. Yıl OSB, 2007. Cadde No:14, Dekor Safari Fabrikası, 26250 Odunpazarı / Eskişehir<span class="note">Toplantı ve görüşmeler randevu ile yapılır</span></p>
+        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir" target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+      </div>
     </div>
   </div>
 </section>
