@@ -388,7 +388,7 @@
     .team-card { height: 340px; }
 
     .contact { grid-template-columns: 1fr; gap: 50px; }
-    .form-row { grid-template-columns: 1fr; }
+    .form-row { gap: 12px; }
 
     .footer-top { flex-direction: column; gap: 40px; }
     .footer-nav { gap: 36px; flex-wrap: wrap; }
@@ -691,6 +691,7 @@
           <div class="form-group"><label>Ad Soyad</label><input type="text" name="ad_soyad" placeholder="Adınız" required></div>
           <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+90"></div>
         </div>
+        <div class="form-row">
         <div class="form-group"><label>E-posta</label><input type="email" name="email" placeholder="ornek@mail.com" required></div>
         <div class="form-group">
           <label>Proje Türü</label>
@@ -704,6 +705,7 @@
             <option>İç Mekân Tasarımı</option>
             <option>Danışmanlık</option>
           </select>
+        </div>
         </div>
         <div class="form-group"><label>Mesajınız</label><textarea name="mesaj" placeholder="Projenizi kısaca anlatın…" required></textarea></div>
         <div style="margin:6px 0 4px;display:flex;flex-direction:column;gap:12px;">
