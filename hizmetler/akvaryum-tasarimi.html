@@ -37,6 +37,33 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="detay.css">
+<style>
+  .ref-projects { background: var(--off-black); }
+  .ref-note { max-width: 920px; margin: 0 auto 50px; }
+  .ref-note p { font-size: .92rem; line-height: 1.9; color: var(--mid); }
+  .ref-note strong { color: var(--platinum); font-weight: 400; }
+  .featured-project { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin: 0 auto 2px; max-width: 1120px; background: var(--graphite); border-top: 2px solid var(--gold); }
+  .featured-img { position: relative; min-height: 420px; overflow: hidden; }
+  .featured-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) brightness(.82); transition: transform .6s, filter .6s; }
+  .featured-project:hover .featured-img img { transform: scale(1.05); filter: grayscale(0) brightness(.95); }
+  .featured-body { padding: 52px 50px; display: flex; flex-direction: column; justify-content: center; }
+  .featured-tag { font-size: .62rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .featured-body h3 { font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); line-height: 1.1; }
+  .featured-body h3 em { font-style: italic; color: var(--gold-light); }
+  .featured-roles { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 20px; }
+  .featured-roles span { font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--platinum); border: 1px solid rgba(168,119,42,.4); padding: 8px 15px; }
+  .featured-body > p { font-size: .9rem; line-height: 1.85; color: var(--mid); margin-bottom: 26px; max-width: 440px; }
+  .featured-link { align-self: flex-start; display: inline-block; padding: 13px 32px; background: var(--gold); color: var(--ink); font-size: .68rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: background .25s, transform .2s; }
+  .featured-link:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .featured-project.reverse .featured-img { order: 2; }
+  .featured-project.reverse .featured-body { order: 1; }
+  @media (max-width: 980px) {
+    .featured-project { grid-template-columns: 1fr; }
+    .featured-img { min-height: 240px; }
+    .featured-body { padding: 38px 24px; }
+    .featured-project.reverse .featured-img, .featured-project.reverse .featured-body { order: 0; }
+  }
+</style>
 </head>
 <body>
 
@@ -100,6 +127,63 @@
       <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Underwater%20tunnel%20in%20Aquaria%20KLCC.jpg?width=900" alt="Aquaria KLCC tünel akvaryum" loading="lazy" decoding="async"></figure>
       <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Whale%20shark%20tunnel%20%283567804533%29.jpg?width=900" alt="Balina köpekbalığı tünel akvaryum" loading="lazy" decoding="async"></figure>
       <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Universeum%20underwater%20tunnel.jpg?width=900" alt="Universeum su altı tüneli" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ref-projects">
+  <div class="wrap">
+    <p class="label">Referans Projeler</p>
+    <h2 class="title">Baş Mimarımızın<br><em>Akvaryum Projeleri</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="ref-note">
+    <p>Aşağıdaki akvaryum projeleri, Kurucu Baş Mimarımız <strong>Yaşar Haşimoğlu</strong>'nun <strong>Okyanus Akvaryum</strong> bünyesinde Baş Mimar olarak görev yaptığı dönemde, Okyanus Akvaryum tarafından hayata geçirilmiştir. Bu projeler; Yaşar Haşimoğlu'nun mimari ve tasarım sorumluluğunu üstlendiği profesyonel referanslar olarak sunulmakta olup, tüm proje ve uygulama hakları Okyanus Akvaryum'a aittir.</p>
+  </div>
+  <div class="featured-project">
+    <div class="featured-img">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Georgia%20Aquarium%20-%20Ocean%20Voyager%20Tunnel%20Jan%202006.jpg?width=1100" alt="Tünel akvaryum" loading="lazy" decoding="async">
+    </div>
+    <div class="featured-body">
+      <p class="featured-tag">Okyanus Akvaryum · Trabzon</p>
+      <h3>Trabzon <em>Akvaryum</em></h3>
+      <div class="featured-roles">
+        <span>Proje Müellifi</span>
+        <span>Proje Mimarı</span>
+        <span>Şantiye Şefi</span>
+      </div>
+      <p>Okyanus Akvaryum bünyesinde gerçekleştirilen Trabzon Akvaryum projesinde Yaşar Haşimoğlu; proje müellifi, proje mimarı ve şantiye şefi olarak görev almıştır. Projenin tamamına resmi web sitesinden ulaşabilirsiniz.</p>
+      <a href="https://www.trabzonakvaryum.com.tr/" target="_blank" rel="noopener" class="featured-link">Projeyi İncele →</a>
+    </div>
+  </div>
+  <div class="featured-project reverse">
+    <div class="featured-img">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Underwater%20tunnel%20in%20Aquaria%20KLCC.jpg?width=1100" alt="Tünel akvaryum" loading="lazy" decoding="async">
+    </div>
+    <div class="featured-body">
+      <p class="featured-tag">Okyanus Akvaryum · Abu Dhabi, BAE</p>
+      <h3>The National Aquarium <em>Abu Dhabi</em></h3>
+      <div class="featured-roles">
+        <span>İç Alan Tasarımı</span>
+        <span>Bina İçi Mimari Tasarım</span>
+      </div>
+      <p>Okyanus Akvaryum bünyesinde gerçekleştirilen The National Aquarium Abu Dhabi projesinde Yaşar Haşimoğlu, iç alan ve bina içi mimari tasarımdan sorumlu mimar olarak görev almıştır.</p>
+      <a href="https://thenationalaquarium.ae/" target="_blank" rel="noopener" class="featured-link">Projeyi İncele →</a>
+    </div>
+  </div>
+  <div class="featured-project">
+    <div class="featured-img">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Whale%20shark%20tunnel%20%283567804533%29.jpg?width=1100" alt="Tünel akvaryum" loading="lazy" decoding="async">
+    </div>
+    <div class="featured-body">
+      <p class="featured-tag">Okyanus Akvaryum · Taşkent, Özbekistan</p>
+      <h3>Magic <em>Aquarium</em></h3>
+      <div class="featured-roles">
+        <span>İç Alan Tasarımı</span>
+        <span>Bina İçi Mimari Tasarım</span>
+      </div>
+      <p>Okyanus Akvaryum bünyesinde gerçekleştirilen, Taşkent'teki Magic Aquarium projesinde Yaşar Haşimoğlu, iç alan ve bina içi mimari tasarımdan sorumlu mimar olarak görev almıştır.</p>
+      <a href="https://visit.tashkent.uz/en/more/kid/236" target="_blank" rel="noopener" class="featured-link">Projeyi İncele →</a>
     </div>
   </div>
 </section>
