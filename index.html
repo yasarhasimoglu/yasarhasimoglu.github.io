@@ -363,7 +363,7 @@
     nav { padding: 20px 22px; backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(244,241,234,.97); }
     .nav-toggle { display: flex; }
     .logo-name { display: none; }
-    .nav-links { position: fixed; top: 0; right: 0; width: min(60vw, 226px); max-height: 100vh; background: var(--off-black); flex-direction: column; gap: 0; padding: 84px 24px 26px; transform: translateX(110%); transition: transform .3s ease; border-left: 1px solid rgba(168,119,42,.25); border-bottom: 1px solid rgba(168,119,42,.18); box-shadow: -14px 16px 38px rgba(13,13,13,.2); z-index: 105; overflow-y: auto; }
+    .nav-links { position: fixed; top: 0; right: 0; width: min(60vw, 226px); max-height: 100vh; background: var(--off-black); flex-direction: column; gap: 0; padding: 84px 24px 26px; transform: translateX(110%); transition: transform .18s ease; border-left: 1px solid rgba(168,119,42,.25); border-bottom: 1px solid rgba(168,119,42,.18); box-shadow: -14px 16px 38px rgba(13,13,13,.2); z-index: 105; overflow-y: auto; }
     .nav-links.open { transform: translateX(0); }
     .nav-links a { font-size: .9rem; padding: 16px 0; display: block; opacity: .9; }
 
@@ -901,7 +901,7 @@
   };
   navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('click', (e) => {
+  document.addEventListener('pointerdown', (e) => {
     if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) setMenu(false);
   });
 
