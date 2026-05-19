@@ -1,0 +1,35 @@
+name: Build News Feed
+
+on:
+  schedule:
+    # Her gün 06:00 UTC ≈ 09:00 İstanbul
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build news.json
+        run: python scripts/build_news.py
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain news.json)" ]]; then
+            git config user.name "hmi-news-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add news.json
+            git commit -m "haberler: günlük güncelleme"
+            git push
+          else
+            echo "Değişiklik yok."
+          fi
