@@ -256,6 +256,11 @@
   .search-results .r-d { font-size: .8rem; color: var(--mid); margin-top: 3px; }
   .search-empty { padding: 26px 22px; font-size: .88rem; color: var(--mid); text-align: center; }
 
+  .booking-wrap { max-width: 1000px; margin: 0 auto; }
+  .booking-embed { border: 1px solid rgba(168,119,42,.28); background: #fff; overflow: hidden; }
+  .booking-embed iframe { width: 100%; height: 760px; border: 0; display: block; }
+  @media (max-width: 980px) { .booking-embed iframe { height: 900px; } }
+
   .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .25s, box-shadow .25s; }
   .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
 
@@ -662,67 +667,20 @@
 </div>
 
 <!-- TEAMS TOPLANTI -->
-<section class="contact" id="teams" style="background:var(--off-black);">
-  <div>
+<section id="teams" style="background:var(--off-black);">
+  <div class="booking-wrap">
     <p class="section-label">Online Toplantı</p>
-    <h2 class="section-title">Teams Görüşmesi<br><em>Planlayın</em></h2>
+    <h2 class="section-title">Teams Görüşmesi <em>Planlayın</em></h2>
     <div class="divider"></div>
-    <p style="font-size:.95rem;line-height:1.9;color:var(--platinum);max-width:440px;margin-bottom:28px;">Bizimle Microsoft Teams üzerinden görüşmek için tercih ettiğiniz gün, saat ve e-posta adresinizi bırakın. Talebinizi değerlendirip, uygun olduğunda toplantı davetini ve Teams bağlantısını e-posta adresinize göndereceğiz.</p>
-    <div class="contact-info-item">
-      <p class="label">Görüşme Saatleri</p>
-      <p class="value">Pzt – Cum: 09:00 – 18:00<br>Cumartesi: 10:00 – 14:00</p>
+    <p style="font-size:.95rem;line-height:1.9;color:var(--platinum);max-width:620px;margin-bottom:14px;">Aşağıdaki takvimden size uygun gün ve saati seçin. Rezervasyonunuz onaylandığında, <strong style="color:var(--gold-light);font-weight:400;">Microsoft Teams</strong> görüşme bağlantısı ve takvim daveti otomatik olarak e-posta adresinize gönderilir. Görüşme saatlerimiz: Pzt–Cum 09:00–18:00, Cmt 10:00–14:00.</p>
+    <p style="font-size:.82rem;color:var(--mid);margin-bottom:28px;">Bilgileriniz Microsoft Bookings üzerinden işlenir. Detaylar için <button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button>.</p>
+    <div class="booking-embed">
+      <iframe src="https://outlook.office.com/book/YaarHaimolu@okyanusakvaryum.com.tr/" title="Teams görüşmesi için randevu takvimi" loading="lazy"></iframe>
     </div>
-    <div class="contact-info-item">
-      <p class="label">Hızlı İletişim</p>
-      <p class="value"><a href="https://wa.me/905416085292" target="_blank" rel="noopener">WhatsApp'tan da yazabilirsiniz →</a></p>
-    </div>
-  </div>
-  <div>
-    <p class="section-label" style="margin-bottom:32px">Toplantı Talep Formu</p>
-    <div class="contact-form">
-      <form action="https://formspree.io/f/mbdwlwgd" method="POST" id="teamsForm">
-        <input type="hidden" name="_subject" value="Teams Toplantı Talebi — hmimar.com">
-        <input type="hidden" name="form_tipi" value="Teams Toplantı Talebi">
-        <div class="form-row">
-          <div class="form-group"><label>Ad Soyad</label><input type="text" name="ad_soyad" placeholder="Adınız" required></div>
-          <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+90"></div>
-        </div>
-        <div class="form-group"><label>E-posta (toplantı daveti buraya gönderilir)</label><input type="email" name="email" placeholder="ornek@mail.com" required></div>
-        <div class="form-row">
-          <div class="form-group"><label>Tercih Edilen Tarih</label><input type="date" name="tarih" id="teamsDate" required></div>
-          <div class="form-group">
-            <label>Tercih Edilen Saat</label>
-            <select name="saat" required>
-              <option value="">Seçiniz</option>
-              <option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option>
-              <option>11:00</option><option>11:30</option><option>12:00</option><option>13:00</option>
-              <option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option>
-              <option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Görüşme Konusu</label>
-          <select name="konu">
-            <option value="">Seçiniz</option>
-            <option>Akvaryum Tasarımı</option>
-            <option>Mimari Tasarım</option>
-            <option>Villa / Rezidans / Tower</option>
-            <option>Kentsel Dönüşüm</option>
-            <option>İç Mekân Tasarımı</option>
-            <option>BIM & Revit</option>
-            <option>Danışmanlık</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Not (opsiyonel)</label><textarea name="not" placeholder="Görüşmek istediğiniz konuyu kısaca yazın…"></textarea></div>
-        <div style="margin:6px 0 4px;display:flex;flex-direction:column;gap:12px;">
-          <label class="kvkk-check"><input type="checkbox" name="kvkk_onay" value="Onaylandı" required><span><button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button>'ni okudum ve onaylıyorum.</span></label>
-          <label class="kvkk-check"><input type="checkbox" name="bulten" value="Evet"><span>Bülten ve duyurulardan haberdar olmak istiyorum. (İsteğe bağlı)</span></label>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%;font-size:.75rem">Toplantı Talebi Gönder</button>
-      </form>
-      <div id="teamsSuccess" style="display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);color:var(--gold);font-size:.85rem;text-align:center;">✅ Talebiniz alındı. Uygun olduğunda Microsoft Teams toplantı davetini e-posta adresinize göndereceğiz.</div>
-    </div>
+    <p style="font-size:.85rem;color:var(--mid);margin-top:18px;">Takvim görüntülenmiyorsa
+      <a href="https://outlook.office.com/book/YaarHaimolu@okyanusakvaryum.com.tr/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">randevu sayfasını yeni sekmede açın →</a>
+      veya <a href="https://wa.me/905416085292" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">WhatsApp'tan yazın</a>.
+    </p>
   </div>
 </section>
 
@@ -907,9 +865,6 @@
     });
   }
   wireForm('contactForm', 'successMsg');
-  wireForm('teamsForm', 'teamsSuccess');
-  const teamsDate = document.getElementById('teamsDate');
-  if (teamsDate) teamsDate.min = new Date().toISOString().split('T')[0];
   const nav = document.getElementById('nav');
   const toTop = document.getElementById('toTop');
   window.addEventListener('scroll', () => {
