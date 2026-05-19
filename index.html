@@ -237,6 +237,25 @@
   .kvkk-body strong { color: var(--white); font-weight: 500; }
   .footer-bottom .kvkk-link { letter-spacing: .05em; }
 
+  .nav-actions { display: flex; align-items: center; gap: 16px; }
+  .nav-search { background: none; border: 0; cursor: pointer; color: var(--platinum); padding: 6px; display: flex; align-items: center; transition: color .25s; }
+  .nav-search:hover { color: var(--gold); }
+  .search-modal { position: fixed; inset: 0; z-index: 1001; display: none; flex-direction: column; align-items: center; background: rgba(13,13,13,.55); padding: 90px 24px 24px; }
+  .search-modal.open { display: flex; }
+  .search-box { width: 100%; max-width: 640px; background: var(--graphite); border: 1px solid rgba(168,119,42,.3); }
+  .search-bar { display: flex; align-items: center; gap: 12px; padding: 18px 22px; border-bottom: 1px solid rgba(21,18,12,.12); }
+  .search-bar svg { color: var(--gold); flex-shrink: 0; }
+  .search-bar input { flex: 1; background: none; border: 0; outline: none; font-family: var(--sans); font-size: 1rem; color: var(--cream); }
+  .search-bar input::placeholder { color: var(--mid); }
+  .search-close { background: none; border: 0; font-size: 1.4rem; line-height: 1; color: var(--mid); cursor: pointer; padding: 2px 6px; }
+  .search-close:hover { color: var(--gold); }
+  .search-results { max-height: 60vh; overflow-y: auto; }
+  .search-results a { display: block; padding: 15px 22px; text-decoration: none; border-bottom: 1px solid rgba(21,18,12,.07); transition: background .2s; }
+  .search-results a:hover { background: var(--stone); }
+  .search-results .r-t { font-family: var(--serif); font-size: 1.05rem; color: var(--white); }
+  .search-results .r-d { font-size: .8rem; color: var(--mid); margin-top: 3px; }
+  .search-empty { padding: 26px 22px; font-size: .88rem; color: var(--mid); text-align: center; }
+
   .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .25s, box-shadow .25s; }
   .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
 
@@ -403,9 +422,12 @@
     <li><a href="ekip.html">Ekip</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="navLinks">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-actions">
+    <button class="nav-search" id="searchOpen" aria-label="Sitede ara" type="button"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -796,6 +818,18 @@
   </div>
 </div>
 
+<!-- SEARCH MODAL -->
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Site içi arama">
+  <div class="search-box">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      <input type="text" id="searchInput" placeholder="Sitede ara: akvaryum, Revit, ekip, iletişim…" autocomplete="off">
+      <button type="button" class="search-close" id="searchClose" aria-label="Aramayı kapat">×</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
 <script>
   function wireForm(formId, successId) {
     const f = document.getElementById(formId);
@@ -878,6 +912,45 @@
     hb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) go(dx < 0 ? hs + 1 : hs - 1); }, { passive: true });
     if (heroSlides.length > 1) restart();
   }
+
+  const SEARCH_INDEX = [
+    { t: "Kurumsal / Hakkımızda", u: "#hakkimizda", d: "Vizyon, firma, Haşimoğlu Mimarlık hakkında" },
+    { t: "Hizmetler", u: "#hizmetler", d: "Tüm mimarlık ve inşaat hizmetlerimiz" },
+    { t: "Akvaryum Tasarımı", u: "hizmetler/akvaryum-tasarimi.html", d: "Tünel akvaryum, dev akvaryum; Trabzon, National Aquarium Abu Dhabi, Magic Aquarium referansları" },
+    { t: "Mimari Tasarım", u: "hizmetler/mimari-tasarim.html", d: "Konut, ticari, kültürel ve endüstriyel yapılar" },
+    { t: "Villa & Rezidans & Tower", u: "hizmetler/villa-rezidans-tower.html", d: "Lüks villa, rezidans ve yüksek yapı projeleri" },
+    { t: "İç Mekân Tasarımı", u: "hizmetler/ic-mekan-tasarimi.html", d: "Konut, ofis ve ticari iç mimari" },
+    { t: "Kentsel Dönüşüm", u: "hizmetler/kentsel-donusum.html", d: "Riskli yapı tespiti, yenileme ve dönüşüm" },
+    { t: "Proje Danışmanlığı", u: "hizmetler/proje-danismanligi.html", d: "Fizibilite, ihale, yatırım değerlendirmesi" },
+    { t: "BIM & Revit Mimari Modelleme", u: "hizmetler/bim-revit.html", d: "Autodesk Revit, mimari ve statik BIM, koordinasyon, Family, metraj" },
+    { t: "BIM & Revit (özet)", u: "#bim", d: "Revit ile mimari modelleme uzmanlığı" },
+    { t: "Revit Mimari Proje Çalışmalarımız", u: "#revit-projeler", d: "Revit ile modellenen proje çalışmaları galerisi" },
+    { t: "Projeler", u: "#projeler", d: "Çalışma alanları ve proje kategorileri" },
+    { t: "Ekibimiz", u: "ekip.html", d: "Mimar ve mühendis kadromuz; Yaşar Haşimoğlu, Halit Haşimoğlu" },
+    { t: "İletişim", u: "#iletisim", d: "Telefon, e-posta, mesaj formu" },
+    { t: "Randevu", u: "#iletisim", d: "Görüşme ve randevu için WhatsApp ile yazın" },
+    { t: "Konumlar / Şubeler", u: "#konumlar", d: "Ataşehir merkez, Ümraniye ve Eskişehir şubeleri; harita ve yol tarifi" }
+  ];
+  const norm = s => s.toLowerCase().replace(/ı/g,'i').replace(/İ/g,'i').replace(/ş/g,'s').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ö/g,'o').replace(/ç/g,'c');
+  const sModal = document.getElementById('searchModal');
+  const sInput = document.getElementById('searchInput');
+  const sRes = document.getElementById('searchResults');
+  function renderSearch(q) {
+    const nq = norm(q.trim());
+    let list = SEARCH_INDEX;
+    if (nq) list = SEARCH_INDEX.filter(x => norm(x.t).includes(nq) || norm(x.d).includes(nq));
+    sRes.innerHTML = list.length
+      ? list.map(x => '<a href="' + x.u + '"><span class="r-t">' + x.t + '</span><span class="r-d">' + x.d + '</span></a>').join('')
+      : '<p class="search-empty">Sonuç bulunamadı. Farklı bir kelime deneyin.</p>';
+  }
+  const openSearch = () => { sModal.classList.add('open'); sInput.value = ''; renderSearch(''); setTimeout(() => sInput.focus(), 60); };
+  const closeSearch = () => sModal.classList.remove('open');
+  document.getElementById('searchOpen').addEventListener('click', openSearch);
+  document.getElementById('searchClose').addEventListener('click', closeSearch);
+  sInput.addEventListener('input', () => renderSearch(sInput.value));
+  sModal.addEventListener('click', e => { if (e.target === sModal) closeSearch(); });
+  sRes.addEventListener('click', e => { if (e.target.closest('a')) closeSearch(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
 </script>
 </body>
 </html>
