@@ -212,6 +212,23 @@
   .form-group textarea { resize: vertical; min-height: 130px; }
   .form-group select option { background: var(--stone); }
 
+  .kvkk-check { display: flex; align-items: flex-start; gap: 10px; font-size: .82rem; line-height: 1.6; color: var(--mid); cursor: pointer; }
+  .kvkk-check input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--gold); flex-shrink: 0; }
+  .kvkk-link { color: var(--gold); text-decoration: underline; cursor: pointer; background: none; border: 0; padding: 0; font: inherit; }
+  .kvkk-link:hover { color: var(--gold-light); }
+  .kvkk-modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; background: rgba(13,13,13,.6); padding: 24px; }
+  .kvkk-modal.open { display: flex; }
+  .kvkk-panel { background: var(--graphite); max-width: 720px; width: 100%; max-height: 82vh; display: flex; flex-direction: column; border: 1px solid rgba(168,119,42,.3); }
+  .kvkk-panel header { display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; border-bottom: 1px solid rgba(21,18,12,.12); }
+  .kvkk-panel header h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--white); font-weight: 400; }
+  .kvkk-close { background: none; border: 0; font-size: 1.5rem; line-height: 1; color: var(--mid); cursor: pointer; padding: 4px 8px; }
+  .kvkk-close:hover { color: var(--gold); }
+  .kvkk-body { padding: 24px 28px 30px; overflow-y: auto; }
+  .kvkk-body p { font-size: .88rem; line-height: 1.85; color: var(--cream); margin-bottom: 16px; }
+  .kvkk-body p:last-child { margin-bottom: 0; }
+  .kvkk-body strong { color: var(--white); font-weight: 500; }
+  .footer-bottom .kvkk-link { letter-spacing: .05em; }
+
   .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .25s, box-shadow .25s; }
   .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
 
@@ -793,6 +810,10 @@
           </select>
         </div>
         <div class="form-group"><label>Not (opsiyonel)</label><textarea name="not" placeholder="Eklemek istediğiniz bir not…"></textarea></div>
+        <div style="margin:6px 0 4px;display:flex;flex-direction:column;gap:12px;">
+          <label class="kvkk-check"><input type="checkbox" name="kvkk_onay" value="Onaylandı" required><span><button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button>'ni okudum ve onaylıyorum.</span></label>
+          <label class="kvkk-check"><input type="checkbox" name="bulten" value="Evet"><span>Bülten ve duyurulardan haberdar olmak istiyorum. (İsteğe bağlı)</span></label>
+        </div>
         <button type="submit" class="btn-primary" style="width:100%;font-size:.75rem">Randevu Talebi Gönder</button>
       </form>
       <div id="apptSuccess" style="display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);color:var(--gold);font-size:.85rem;text-align:center;">✅ Randevu talebiniz alındı! En kısa sürede onaylayıp size dönüş yapacağız.</div>
@@ -846,6 +867,10 @@
           </select>
         </div>
         <div class="form-group"><label>Mesajınız</label><textarea name="mesaj" placeholder="Projenizi kısaca anlatın…" required></textarea></div>
+        <div style="margin:6px 0 4px;display:flex;flex-direction:column;gap:12px;">
+          <label class="kvkk-check"><input type="checkbox" name="kvkk_onay" value="Onaylandı" required><span><button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button>'ni okudum ve onaylıyorum.</span></label>
+          <label class="kvkk-check"><input type="checkbox" name="bulten" value="Evet"><span>Bülten ve duyurulardan haberdar olmak istiyorum. (İsteğe bağlı)</span></label>
+        </div>
         <button type="submit" class="btn-primary" style="width:100%;font-size:.75rem">Mesaj Gönder</button>
       </form>
       <div id="successMsg" style="display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);color:var(--gold);font-size:.85rem;text-align:center;">✅ Mesajınız alındı! En kısa sürede size dönüş yapacağız.</div>
@@ -933,9 +958,25 @@
   </div>
   <div class="footer-bottom">
     <p>© 2022–2026 Haşimoğlu Mimarlık İnşaat Limited Şirketi — Vergi No: 4590739410 Kozyatağı V.D. Tüm hakları saklıdır.</p>
-    <p>KVKK Aydınlatma Metni</p>
+    <p><button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button></p>
   </div>
 </footer>
+
+<!-- KVKK MODAL -->
+<div class="kvkk-modal" id="kvkkModal" role="dialog" aria-modal="true" aria-label="KVKK Aydınlatma Metni">
+  <div class="kvkk-panel">
+    <header>
+      <h3>İletişim Formu'nda İşlenen Kişisel Verilere İlişkin Aydınlatma Metni</h3>
+      <button type="button" class="kvkk-close" id="kvkkClose" aria-label="Kapat">×</button>
+    </header>
+    <div class="kvkk-body">
+      <p>İşbu aydınlatma metni, veri sorumlusu sıfatıyla hareket eden <strong>Haşimoğlu Mimarlık İnşaat Ltd. Şti.</strong> tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi ile Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ çerçevesinde, kişisel verilerinizin işlenme amaçları, hukuki nedenleri, toplanma yöntemi, kimlere aktarılabileceği ve KVKK kapsamındaki haklarınız konularına ilişkin olarak sizleri bilgilendirmek amacıyla hazırlanmıştır.</p>
+      <p>İnternet sitemizdeki İletişim ve Randevu Formu aracılığıyla paylaştığınız ad, soyadı, e-posta, telefon vb. kişisel verileriniz; şirketimiz tarafından sunulan ürün ve hizmetlerden ilgili kişileri faydalandırmak için gerekli çalışmaların iş birimleri tarafından yapılması, ilgili iş süreçlerinin yürütülmesi ve başvuruda bulunduğunuz konu hakkında sizinle iletişim kurulabilmesi amaçlarıyla işlenmektedir. Ayrıca işbu form ile paylaştığınız bilgiler üzerinde mutlak bir kontrolümüz bulunmamaktadır. Bilmemizi istemediğiniz kişisel verilerinizi ve özel nitelikli kişisel verilerinizi Şirketimizle paylaşmamanızı tavsiye ederiz.</p>
+      <p>Söz konusu kişisel veriler, KVKK'nın 5. maddesinde yer alan "ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması" ve "veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması" hukuki sebeplerine dayanarak otomatik yolla işlenmektedir ve sadece hukuki uyuşmazlıklarda ilgili yargı mercileriyle paylaşılacaktır.</p>
+      <p>Kanun'un ilgili kişinin haklarını düzenleyen 11. maddesi kapsamındaki taleplerinizi, "Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ"e göre, <strong>Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B İç Kapı No:376, 34764 Ataşehir / İstanbul</strong> adresine yazılı olarak gönderebilir veya <strong>info@hmimar.com</strong> e-posta adresine iletebilirsiniz.</p>
+    </div>
+  </div>
+</div>
 
 <script>
   function wireForm(formId, successId) {
@@ -978,6 +1019,14 @@
     el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity .6s ease, transform .6s ease';
     observer.observe(el);
   });
+
+  const kvkkModal = document.getElementById('kvkkModal');
+  const openKvkk = () => kvkkModal.classList.add('open');
+  const closeKvkk = () => kvkkModal.classList.remove('open');
+  document.querySelectorAll('.kvkk-link').forEach(b => b.addEventListener('click', openKvkk));
+  document.getElementById('kvkkClose').addEventListener('click', closeKvkk);
+  kvkkModal.addEventListener('click', e => { if (e.target === kvkkModal) closeKvkk(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeKvkk(); });
 </script>
 </body>
 </html>
