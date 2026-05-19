@@ -118,7 +118,8 @@
   .nav-links a { font-size: .72rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--platinum); text-decoration: none; opacity: .75; transition: opacity .25s, color .25s; }
   .nav-links a:hover { opacity: 1; color: var(--gold-light); }
 
-  .hero { height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 60px 80px; overflow: hidden; }
+  .hero { height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 60px 80px; overflow: hidden; touch-action: pan-y; cursor: grab; }
+  .hero.dragging { cursor: grabbing; }
   .hero-bg { position: absolute; inset: 0; }
   .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; background: linear-gradient(165deg, rgba(184,156,92,.04) 0%, transparent 50%), linear-gradient(0deg, rgba(13,13,13,.85) 0%, rgba(13,13,13,.3) 60%, rgba(13,13,13,.6) 100%), var(--img) center/cover no-repeat; background-color: #161310; }
   .hero-slide.active { opacity: 1; animation: zoomout 7s ease forwards; }
@@ -982,7 +983,7 @@
       dotsWrap.appendChild(b);
     });
     const dotEls = dotsWrap.querySelectorAll('.hero-dot');
-    let hs = 0, timer;
+    let hs = 0, timer, dir = 1, hovered = false, dragging = false, dragX = 0, dragStart = 0;
     function show(n) {
       heroSlides[hs].classList.remove('active');
       dotEls[hs].classList.remove('active');
@@ -990,15 +991,32 @@
       heroSlides[hs].classList.add('active');
       dotEls[hs].classList.add('active');
     }
-    function restart() { clearInterval(timer); timer = setInterval(() => show(hs + 1), 6000); }
-    function go(n) { show(n); restart(); }
+    function tick() { if (!hovered && !dragging) show(hs + dir); }
+    function restart() { clearInterval(timer); timer = setInterval(tick, 6000); }
+    function go(n, d) { if (d) dir = d; show(n); restart(); }
     const next = document.getElementById('heroNext'), prev = document.getElementById('heroPrev');
-    if (next) next.addEventListener('click', () => go(hs + 1));
-    if (prev) prev.addEventListener('click', () => go(hs - 1));
-    const hb = document.getElementById('heroBg');
-    let tx = 0;
-    hb.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
-    hb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) go(dx < 0 ? hs + 1 : hs - 1); }, { passive: true });
+    if (next) next.addEventListener('click', () => go(hs + 1, 1));
+    if (prev) prev.addEventListener('click', () => go(hs - 1, -1));
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      hero.addEventListener('mouseenter', () => { hovered = true; });
+      hero.addEventListener('mouseleave', () => { hovered = false; });
+    }
+    function dragDown(x, t) { if (t && t.closest && t.closest('a, button')) return; dragging = true; dragStart = x; dragX = x; if (hero) hero.classList.add('dragging'); }
+    function dragMove(x) { if (dragging) dragX = x; }
+    function dragUp() {
+      if (!dragging) return;
+      const dx = dragX - dragStart;
+      dragging = false;
+      if (hero) hero.classList.remove('dragging');
+      if (Math.abs(dx) > 40) { const d = dx < 0 ? 1 : -1; go(hs + d, d); }
+    }
+    if (hero) {
+      hero.addEventListener('pointerdown', e => dragDown(e.clientX, e.target));
+      window.addEventListener('pointermove', e => dragMove(e.clientX));
+      window.addEventListener('pointerup', dragUp);
+      window.addEventListener('pointercancel', dragUp);
+    }
     if (heroSlides.length > 1) restart();
   }
 
