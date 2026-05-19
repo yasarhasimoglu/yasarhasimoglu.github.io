@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Build news.json from architecture RSS feeds (server-side, no CORS proxy)."""
+import html
 import json
 import re
 import sys
@@ -38,11 +39,25 @@ def to_iso(s: str) -> str:
             return s
 
 
-def first_img(html: str) -> str:
-    if not html:
+def first_img(html_s: str) -> str:
+    if not html_s:
         return ""
-    m = re.search(r'<img[^>]+src="([^"]+)"', html)
+    m = re.search(r'<img[^>]+src="([^"]+)"', html_s)
     return m.group(1) if m else ""
+
+
+def clean_text(html_s: str, limit: int = 280) -> str:
+    if not html_s:
+        return ""
+    s = re.sub(r"<script[\s\S]*?</script>", " ", html_s, flags=re.I)
+    s = re.sub(r"<style[\s\S]*?</style>", " ", s, flags=re.I)
+    s = re.sub(r"<[^>]+>", " ", s)
+    s = html.unescape(s)
+    s = re.sub(r"\s+", " ", s).strip()
+    if len(s) > limit:
+        cut = s[:limit].rsplit(" ", 1)[0]
+        s = cut + "…"
+    return s
 
 
 def parse(xml_bytes: bytes, source: str, kind: str):
@@ -84,6 +99,7 @@ def parse(xml_bytes: bytes, source: str, kind: str):
             "link": link,
             "date": to_iso(date),
             "img": img,
+            "desc": clean_text(desc),
             "src": source,
             "kind": kind,
         })

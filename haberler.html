@@ -41,6 +41,22 @@
   .news-tab.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -15px; height: 2px; background: var(--gold); }
   .news-panel { display: none; }
   .news-panel.active { display: block; }
+  .np-modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: flex-start; justify-content: center; background: rgba(13,13,13,.55); padding: 70px 16px 24px; overflow-y: auto; }
+  .np-modal.open { display: flex; }
+  .np-panel { background: var(--graphite); max-width: 640px; width: 100%; border: 1px solid rgba(168,119,42,.3); position: relative; }
+  .np-img { width: 100%; height: 240px; background: var(--off-black) center/cover no-repeat; }
+  .np-body { padding: 26px 28px 28px; }
+  .np-close { position: absolute; top: 10px; right: 12px; background: rgba(13,13,13,.6); color: #fff; border: 0; font-size: 1.4rem; line-height: 1; cursor: pointer; padding: 4px 12px; }
+  .np-src { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .np-title { font-family: var(--serif); font-size: 1.5rem; line-height: 1.25; color: var(--white); margin: 10px 0 6px; }
+  .np-date { font-size: .8rem; color: var(--mid); margin-bottom: 14px; }
+  .np-desc { font-size: .92rem; line-height: 1.75; color: var(--cream); }
+  .np-actions { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+  .np-actions a, .np-actions button { display: inline-block; padding: 12px 24px; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 0; font-family: var(--sans); }
+  .np-go { background: var(--gold); color: var(--ink); transition: background .25s; }
+  .np-go:hover { background: var(--gold-light); }
+  .np-cancel { background: none; border: 1px solid rgba(21,18,12,.3); color: var(--platinum); }
+  .np-cancel:hover { border-color: var(--gold); color: var(--gold); }
   @media (max-width: 980px) { .news-grid { grid-template-columns: 1fr; } .news-tabs { top: 58px; gap: 18px; } .news-tab { font-size: .72rem; letter-spacing: .16em; } }
 </style>
 </head>
@@ -102,6 +118,24 @@
   <a href="/">hmimar.com →</a>
 </footer>
 
+<!-- HABER ÖNİZLEME -->
+<div class="np-modal" id="newsPreview" role="dialog" aria-modal="true" aria-label="Haber önizleme">
+  <div class="np-panel">
+    <button type="button" class="np-close" id="npClose" aria-label="Kapat">×</button>
+    <div class="np-img" id="npImg" style="display:none;"></div>
+    <div class="np-body">
+      <span class="np-src" id="npSrc"></span>
+      <h3 class="np-title" id="npTitle"></h3>
+      <p class="np-date" id="npDate"></p>
+      <p class="np-desc" id="npDesc"></p>
+      <div class="np-actions">
+        <a class="np-go" id="npGo" target="_blank" rel="noopener">Kaynağa Git →</a>
+        <button type="button" class="np-cancel" id="npCancel">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   const FEEDS = {
     world: [
@@ -122,13 +156,20 @@
     if (!img && it.description) { const m = it.description.match(/<img[^>]+src="([^"]+)"/); if (m) img = m[1]; }
     return img;
   }
-  function escapeAttr(s) { return (s || '').replace(/'/g, '').replace(/"/g, ''); }
+  function escapeHtml(s) { return (s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+  function cleanDesc(html) {
+    if (!html) return '';
+    const tmp = document.createElement('div'); tmp.innerHTML = html;
+    let t = (tmp.textContent || '').replace(/\s+/g, ' ').trim();
+    if (t.length > 280) t = t.slice(0, 280).replace(/\s\S*$/, '') + '…';
+    return t;
+  }
   async function viaRss2Json(f) {
     const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(f.url) + '&count=10';
     const r = await fetch(api, { cache: 'no-store' });
     const j = await r.json();
     if (j.status !== 'ok' || !j.items || !j.items.length) throw new Error('rss2json');
-    return j.items.map(it => ({ title: it.title, link: it.link, date: it.pubDate, img: thumb(it), src: f.name }));
+    return j.items.map(it => ({ title: it.title, link: it.link, date: it.pubDate, img: thumb(it), desc: cleanDesc(it.description), src: f.name }));
   }
   async function viaAllOrigins(f) {
     const api = 'https://api.allorigins.win/get?url=' + encodeURIComponent(f.url);
@@ -146,7 +187,7 @@
       let img = enc ? enc.getAttribute('url') : '';
       const desc = get('description') || get('content\\:encoded') || get('summary');
       if (!img && desc) { const m = desc.match(/<img[^>]+src="([^"]+)"/); if (m) img = m[1]; }
-      return { title: get('title'), link: link, date: get('pubDate') || get('updated') || get('published'), img: img, src: f.name };
+      return { title: get('title'), link: link, date: get('pubDate') || get('updated') || get('published'), img: img, desc: cleanDesc(desc), src: f.name };
     });
   }
   async function loadFeed(f) {
@@ -182,13 +223,32 @@
     const box = document.getElementById(boxId);
     if (!items || !items.length) { box.innerHTML = fallback; return; }
     box.className = 'news-grid';
-    box.innerHTML = items.map(x =>
-      '<a class="news-card" href="' + x.link + '" target="_blank" rel="noopener">' +
-      (x.img ? '<div class="news-thumb" style="background-image:url(\'' + x.img.replace(/'/g, '') + '\')"></div>' : '') +
-      '<div class="news-body"><span class="news-src">' + x.src + '</span>' +
-      '<span class="news-title">' + x.title + '</span>' +
-      '<span class="news-date">' + fmtDate(x.date) + '</span></div></a>'
-    ).join('');
+    box.innerHTML = '';
+    items.forEach(x => {
+      const a = document.createElement('a');
+      a.className = 'news-card';
+      a.href = x.link || '#';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      if (x.img) {
+        const t = document.createElement('div');
+        t.className = 'news-thumb';
+        t.style.backgroundImage = "url('" + (x.img + '').replace(/'/g, '') + "')";
+        a.appendChild(t);
+      }
+      const body = document.createElement('div');
+      body.className = 'news-body';
+      body.innerHTML = '<span class="news-src">' + escapeHtml(x.src) + '</span>' +
+        '<span class="news-title">' + escapeHtml(x.title) + '</span>' +
+        '<span class="news-date">' + fmtDate(x.date) + '</span>';
+      a.appendChild(body);
+      a.addEventListener('click', e => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        openPreview(x);
+      });
+      box.appendChild(a);
+    });
   }
   const WORLD_FALLBACK = '<p class="news-fallback">Haberler şu an yüklenemedi. Güncel mimarlık haberleri için: <a href="https://www.archdaily.com/" target="_blank" rel="noopener">ArchDaily</a> · <a href="https://www.dezeen.com/" target="_blank" rel="noopener">Dezeen</a></p>';
   const TR_FALLBACK = '<p class="news-fallback">Haberler şu an yüklenemedi. Türkiye gündemi için: <a href="https://www.arkitera.com/" target="_blank" rel="noopener">Arkitera</a></p>';
@@ -219,6 +279,24 @@
     const rect = tabs.getBoundingClientRect();
     if (rect.top < 64) window.scrollTo({ top: window.scrollY + rect.top - 70, behavior: 'smooth' });
   }));
+
+  function openPreview(x) {
+    document.getElementById('npSrc').textContent = x.src || '';
+    document.getElementById('npTitle').textContent = x.title || '';
+    document.getElementById('npDate').textContent = fmtDate(x.date) || '';
+    document.getElementById('npDesc').textContent = x.desc || 'Bu haber için özet bulunamadı. Detay için kaynağa gidin.';
+    const img = document.getElementById('npImg');
+    if (x.img) { img.style.backgroundImage = "url('" + (x.img + '').replace(/'/g, '') + "')"; img.style.display = 'block'; }
+    else { img.style.display = 'none'; }
+    const go = document.getElementById('npGo');
+    go.href = x.link || '#';
+    document.getElementById('newsPreview').classList.add('open');
+  }
+  function closePreview() { document.getElementById('newsPreview').classList.remove('open'); }
+  document.getElementById('npClose').addEventListener('click', closePreview);
+  document.getElementById('npCancel').addEventListener('click', closePreview);
+  document.getElementById('newsPreview').addEventListener('click', e => { if (e.target.id === 'newsPreview') closePreview(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePreview(); });
 </script>
 </body>
 </html>
