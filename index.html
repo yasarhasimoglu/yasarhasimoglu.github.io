@@ -310,8 +310,11 @@
   .bim-figure .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 26px; background: linear-gradient(0deg, rgba(13,13,13,.82), transparent); color: var(--on-dark); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; }
 
   .revit { background: var(--off-black); }
-  .rv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 50px; }
-  .rv-card { position: relative; height: 360px; overflow: hidden; cursor: pointer; }
+  .rv-strip { overflow: hidden; margin-top: 50px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .rv-track { display: flex; width: max-content; animation: rvscroll 42s linear infinite; }
+  .rv-strip:hover .rv-track { animation-play-state: paused; }
+  @keyframes rvscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .rv-card { position: relative; height: 360px; width: 340px; flex: 0 0 340px; margin-right: 16px; overflow: hidden; cursor: pointer; }
   .rv-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(12%); transition: transform .6s, filter .5s; }
   .rv-card:hover img { transform: scale(1.08); filter: grayscale(0%) brightness(.5); }
   .rv-ov { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; opacity: 0; transform: translateY(16px); transition: opacity .4s, transform .4s; background: linear-gradient(0deg, rgba(13,13,13,.55) 0%, transparent 75%); }
@@ -322,11 +325,9 @@
   @media (max-width: 980px) {
     .bim-wrap { grid-template-columns: 1fr; gap: 36px; }
     .bim-figure { height: 320px; }
-    .rv-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .rv-card { height: 240px; }
+    .rv-card { height: 250px; width: 260px; flex: 0 0 260px; margin-right: 12px; }
     .rv-ov { opacity: 1; transform: none; background: linear-gradient(0deg, rgba(13,13,13,.8) 0%, transparent 70%); }
   }
-  @media (max-width: 560px) { .rv-grid { grid-template-columns: 1fr; } }
 
   .featured-project { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin-bottom: 2px; background: var(--graphite); border-top: 2px solid var(--gold); }
   .featured-img { position: relative; min-height: 540px; overflow: hidden; }
@@ -626,7 +627,8 @@
 <section class="revit" id="revit-projeler">
   <p class="section-label">Revit</p>
   <h2 class="section-title">Revit Mimari Proje<br><em>Çalışmalarımız</em></h2>
-  <div class="rv-grid">
+  <div class="rv-strip">
+  <div class="rv-track" id="rvTrack">
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" alt="Rezidans bloğu mimari Revit modeli" loading="lazy" decoding="async">
       <div class="rv-ov"><span class="t">Konut · Mimari Revit</span><span class="n">Rezidans Bloğu</span><span class="m">Yaklaşık 14.500 m² · LOD 350</span></div>
@@ -659,6 +661,7 @@
       <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Otel mimari Revit modeli" loading="lazy" decoding="async">
       <div class="rv-ov"><span class="t">Konaklama · Mimari Revit</span><span class="n">Otel</span><span class="m">Yaklaşık 17.500 m²</span></div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -912,6 +915,9 @@
   document.getElementById('kvkkClose').addEventListener('click', closeKvkk);
   kvkkModal.addEventListener('click', e => { if (e.target === kvkkModal) closeKvkk(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeKvkk(); });
+
+  const rvTrack = document.getElementById('rvTrack');
+  if (rvTrack) rvTrack.innerHTML += rvTrack.innerHTML;
 
   const heroSlides = [...document.querySelectorAll('#heroBg .hero-slide')];
   if (heroSlides.length) {
