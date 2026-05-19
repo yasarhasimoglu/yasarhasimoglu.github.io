@@ -7,7 +7,7 @@
 <title>Haşimoğlu Mimarlık & İnşaat | İstanbul, Bursa, Eskişehir, Trabzon</title>
 <meta name="google-site-verification" content="y5UMMP--9cNsy-j9PXllyRH5hVZF0HVzm_k0n-baFe8">
 <meta name="description" content="Haşimoğlu Mimarlık İnşaat (HMİ) — akvaryum tasarımı, villa, rezidans, tower ve kentsel dönüşüm projelerinde uzman mimarlık ve inşaat hizmetleri. İstanbul merkezli; Bursa, Eskişehir ve Trabzon başta olmak üzere Türkiye genelinde hizmet veriyoruz.">
-<meta name="keywords" content="mimarlık, mimarlık İstanbul, mimarlık Bursa, mimarlık Eskişehir, mimarlık Trabzon, akvaryum tasarımı, villa projesi, rezidans, tower, kentsel dönüşüm İstanbul, kentsel dönüşüm Bursa, inşaat firması, Haşimoğlu Mimarlık, HMİ, Okyanus Akvaryum, Okyanus Akvaryum mimar, Trabzon Akvaryum, Trabzon Akvaryum proje müellifi, Trabzon Akvaryum mimarı, The National Aquarium Abu Dhabi, Magic Aquarium Taşkent, akvaryum iç alan tasarımı, akvaryum iç mimari">
+<meta name="keywords" content="mimarlık, mimarlık İstanbul, mimarlık Bursa, mimarlık Eskişehir, mimarlık Trabzon, akvaryum tasarımı, villa projesi, rezidans, tower, kentsel dönüşüm İstanbul, kentsel dönüşüm Bursa, inşaat firması, Haşimoğlu Mimarlık, HMİ, Okyanus Akvaryum, Okyanus Akvaryum mimar, Trabzon Akvaryum, Trabzon Akvaryum proje müellifi, Trabzon Akvaryum mimarı, The National Aquarium Abu Dhabi, Magic Aquarium Taşkent, akvaryum iç alan tasarımı, akvaryum iç mimari, BIM, Revit, mimari Revit modelleme, statik Revit, Revit BIM danışmanlık, Autodesk Revit">
 <meta name="author" content="Haşimoğlu Mimarlık İnşaat Ltd. Şti.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#f4f1ea">
@@ -240,6 +240,37 @@
   .project-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; background: linear-gradient(0deg, rgba(13,13,13,.88) 0%, transparent 62%); }
   .project-overlay p { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
   .project-overlay h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--on-dark); }
+
+  .bim { background: var(--coal); }
+  .bim-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 50px; }
+  .bim-text .lead2 { font-size: .98rem; line-height: 1.95; color: var(--platinum); margin: 22px 0; }
+  .bim-list { list-style: none; display: grid; gap: 13px; margin-bottom: 32px; }
+  .bim-list li { font-size: .9rem; color: var(--mid); padding-left: 24px; position: relative; line-height: 1.65; }
+  .bim-list li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); }
+  .bim-list li strong { color: var(--white); font-weight: 500; }
+  .bim-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .bim-figure { position: relative; height: 480px; overflow: hidden; }
+  .bim-figure img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.05); }
+  .bim-figure .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 26px; background: linear-gradient(0deg, rgba(13,13,13,.82), transparent); color: var(--on-dark); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; }
+
+  .revit { background: var(--off-black); }
+  .rv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 50px; }
+  .rv-card { position: relative; height: 300px; overflow: hidden; cursor: pointer; }
+  .rv-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(12%); transition: transform .6s, filter .5s; }
+  .rv-card:hover img { transform: scale(1.08); filter: grayscale(0%) brightness(.5); }
+  .rv-ov { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; opacity: 0; transform: translateY(16px); transition: opacity .4s, transform .4s; background: linear-gradient(0deg, rgba(13,13,13,.55) 0%, transparent 75%); }
+  .rv-card:hover .rv-ov { opacity: 1; transform: translateY(0); }
+  .rv-ov .t { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 8px; }
+  .rv-ov .n { font-family: var(--serif); font-size: 1.3rem; color: #fff; line-height: 1.2; }
+  .rv-ov .m { margin-top: 12px; font-size: .82rem; letter-spacing: .08em; color: var(--on-dark); border-top: 1px solid rgba(255,255,255,.28); padding-top: 10px; }
+  @media (max-width: 980px) {
+    .bim-wrap { grid-template-columns: 1fr; gap: 36px; }
+    .bim-figure { height: 320px; }
+    .rv-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .rv-card { height: 240px; }
+    .rv-ov { opacity: 1; transform: none; background: linear-gradient(0deg, rgba(13,13,13,.8) 0%, transparent 70%); }
+  }
+  @media (max-width: 560px) { .rv-grid { grid-template-columns: 1fr; } }
 
   .featured-project { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin-bottom: 2px; background: var(--graphite); border-top: 2px solid var(--gold); }
   .featured-img { position: relative; min-height: 360px; overflow: hidden; }
@@ -539,6 +570,76 @@
         <p>Ticari</p>
         <h3>Ticari & Kültürel Yapı</h3>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIM & REVIT -->
+<section class="bim" id="bim">
+  <div>
+    <p class="section-label">Uzmanlık</p>
+    <h2 class="section-title">BIM &amp; Revit ile<br><em>Mimari Modelleme</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="bim-wrap">
+    <div class="bim-text">
+      <p class="lead2">Projelerimizi BIM (Yapı Bilgi Modellemesi) metodolojisiyle, <strong style="color:var(--gold-light)">Autodesk Revit</strong> üzerinde uçtan uca üretiyoruz. En güçlü olduğumuz alan <strong style="color:var(--gold-light)">mimari Revit modelleme</strong>: kavramsal kütleden uygulama projesine, cephe ve detaylardan ruhsat paftalarına kadar tüm aşamalar tek ve tutarlı bir model üzerinden yürütülür.</p>
+      <ul class="bim-list">
+        <li><strong>Mimari Revit Modelleme</strong> — kütle, kat planları, cephe, kesit, detay, ruhsat paftaları ve gerçekçi görselleştirme. (Ana uzmanlık alanımız.)</li>
+        <li><strong>Statik / Yapısal Revit</strong> — taşıyıcı sistem modeli, kalıp & donatı, mimari–statik koordinasyon ve analiz modeline veri aktarımı.</li>
+        <li><strong>Disiplinler Arası Koordinasyon</strong> — mimari, statik ve mekanik modellerin birleştirilmesi, çakışma (clash) kontrolü.</li>
+        <li><strong>Aile (Family) &amp; Şablon Geliştirme</strong> — projeye özel Revit aileleri, ofis standardı şablonlar ve LOD yönetimi.</li>
+        <li><strong>Metraj &amp; Dokümantasyon</strong> — modelden otomatik miktar/metraj çıkarımı ve eksiksiz pafta üretimi.</li>
+        <li><strong>Nokta Bulutu / As-Built</strong> — mevcut yapıların lazer tarama verisinden Revit modeli (rölöve ve kentsel dönüşüm ile uyumlu).</li>
+      </ul>
+      <div class="bim-cta">
+        <a href="hizmetler/bim-revit.html" class="btn-primary">Detaylı Bilgi</a>
+        <a href="#iletisim" class="btn-ghost">Teklif Alın</a>
+      </div>
+    </div>
+    <div class="bim-figure">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80" alt="Revit ile mimari modelleme" loading="lazy" decoding="async">
+      <p class="cap">Revit · Mimari Modelleme &amp; Dokümantasyon</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIT MIMARI PROJELER -->
+<section class="revit" id="revit-projeler">
+  <p class="section-label">Revit</p>
+  <h2 class="section-title">Revit Mimari Proje<br><em>Çalışmalarımız</em></h2>
+  <div class="rv-grid">
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" alt="Rezidans bloğu mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Konut · Mimari Revit</span><span class="n">Rezidans Bloğu</span><span class="m">Yaklaşık 14.500 m² · LOD 350</span></div>
+    </div>
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Ofis kulesi mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Yüksek Yapı · Mimari Revit</span><span class="n">Ofis Kulesi</span><span class="m">Yaklaşık 32.000 m² · LOD 350</span></div>
+    </div>
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80" alt="Karma kullanım AVM mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Karma Kullanım · Mimari + Koordinasyon</span><span class="n">AVM &amp; Çarşı</span><span class="m">Yaklaşık 46.000 m²</span></div>
+    </div>
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" alt="Lüks villa mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Konut · Mimari Revit &amp; Detay</span><span class="n">Lüks Villa</span><span class="m">Yaklaşık 1.250 m²</span></div>
+    </div>
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=800&q=80" alt="Kültür merkezi mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Kültürel Yapı · Mimari Revit</span><span class="n">Kültür Merkezi</span><span class="m">Yaklaşık 8.400 m²</span></div>
+    </div>
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&q=80" alt="Akvaryum yapısı mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Tematik Yapı · Mimari Revit</span><span class="n">Akvaryum Yapısı</span><span class="m">Yaklaşık 6.800 m²</span></div>
+    </div>
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?w=800&q=80" alt="Kentsel dönüşüm konut sitesi mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Kentsel Dönüşüm · Mimari Revit</span><span class="n">Konut Sitesi</span><span class="m">Yaklaşık 22.000 m²</span></div>
+    </div>
+    <div class="rv-card">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Otel mimari Revit modeli" loading="lazy" decoding="async">
+      <div class="rv-ov"><span class="t">Konaklama · Mimari Revit</span><span class="n">Otel</span><span class="m">Yaklaşık 17.500 m²</span></div>
     </div>
   </div>
 </section>
