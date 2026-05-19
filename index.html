@@ -137,6 +137,12 @@
   .hero .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
   .hero-scroll { position: absolute; right: 60px; bottom: 80px; writing-mode: vertical-rl; letter-spacing: .2em; font-size: .65rem; color: rgba(255,255,255,.72); text-transform: uppercase; opacity: .9; animation: fadeup 1s 1.2s both; }
   .hero-scroll::after { content: ''; display: block; width: 1px; height: 60px; background: var(--gold); margin: 14px auto 0; opacity: .5; }
+  .hero-nav { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; justify-content: space-between; padding: 0 26px; pointer-events: none; z-index: 6; }
+  .hero-arrow { pointer-events: auto; width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.45); background: rgba(13,13,13,.28); color: #fff; font-size: 1.3rem; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .25s, border-color .25s, color .25s; }
+  .hero-arrow:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  .hero-dots { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 6; }
+  .hero-dot { width: 9px; height: 9px; border-radius: 50%; border: 1px solid rgba(255,255,255,.65); background: transparent; cursor: pointer; padding: 0; transition: background .25s, transform .25s, border-color .25s; }
+  .hero-dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.2); }
   @keyframes fadeup { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
   section { padding: 132px 60px; }
@@ -331,6 +337,9 @@
     section { padding: 70px 22px; }
     .hero { padding: 0 22px 60px; }
     .hero-scroll { display: none; }
+    .hero-nav { padding: 0 12px; }
+    .hero-arrow { width: 40px; height: 40px; font-size: 1.1rem; }
+    .hero-dots { bottom: 24px; }
     .hero-cta { flex-wrap: wrap; gap: 14px; }
     .btn-primary, .btn-ghost { padding: 14px 30px; }
 
@@ -402,10 +411,15 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg" id="heroBg">
-    <div class="hero-slide active" style="--img:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=80')"></div>
-    <div class="hero-slide" style="--img:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=80')"></div>
-    <div class="hero-slide" style="--img:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=80')"></div>
+    <div class="hero-slide active" data-local="img/slider-01.jpg" style="--img:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=80')"></div>
+    <div class="hero-slide" data-local="img/slider-02.jpg" style="--img:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=80')"></div>
+    <div class="hero-slide" data-local="img/slider-03.jpg" style="--img:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=80')"></div>
   </div>
+  <div class="hero-nav">
+    <button class="hero-arrow" id="heroPrev" aria-label="Önceki görsel" type="button">‹</button>
+    <button class="hero-arrow" id="heroNext" aria-label="Sonraki görsel" type="button">›</button>
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
   <p class="hero-tag">Kuruluş 2022 · İstanbul, Türkiye</p>
   <h1>Mekânı <em>Dönüştüren</em><br>Mimarlık</h1>
   <p class="hero-sub">Haşimoğlu Mimarlık İnşaat Limited Şirketi olarak; akvaryum tasarımı, konut, ticari ve kültürel yapılarda uçtan uca mimari danışmanlık ve inşaat hizmetleri sunuyoruz.</p>
@@ -829,14 +843,40 @@
   kvkkModal.addEventListener('click', e => { if (e.target === kvkkModal) closeKvkk(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeKvkk(); });
 
-  const heroSlides = document.querySelectorAll('#heroBg .hero-slide');
-  if (heroSlides.length > 1) {
-    let hs = 0;
-    setInterval(() => {
+  const heroSlides = [...document.querySelectorAll('#heroBg .hero-slide')];
+  if (heroSlides.length) {
+    heroSlides.forEach(s => {
+      const loc = s.dataset.local;
+      if (loc) { const im = new Image(); im.onload = () => s.style.setProperty('--img', "url('" + loc + "')"); im.src = loc; }
+    });
+    const dotsWrap = document.getElementById('heroDots');
+    heroSlides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      b.setAttribute('aria-label', (i + 1) + '. görsel');
+      b.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(b);
+    });
+    const dotEls = dotsWrap.querySelectorAll('.hero-dot');
+    let hs = 0, timer;
+    function show(n) {
       heroSlides[hs].classList.remove('active');
-      hs = (hs + 1) % heroSlides.length;
+      dotEls[hs].classList.remove('active');
+      hs = (n + heroSlides.length) % heroSlides.length;
       heroSlides[hs].classList.add('active');
-    }, 6000);
+      dotEls[hs].classList.add('active');
+    }
+    function restart() { clearInterval(timer); timer = setInterval(() => show(hs + 1), 6000); }
+    function go(n) { show(n); restart(); }
+    const next = document.getElementById('heroNext'), prev = document.getElementById('heroPrev');
+    if (next) next.addEventListener('click', () => go(hs + 1));
+    if (prev) prev.addEventListener('click', () => go(hs - 1));
+    const hb = document.getElementById('heroBg');
+    let tx = 0;
+    hb.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
+    hb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) go(dx < 0 ? hs + 1 : hs - 1); }, { passive: true });
+    if (heroSlides.length > 1) restart();
   }
 </script>
 </body>
