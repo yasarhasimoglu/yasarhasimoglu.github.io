@@ -695,19 +695,17 @@
           <div class="form-group"><label>Ad Soyad</label><input type="text" name="ad_soyad" placeholder="Adınız" required></div>
           <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+90"></div>
         </div>
-        <div class="form-row">
         <div class="form-group">
           <label>E-posta</label>
           <div class="email-field">
             <input type="text" id="emailLocal" placeholder="kullanıcı adınız" autocomplete="off" required>
-            <span class="email-at">@</span>
             <select id="emailDomain" aria-label="E-posta sağlayıcısı">
-              <option value="gmail.com">gmail.com</option>
-              <option value="hotmail.com">hotmail.com</option>
-              <option value="outlook.com">outlook.com</option>
-              <option value="icloud.com">icloud.com</option>
-              <option value="yahoo.com">yahoo.com</option>
-              <option value="yandex.com">yandex.com</option>
+              <option value="@gmail.com">@gmail.com</option>
+              <option value="@hotmail.com">@hotmail.com</option>
+              <option value="@outlook.com">@outlook.com</option>
+              <option value="@icloud.com">@icloud.com</option>
+              <option value="@yahoo.com">@yahoo.com</option>
+              <option value="@yandex.com">@yandex.com</option>
               <option value="__other">Diğer…</option>
             </select>
             <input type="text" id="emailDomainOther" placeholder="alanadi.com" style="display:none;">
@@ -726,7 +724,6 @@
             <option>İç Mekân Tasarımı</option>
             <option>Danışmanlık</option>
           </select>
-        </div>
         </div>
         <div class="form-group"><label>Mesajınız</label><textarea name="mesaj" placeholder="Projenizi kısaca anlatın…" required></textarea></div>
         <div style="margin:6px 0 4px;display:flex;flex-direction:column;gap:12px;">
@@ -871,9 +868,10 @@
     const eF = document.getElementById('emailFull');
     if (!eL || !eD || !eO || !eF) return;
     function sync() {
-      const dom = eD.value === '__other' ? eO.value.trim().replace(/^@/, '') : eD.value;
+      let dom = eD.value;
+      if (dom === '__other') { const c = eO.value.trim().replace(/^@/, ''); dom = c ? '@' + c : ''; }
       const loc = eL.value.trim().replace(/@.*$/, '');
-      eF.value = (loc && dom) ? loc + '@' + dom : '';
+      eF.value = (loc && dom) ? loc + dom : '';
     }
     eD.addEventListener('change', () => { eO.style.display = eD.value === '__other' ? '' : 'none'; sync(); });
     eL.addEventListener('input', sync);
