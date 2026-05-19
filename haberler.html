@@ -164,13 +164,45 @@
       '<span class="news-date">' + fmtDate(x.date) + '</span></div></a>'
     ).join('');
   }
-  render('worldNews', FEEDS.world,
-    '<p class="news-fallback">Haberler şu an yüklenemedi. Güncel mimarlık haberleri için: ' +
-    '<a href="https://www.archdaily.com/" target="_blank" rel="noopener">ArchDaily</a> · ' +
-    '<a href="https://www.dezeen.com/" target="_blank" rel="noopener">Dezeen</a></p>');
-  render('trNews', FEEDS.tr,
-    '<p class="news-fallback">Haberler şu an yüklenemedi. Türkiye gündemi için: ' +
-    '<a href="https://www.arkitera.com/" target="_blank" rel="noopener">Arkitera</a></p>');
+  async function loadSection(feeds) {
+    const results = await Promise.allSettled(feeds.map(loadFeed));
+    let items = [];
+    results.forEach(r => { if (r.status === 'fulfilled') items = items.concat(r.value); });
+    return items.filter(x => x.title && x.link)
+      .sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 12);
+  }
+  function renderInto(boxId, items, fallback) {
+    const box = document.getElementById(boxId);
+    if (!items || !items.length) { box.innerHTML = fallback; return; }
+    box.className = 'news-grid';
+    box.innerHTML = items.map(x =>
+      '<a class="news-card" href="' + x.link + '" target="_blank" rel="noopener">' +
+      (x.img ? '<div class="news-thumb" style="background-image:url(\'' + x.img.replace(/'/g, '') + '\')"></div>' : '') +
+      '<div class="news-body"><span class="news-src">' + x.src + '</span>' +
+      '<span class="news-title">' + x.title + '</span>' +
+      '<span class="news-date">' + fmtDate(x.date) + '</span></div></a>'
+    ).join('');
+  }
+  const WORLD_FALLBACK = '<p class="news-fallback">Haberler şu an yüklenemedi. Güncel mimarlık haberleri için: <a href="https://www.archdaily.com/" target="_blank" rel="noopener">ArchDaily</a> · <a href="https://www.dezeen.com/" target="_blank" rel="noopener">Dezeen</a></p>';
+  const TR_FALLBACK = '<p class="news-fallback">Haberler şu an yüklenemedi. Türkiye gündemi için: <a href="https://www.arkitera.com/" target="_blank" rel="noopener">Arkitera</a></p>';
+  (async () => {
+    // 1) Same-origin news.json (built daily by GitHub Actions)
+    try {
+      const r = await fetch('news.json', { cache: 'no-store' });
+      if (r.ok) {
+        const j = await r.json();
+        if ((j.world && j.world.length) || (j.tr && j.tr.length)) {
+          renderInto('worldNews', j.world || [], WORLD_FALLBACK);
+          renderInto('trNews', j.tr || [], TR_FALLBACK);
+          return;
+        }
+      }
+    } catch (e) { /* fall through */ }
+    // 2) Client-side proxy fallback
+    const [w, t] = await Promise.all([loadSection(FEEDS.world), loadSection(FEEDS.tr)]);
+    renderInto('worldNews', w, WORLD_FALLBACK);
+    renderInto('trNews', t, TR_FALLBACK);
+  })();
 </script>
 </body>
 </html>
