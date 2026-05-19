@@ -115,12 +115,36 @@
     if (!img && it.description) { const m = it.description.match(/<img[^>]+src="([^"]+)"/); if (m) img = m[1]; }
     return img;
   }
-  async function loadFeed(f) {
-    const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(f.url) + '&count=8';
-    const r = await fetch(api);
+  function escapeAttr(s) { return (s || '').replace(/'/g, '').replace(/"/g, ''); }
+  async function viaRss2Json(f) {
+    const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(f.url) + '&count=10';
+    const r = await fetch(api, { cache: 'no-store' });
     const j = await r.json();
-    if (j.status !== 'ok' || !j.items) throw new Error('feed');
+    if (j.status !== 'ok' || !j.items || !j.items.length) throw new Error('rss2json');
     return j.items.map(it => ({ title: it.title, link: it.link, date: it.pubDate, img: thumb(it), src: f.name }));
+  }
+  async function viaAllOrigins(f) {
+    const api = 'https://api.allorigins.win/get?url=' + encodeURIComponent(f.url);
+    const r = await fetch(api, { cache: 'no-store' });
+    const j = await r.json();
+    if (!j.contents) throw new Error('allorigins');
+    const doc = new DOMParser().parseFromString(j.contents, 'text/xml');
+    const items = [...doc.querySelectorAll('item, entry')].slice(0, 10);
+    if (!items.length) throw new Error('xml-empty');
+    return items.map(el => {
+      const get = (sel) => { const n = el.querySelector(sel); return n ? n.textContent.trim() : ''; };
+      const linkEl = el.querySelector('link');
+      const link = (linkEl && linkEl.textContent.trim()) || (linkEl && linkEl.getAttribute('href')) || '';
+      const enc = el.querySelector('enclosure');
+      let img = enc ? enc.getAttribute('url') : '';
+      const desc = get('description') || get('content\\:encoded') || get('summary');
+      if (!img && desc) { const m = desc.match(/<img[^>]+src="([^"]+)"/); if (m) img = m[1]; }
+      return { title: get('title'), link: link, date: get('pubDate') || get('updated') || get('published'), img: img, src: f.name };
+    });
+  }
+  async function loadFeed(f) {
+    try { return await viaRss2Json(f); }
+    catch (e) { return await viaAllOrigins(f); }
   }
   async function render(targetId, feeds, fallback) {
     const box = document.getElementById(targetId);
