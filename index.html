@@ -64,7 +64,20 @@
   "sameAs": [
     "https://www.instagram.com/hmi.mimarlik/",
     "https://www.linkedin.com/company/hmimar/"
-  ]
+  ],
+  "department": {
+    "@type": "Organization",
+    "name": "Haşimoğlu Mimarlık — Ümraniye Şubesi",
+    "telephone": "+905416085292",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Tepeüstü, Çayırbaşı Sk. No:9, Okyanus Akvaryum Binası, 1. Kat",
+      "addressLocality": "Ümraniye",
+      "addressRegion": "İstanbul",
+      "postalCode": "34771",
+      "addressCountry": "TR"
+    }
+  }
 }
 </script>
 
@@ -299,6 +312,7 @@
     <li><a href="#hizmetler">Hizmetler</a></li>
     <li><a href="#projeler">Projeler</a></li>
     <li><a href="#ekip">Ekip</a></li>
+    <li><a href="#randevu">Randevu</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="navLinks">
@@ -585,14 +599,91 @@
 </section>
 
 <!-- CONTACT -->
+<!-- RANDEVU -->
+<section class="contact" id="randevu" style="background:var(--off-black);">
+  <div>
+    <p class="section-label">Randevu</p>
+    <h2 class="section-title">Ziyaret İçin<br><em>Randevu Alın</em></h2>
+    <div class="divider"></div>
+    <p style="font-size:.95rem;line-height:1.9;color:var(--platinum);max-width:440px;margin-bottom:32px;">Ofisimizde sizinle bire bir görüşmek isteriz. Aşağıdaki formdan dilediğiniz lokasyon, tarih ve saat için randevu talebinde bulunun; en kısa sürede onaylayıp size dönüş yapalım.</p>
+    <div class="contact-info-item">
+      <p class="label">Merkez Ofis</p>
+      <p class="value">Metropol İstanbul C1 Blok No:2B<br>Ataşehir / İstanbul</p>
+    </div>
+    <div class="contact-info-item">
+      <p class="label">Şube</p>
+      <p class="value">Okyanus Akvaryum Binası, 1. Kat<br>Çayırbaşı Sk. No:9, Ümraniye / İstanbul</p>
+    </div>
+    <div class="contact-info-item">
+      <p class="label">Görüşme Saatleri</p>
+      <p class="value">Pzt – Cum: 09:00 – 18:00<br>Cumartesi: 10:00 – 14:00</p>
+    </div>
+  </div>
+  <div>
+    <p class="section-label" style="margin-bottom:32px">Randevu Formu</p>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/mbdwlwgd" method="POST" id="apptForm">
+        <input type="hidden" name="_subject" value="Yeni Randevu Talebi — hmimar.com">
+        <input type="hidden" name="form_tipi" value="Randevu Talebi">
+        <div class="form-row">
+          <div class="form-group"><label>Ad Soyad</label><input type="text" name="ad_soyad" placeholder="Adınız" required></div>
+          <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+90" required></div>
+        </div>
+        <div class="form-group"><label>E-posta</label><input type="email" name="email" placeholder="ornek@mail.com" required></div>
+        <div class="form-group">
+          <label>Lokasyon</label>
+          <select name="lokasyon" required>
+            <option value="">Seçiniz</option>
+            <option>Merkez Ofis – Ataşehir</option>
+            <option>Şube – Ümraniye (Okyanus Akvaryum Binası)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Tarih</label><input type="date" name="tarih" id="apptDate" required></div>
+          <div class="form-group">
+            <label>Saat</label>
+            <select name="saat" required>
+              <option value="">Seçiniz</option>
+              <option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option>
+              <option>11:00</option><option>11:30</option><option>12:00</option><option>13:00</option>
+              <option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option>
+              <option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Görüşme Konusu</label>
+          <select name="konu">
+            <option value="">Seçiniz</option>
+            <option>Akvaryum Tasarımı</option>
+            <option>Konut Projesi</option>
+            <option>Villa / Rezidans / Tower</option>
+            <option>Ticari Proje</option>
+            <option>Kentsel Dönüşüm</option>
+            <option>İç Mekân Tasarımı</option>
+            <option>Danışmanlık</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Not (opsiyonel)</label><textarea name="not" placeholder="Eklemek istediğiniz bir not…"></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;font-size:.75rem">Randevu Talebi Gönder</button>
+      </form>
+      <div id="apptSuccess" style="display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);color:var(--gold);font-size:.85rem;text-align:center;">✅ Randevu talebiniz alındı! En kısa sürede onaylayıp size dönüş yapacağız.</div>
+    </div>
+  </div>
+</section>
+
 <section class="contact" id="iletisim">
   <div>
     <p class="section-label">İletişim</p>
     <h2 class="section-title">Projenizi<br><em>Konuşalım</em></h2>
     <div class="divider"></div>
     <div class="contact-info-item">
-      <p class="label">Adres</p>
+      <p class="label">Merkez Ofis</p>
       <p class="value">Atatürk Mah. Ertuğrul Gazi Sok.<br>Metropol İstanbul Sitesi C1 Blok No:2B<br>İç Kapı No:376, 34764 Ataşehir / İstanbul</p>
+    </div>
+    <div class="contact-info-item">
+      <p class="label">Şube</p>
+      <p class="value">Tepeüstü, Çayırbaşı Sk. No:9<br>Okyanus Akvaryum Binası, 1. Kat<br>34771 Ümraniye / İstanbul</p>
     </div>
     <div class="contact-info-item">
       <p class="label">Telefon</p>
@@ -695,15 +786,20 @@
 </footer>
 
 <script>
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', async function(e) {
+  function wireForm(formId, successId) {
+    const f = document.getElementById(formId);
+    if (!f) return;
+    f.addEventListener('submit', async function(e) {
       e.preventDefault();
-      const data = new FormData(form);
-      const response = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-      if (response.ok) { form.style.display = 'none'; document.getElementById('successMsg').style.display = 'block'; }
+      const data = new FormData(f);
+      const response = await fetch(f.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (response.ok) { f.style.display = 'none'; document.getElementById(successId).style.display = 'block'; }
     });
   }
+  wireForm('contactForm', 'successMsg');
+  wireForm('apptForm', 'apptSuccess');
+  const apptDate = document.getElementById('apptDate');
+  if (apptDate) apptDate.min = new Date().toISOString().split('T')[0];
   const nav = document.getElementById('nav');
   const toTop = document.getElementById('toTop');
   window.addEventListener('scroll', () => {
