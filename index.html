@@ -219,6 +219,10 @@
   .form-group { display: flex; flex-direction: column; }
   .form-group label { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; }
   .form-group input, .form-group textarea, .form-group select { background: rgba(21,18,12,.035); border: 1px solid rgba(21,18,12,.16); padding: 14px 16px; color: var(--cream); font-family: var(--sans); font-size: .9rem; outline: none; transition: border-color .25s; -webkit-appearance: none; }
+  .email-field { display: flex; align-items: stretch; gap: 8px; }
+  .email-field #emailLocal, .email-field #emailDomainOther { flex: 1; min-width: 0; }
+  .email-field select { flex: 0 1 auto; min-width: 0; }
+  .email-at { display: flex; align-items: center; color: var(--mid); font-size: .95rem; padding: 0 2px; }
   .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
   .form-group textarea { resize: vertical; min-height: 130px; }
   .form-group select option { background: var(--stone); }
@@ -692,7 +696,24 @@
           <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+90"></div>
         </div>
         <div class="form-row">
-        <div class="form-group"><label>E-posta</label><input type="email" name="email" placeholder="ornek@mail.com" required></div>
+        <div class="form-group">
+          <label>E-posta</label>
+          <div class="email-field">
+            <input type="text" id="emailLocal" placeholder="kullanıcı adınız" autocomplete="off" required>
+            <span class="email-at">@</span>
+            <select id="emailDomain" aria-label="E-posta sağlayıcısı">
+              <option value="gmail.com">gmail.com</option>
+              <option value="hotmail.com">hotmail.com</option>
+              <option value="outlook.com">outlook.com</option>
+              <option value="icloud.com">icloud.com</option>
+              <option value="yahoo.com">yahoo.com</option>
+              <option value="yandex.com">yandex.com</option>
+              <option value="__other">Diğer…</option>
+            </select>
+            <input type="text" id="emailDomainOther" placeholder="alanadi.com" style="display:none;">
+          </div>
+          <input type="hidden" name="email" id="emailFull">
+        </div>
         <div class="form-group">
           <label>Proje Türü</label>
           <select name="proje_turu">
@@ -843,6 +864,22 @@
     });
   }
   wireForm('contactForm', 'successMsg');
+  (function () {
+    const eL = document.getElementById('emailLocal');
+    const eD = document.getElementById('emailDomain');
+    const eO = document.getElementById('emailDomainOther');
+    const eF = document.getElementById('emailFull');
+    if (!eL || !eD || !eO || !eF) return;
+    function sync() {
+      const dom = eD.value === '__other' ? eO.value.trim().replace(/^@/, '') : eD.value;
+      const loc = eL.value.trim().replace(/@.*$/, '');
+      eF.value = (loc && dom) ? loc + '@' + dom : '';
+    }
+    eD.addEventListener('change', () => { eO.style.display = eD.value === '__other' ? '' : 'none'; sync(); });
+    eL.addEventListener('input', sync);
+    eO.addEventListener('input', sync);
+    sync();
+  })();
   const nav = document.getElementById('nav');
   const toTop = document.getElementById('toTop');
   window.addEventListener('scroll', () => {
