@@ -289,10 +289,8 @@
   .projects { background: var(--off-black); }
   .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
   .projects-header-right { max-width: 360px; font-size: .9rem; line-height: 1.8; color: var(--mid); }
-  .pr-strip { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .pr-track { display: flex; width: max-content; animation: prscroll 48s linear infinite; }
-  .pr-strip:hover .pr-track { animation-play-state: paused; }
-  @keyframes prscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .pr-strip { overflow: hidden; cursor: grab; touch-action: pan-y; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .pr-track { display: flex; width: max-content; will-change: transform; }
   .project-card { position: relative; height: 440px; width: 380px; flex: 0 0 380px; margin-right: 14px; overflow: hidden; }
   .project-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) brightness(.68); transition: transform .6s, filter .6s; }
   .project-card:hover img { transform: scale(1.06); filter: grayscale(0%) brightness(.85); }
@@ -313,10 +311,10 @@
   .bim-figure .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 26px; background: linear-gradient(0deg, rgba(13,13,13,.82), transparent); color: var(--on-dark); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; }
 
   .revit { background: var(--off-black); }
-  .rv-strip { overflow: hidden; margin-top: 50px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .rv-track { display: flex; width: max-content; animation: rvscroll 42s linear infinite; }
-  .rv-strip:hover .rv-track { animation-play-state: paused; }
-  @keyframes rvscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .rv-strip { overflow: hidden; margin-top: 50px; cursor: grab; touch-action: pan-y; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .rv-track { display: flex; width: max-content; will-change: transform; }
+  .pr-strip.dragging, .rv-strip.dragging { cursor: grabbing; }
+  .pr-strip.dragging *, .rv-strip.dragging * { user-select: none; }
   .rv-card { position: relative; height: 360px; width: 340px; flex: 0 0 340px; margin-right: 16px; overflow: hidden; cursor: pointer; }
   .rv-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(12%); transition: transform .6s, filter .5s; }
   .rv-card:hover img { transform: scale(1.08); filter: grayscale(0%) brightness(.5); }
@@ -920,10 +918,47 @@
   kvkkModal.addEventListener('click', e => { if (e.target === kvkkModal) closeKvkk(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeKvkk(); });
 
-  const rvTrack = document.getElementById('rvTrack');
-  if (rvTrack) rvTrack.innerHTML += rvTrack.innerHTML;
-  const prTrack = document.getElementById('prTrack');
-  if (prTrack) prTrack.innerHTML += prTrack.innerHTML;
+  function initStrip(track) {
+    if (!track) return;
+    track.innerHTML += track.innerHTML;
+    const strip = track.parentElement;
+    let pos = 0, dir = -1, vel = 0, half = 0, hovered = false, dragging = false, lastX = 0, lastT = 0;
+    const base = 0.55;
+    const measure = () => { half = track.scrollWidth / 2; };
+    measure();
+    window.addEventListener('resize', measure);
+    track.querySelectorAll('img').forEach(im => im.addEventListener('load', measure));
+    function frame() {
+      if (!dragging) {
+        const target = hovered ? 0 : base * dir;
+        vel += (target - vel) * 0.05;
+        pos += vel;
+      }
+      if (half) { if (pos <= -half) pos += half; else if (pos >= 0) pos -= half; }
+      track.style.transform = 'translateX(' + pos + 'px)';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+    strip.addEventListener('mouseenter', () => { hovered = true; });
+    strip.addEventListener('mouseleave', () => { hovered = false; });
+    const down = x => { dragging = true; lastX = x; lastT = performance.now(); vel = 0; strip.classList.add('dragging'); };
+    const moveTo = x => {
+      if (!dragging) return;
+      const dx = x - lastX, now = performance.now(), dt = (now - lastT) || 16;
+      pos += dx;
+      vel = dx / dt * 16;
+      if (Math.abs(dx) > 0.5) dir = dx < 0 ? -1 : 1;
+      lastX = x; lastT = now;
+    };
+    const end = () => { if (dragging) { dragging = false; strip.classList.remove('dragging'); } };
+    strip.addEventListener('pointerdown', e => { down(e.clientX); });
+    window.addEventListener('pointermove', e => { if (dragging) moveTo(e.clientX); });
+    window.addEventListener('pointerup', end);
+    window.addEventListener('pointercancel', end);
+    strip.querySelectorAll('a, img').forEach(el => el.addEventListener('dragstart', e => e.preventDefault()));
+  }
+  initStrip(document.getElementById('rvTrack'));
+  initStrip(document.getElementById('prTrack'));
 
   const heroSlides = [...document.querySelectorAll('#heroBg .hero-slide')];
   if (heroSlides.length) {
