@@ -437,6 +437,7 @@
     <li><a href="#projeler">Projeler</a></li>
     <li><a href="ekip.html">Ekip</a></li>
     <li><a href="haberler.html">Haberler</a></li>
+    <li><a href="kariyer.html">Kariyer</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
   <div class="nav-actions">
@@ -699,7 +700,7 @@
   <div>
     <p class="section-label" style="margin-bottom:32px">Mesaj Gönderin</p>
     <div class="contact-form">
-      <form action="https://formspree.io/f/mbdwlwgd" method="POST" id="contactForm">
+      <form action="https://formspree.io/f/mbdwlwgd" method="POST" id="contactForm" enctype="multipart/form-data">
         <div class="form-row">
           <div class="form-group"><label>Ad Soyad</label><input type="text" name="ad_soyad" placeholder="Adınız" required></div>
           <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+90"></div>
@@ -735,6 +736,7 @@
           </select>
         </div>
         <div class="form-group"><label>Mesajınız</label><textarea name="mesaj" placeholder="Projenizi kısaca anlatın…" required></textarea></div>
+        <div class="form-group"><label>Dosya / Belge (opsiyonel)</label><input type="file" name="dosya" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="padding:10px 12px;"><span style="font-size:.74rem;color:var(--mid);margin-top:6px;">Max 10 MB · PDF, DOC veya görsel</span></div>
         <div style="margin:6px 0 4px;display:flex;flex-direction:column;gap:12px;">
           <label class="kvkk-check"><input type="checkbox" name="kvkk_onay" value="Onaylandı" required><span><button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button>'ni okudum ve onaylıyorum.</span></label>
           <label class="kvkk-check"><input type="checkbox" name="bulten" value="Evet"><span>Bülten ve duyurulardan haberdar olmak istiyorum. (İsteğe bağlı)</span></label>
@@ -1025,6 +1027,7 @@
     { t: "Kurumsal / Hakkımızda", u: "#hakkimizda", d: "Vizyon, misyon, firma ve Haşimoğlu Mimarlık hakkında", k: "vizyon misyon hakkinda kurumsal firma sirket nedir biz kimiz" },
     { t: "Ekibimiz", u: "ekip.html", d: "Mimar ve mühendis kadromuz; Yaşar Haşimoğlu, Halit Haşimoğlu, Khalid Al Jbr, Mohamed Al Mofleh, Haytham Kayed, Oğuzcan Kaya", k: "kurucu ortak kadro takim ekip mimar muhendis personel kim calisanlar" },
     { t: "Haberler", u: "haberler.html", d: "Dünyadan ve Türkiye'den güncel mimarlık haberleri, mevzuat ve kanun değişiklikleri", k: "haber haberler mimarlik haberleri gundem mevzuat kanun yonetmelik dunya turkiye guncel" },
+    { t: "Kariyer / Staj & CV", u: "kariyer.html", d: "Staj başvurusu ve CV gönderimi; HMİ'de açık pozisyonlar", k: "kariyer staj cv basvuru pozisyon ise alim is basvurusu work career intern" },
     { t: "Hizmetler", u: "#hizmetler", d: "Tüm mimarlık ve inşaat hizmetlerimiz", k: "hizmet ne yapiyorsunuz mimarlik insaat" },
     { t: "Akvaryum Tasarımı", u: "hizmetler/akvaryum-tasarimi.html", d: "Tünel akvaryum, dev akvaryum; Trabzon, National Aquarium Abu Dhabi, Magic Aquarium referansları", k: "akvaryum tunel okyanus akvaryum trabzon abu dhabi taskent su alti" },
     { t: "Mimari Tasarım", u: "hizmetler/mimari-tasarim.html", d: "Konut, ticari, kültürel ve endüstriyel yapılar", k: "mimari tasarim proje cizim" },
