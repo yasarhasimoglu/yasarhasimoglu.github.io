@@ -159,6 +159,16 @@
   .about-img-badge span:last-child { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); opacity: .75; }
   .about-text p { font-size: .95rem; line-height: 1.9; color: var(--platinum); opacity: .85; margin-bottom: 20px; }
 
+  .aqua { position: relative; padding: 130px 60px; overflow: hidden; }
+  .aqua-bg { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13,13,13,.86) 0%, rgba(13,13,13,.5) 100%), url('https://commons.wikimedia.org/wiki/Special:FilePath/Georgia%20Aquarium%20-%20Ocean%20Voyager%20Tunnel%20Jan%202006.jpg?width=1800') center/cover no-repeat; }
+  .aqua-inner { position: relative; max-width: 760px; }
+  .aqua .section-label { color: var(--gold-light); }
+  .aqua h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4.6vw, 3.7rem); font-weight: 300; color: #fff; line-height: 1.12; letter-spacing: -.01em; }
+  .aqua h2 em { font-style: italic; color: var(--gold-light); }
+  .aqua-text { font-size: 1rem; line-height: 1.95; color: rgba(246,242,234,.92); margin: 22px 0 32px; }
+  .aqua-text strong { color: #fff; font-weight: 400; }
+  @media (max-width: 980px) { .aqua { padding: 78px 22px; } }
+
   .services { background: var(--coal); }
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
   .services-header-right { max-width: 340px; font-size: .9rem; line-height: 1.8; color: var(--mid); }
@@ -436,7 +446,6 @@
     <li><a href="#hizmetler">Hizmetler</a></li>
     <li><a href="#projeler">Projeler</a></li>
     <li><a href="ekip.html">Ekip</a></li>
-    <li><a href="haberler.html">Haberler</a></li>
     <li><a href="kariyer.html">Kariyer</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
@@ -491,12 +500,23 @@
   </div>
 </section>
 
+<!-- AKVARYUM UZMANLIĞI -->
+<section class="aqua">
+  <div class="aqua-bg"></div>
+  <div class="aqua-inner">
+    <p class="section-label">Bizi Farklı Kılan</p>
+    <h2>Dünya Çapında<br><em>Akvaryum Mimarlığı</em></h2>
+    <p class="aqua-text">Kurucu Baş Mimarımız <strong>Yaşar Haşimoğlu</strong>, Okyanus Akvaryum bünyesinde <strong>Trabzon Akvaryum</strong>, <strong>The National Aquarium Abu Dhabi</strong> ve Taşkent'teki <strong>Magic Aquarium</strong> gibi uluslararası projelerde mimari ve tasarım sorumluluğu üstlenmiştir. Tünel akvaryum, dev tonajlı tank ve tematik yapı tasarımındaki bu uluslararası deneyim, HMİ'yi sıradan bir mimarlık ofisinden ayıran en güçlü yönümüzdür.</p>
+    <a href="hizmetler/akvaryum-tasarimi.html" class="btn-primary">Akvaryum Projelerini İncele →</a>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services" id="hizmetler">
   <div class="services-header">
     <div>
       <p class="section-label">Hizmetlerimiz</p>
-      <h2 class="section-title">Uçtan Uca<br><em>Mimarlık Çözümleri</em></h2>
+      <h2 class="section-title">Mimarlık<br><em>Çözümlerimiz</em></h2>
     </div>
     <p class="services-header-right">Konsept geliştirmeden projenin tamamlanmasına kadar her aşamada yanınızdayız.</p>
   </div>
@@ -1026,7 +1046,6 @@
     { t: "Kurucu & Baş Mimar — Yaşar Haşimoğlu", u: "ekip.html", d: "Firmanın kurucusu ve baş mimarı Yaşar Haşimoğlu; ortak: Halit Haşimoğlu", k: "kurucu kim kimdir sahibi sahip patron kim kurdu yönetici başmimar baş mimar yasar hasimoglu" },
     { t: "Kurumsal / Hakkımızda", u: "#hakkimizda", d: "Vizyon, misyon, firma ve Haşimoğlu Mimarlık hakkında", k: "vizyon misyon hakkinda kurumsal firma sirket nedir biz kimiz" },
     { t: "Ekibimiz", u: "ekip.html", d: "Mimar ve mühendis kadromuz; Yaşar Haşimoğlu, Halit Haşimoğlu, Khalid Al Jbr, Mohamed Al Mofleh, Haytham Kayed, Oğuzcan Kaya", k: "kurucu ortak kadro takim ekip mimar muhendis personel kim calisanlar" },
-    { t: "Haberler", u: "haberler.html", d: "Dünyadan ve Türkiye'den güncel mimarlık haberleri, mevzuat ve kanun değişiklikleri", k: "haber haberler mimarlik haberleri gundem mevzuat kanun yonetmelik dunya turkiye guncel" },
     { t: "Kariyer", u: "kariyer.html", d: "Şu anda açık pozisyon veya staj başvurusu kabul edilmemektedir", k: "kariyer staj cv basvuru pozisyon ise alim is basvurusu work career intern acik pozisyon" },
     { t: "Hizmetler", u: "#hizmetler", d: "Tüm mimarlık ve inşaat hizmetlerimiz", k: "hizmet ne yapiyorsunuz mimarlik insaat" },
     { t: "Akvaryum Tasarımı", u: "hizmetler/akvaryum-tasarimi.html", d: "Tünel akvaryum, dev akvaryum; Trabzon, National Aquarium Abu Dhabi, Magic Aquarium referansları", k: "akvaryum tunel okyanus akvaryum trabzon abu dhabi taskent su alti" },
