@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
-<title>Haşimoğlu Mimarlık & İnşaat | İstanbul, Bursa, Eskişehir, Trabzon</title>
+<title data-i18n="meta.title">Haşimoğlu Mimarlık & İnşaat | İstanbul, Bursa, Eskişehir, Trabzon</title>
 <meta name="google-site-verification" content="y5UMMP--9cNsy-j9PXllyRH5hVZF0HVzm_k0n-baFe8">
 <meta name="description" content="Haşimoğlu Mimarlık İnşaat (HMİ) — akvaryum tasarımı, villa, rezidans, tower ve kentsel dönüşüm projelerinde uzman mimarlık ve inşaat hizmetleri. İstanbul merkezli; Bursa, Eskişehir ve Trabzon başta olmak üzere Türkiye genelinde hizmet veriyoruz.">
 <meta name="keywords" content="mimarlık, mimarlık İstanbul, mimarlık Bursa, mimarlık Eskişehir, mimarlık Trabzon, akvaryum tasarımı, villa projesi, rezidans, tower, kentsel dönüşüm İstanbul, kentsel dönüşüm Bursa, inşaat firması, Haşimoğlu Mimarlık, HMİ, Okyanus Akvaryum, Okyanus Akvaryum mimar, Trabzon Akvaryum, Trabzon Akvaryum proje müellifi, Trabzon Akvaryum mimarı, The National Aquarium Abu Dhabi, Magic Aquarium Taşkent, akvaryum iç alan tasarımı, akvaryum iç mimari, BIM, Revit, mimari Revit modelleme, statik Revit, Revit BIM danışmanlık, Autodesk Revit">
@@ -158,6 +158,24 @@
   .about-img-badge span:first-child { font-family: var(--serif); font-size: 2.8rem; font-weight: 600; color: var(--ink); line-height: 1; }
   .about-img-badge span:last-child { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); opacity: .75; }
   .about-text p { font-size: .95rem; line-height: 1.9; color: var(--platinum); opacity: .85; margin-bottom: 20px; }
+  .about-text p strong { color: var(--gold-light); font-weight: 400; }
+
+  .about-flow { grid-column: 1 / -1; margin-top: 36px; padding-top: 50px; border-top: 1px solid rgba(168,119,42,.22); }
+  .flow-label { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; text-align: center; }
+  .flow-steps { display: flex; align-items: flex-start; justify-content: center; }
+  .flow-step { flex: 1 1 0; max-width: 250px; text-align: center; padding: 0 16px; }
+  .flow-ic { width: 66px; height: 66px; margin: 0 auto 16px; border: 1px solid rgba(168,119,42,.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); background: var(--graphite); transition: background .3s, color .3s, transform .3s, box-shadow .3s; }
+  .flow-step:hover .flow-ic { background: var(--gold); color: var(--ink); transform: translateY(-5px); box-shadow: 0 12px 26px rgba(168,119,42,.28); }
+  .flow-n { display: block; font-family: var(--sans); font-size: .62rem; font-weight: 500; letter-spacing: .26em; color: var(--gold); margin-bottom: 8px; }
+  .flow-step h4 { font-family: var(--serif); font-size: 1.26rem; font-weight: 400; color: var(--white); margin-bottom: 9px; }
+  .flow-step p { font-size: .82rem; line-height: 1.7; color: var(--mid); }
+  .flow-line { flex: 0 1 56px; height: 1px; margin-top: 33px; background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent); opacity: .55; }
+  @media (max-width: 760px) {
+    .about-flow { padding-top: 40px; }
+    .flow-steps { flex-direction: column; align-items: center; }
+    .flow-step { max-width: 340px; padding: 0; }
+    .flow-line { flex: none; width: 1px; height: 30px; margin: 6px 0; background: linear-gradient(180deg, transparent, var(--gold) 50%, transparent); }
+  }
 
   .aqua { position: relative; padding: 130px 60px; overflow: hidden; }
   .aqua-bg { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13,13,13,.86) 0%, rgba(13,13,13,.5) 100%), url('https://commons.wikimedia.org/wiki/Special:FilePath/Georgia%20Aquarium%20-%20Ocean%20Voyager%20Tunnel%20Jan%202006.jpg?width=1800') center/cover no-repeat; }
@@ -311,6 +329,7 @@
   .bim { background: var(--coal); }
   .bim-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 50px; }
   .bim-text .lead2 { font-size: .98rem; line-height: 1.95; color: var(--platinum); margin: 22px 0; }
+  .bim-text .lead2 strong { color: var(--gold-light); font-weight: 500; }
   .bim-list { list-style: none; display: grid; gap: 13px; margin-bottom: 32px; }
   .bim-list li { font-size: .9rem; color: var(--mid); padding-left: 24px; position: relative; line-height: 1.65; }
   .bim-list li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); }
@@ -430,10 +449,10 @@
 <body>
 
 <!-- WHATSAPP BUTTON -->
-<a href="https://wa.me/905416085292" target="_blank" rel="noopener" class="whatsapp-btn" title="WhatsApp ile ulaşın"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+<a href="https://wa.me/905416085292" target="_blank" rel="noopener" class="whatsapp-btn" title="WhatsApp ile ulaşın" data-i18n-title="wa.title"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 
 <!-- BACK TO TOP -->
-<button class="to-top" id="toTop" aria-label="Sayfanın başına dön" title="Yukarı çık">↑</button>
+<button class="to-top" id="toTop" aria-label="Sayfanın başına dön" data-i18n-aria="toptop.aria" title="Yukarı çık" data-i18n-title="toptop.title">↑</button>
 
 <!-- NAV -->
 <nav id="nav">
@@ -442,15 +461,16 @@
     <span class="logo-name">Haşimoğlu Mimarlık İnşaat Ltd. Şti.</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#hakkimizda">Kurumsal</a></li>
-    <li><a href="#hizmetler">Hizmetler</a></li>
-    <li><a href="#projeler">Projeler</a></li>
-    <li><a href="ekip.html">Ekip</a></li>
-    <li><a href="kariyer.html">Kariyer</a></li>
-    <li><a href="#iletisim">İletişim</a></li>
+    <li><a href="#hakkimizda" data-i18n="nav.kurumsal">Kurumsal</a></li>
+    <li><a href="#hizmetler" data-i18n="nav.hizmetler">Hizmetler</a></li>
+    <li><a href="#projeler" data-i18n="nav.projeler">Projeler</a></li>
+    <li><a href="ekip.html" data-i18n="nav.ekip">Ekip</a></li>
+    <li><a href="kariyer.html" data-i18n="nav.kariyer">Kariyer</a></li>
+    <li><a href="#iletisim" data-i18n="nav.iletisim">İletişim</a></li>
   </ul>
   <div class="nav-actions">
-    <button class="nav-search" id="searchOpen" aria-label="Sitede ara" type="button"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></button>
+    <div data-lang-switch></div>
+    <button class="nav-search" id="searchOpen" aria-label="Sitede ara" data-i18n-aria="search.aria" type="button"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></button>
     <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
@@ -466,37 +486,69 @@
     <div class="hero-slide" style="--img:url('img/slider-04.jpg')"></div>
   </div>
   <div class="hero-nav">
-    <button class="hero-arrow" id="heroPrev" aria-label="Önceki görsel" type="button">‹</button>
-    <button class="hero-arrow" id="heroNext" aria-label="Sonraki görsel" type="button">›</button>
+    <button class="hero-arrow" id="heroPrev" aria-label="Önceki görsel" data-i18n-aria="hero.prev" type="button">‹</button>
+    <button class="hero-arrow" id="heroNext" aria-label="Sonraki görsel" data-i18n-aria="hero.next" type="button">›</button>
   </div>
   <div class="hero-dots" id="heroDots"></div>
-  <p class="hero-tag">Kuruluş 2022 · İstanbul, Türkiye</p>
-  <h1>Mekânı <em>Dönüştüren</em><br>Mimarlık</h1>
-  <p class="hero-sub">Haşimoğlu Mimarlık İnşaat Limited Şirketi olarak; akvaryum tasarımı, konut, ticari ve kültürel yapılarda uçtan uca mimari danışmanlık ve inşaat hizmetleri sunuyoruz.</p>
+  <p class="hero-tag" data-i18n="hero.tag">Kuruluş 2022 · İstanbul, Türkiye</p>
+  <h1 data-i18n="hero.h1">Mekânı <em>Dönüştüren</em><br>Mimarlık</h1>
+  <p class="hero-sub" data-i18n="hero.sub">Haşimoğlu Mimarlık İnşaat Limited Şirketi olarak; akvaryum tasarımı, konut, ticari ve kültürel yapılarda uçtan uca mimari danışmanlık ve inşaat hizmetleri sunuyoruz.</p>
   <div class="hero-cta">
-    <a href="#hizmetler" class="btn-primary">Hizmetlerimiz</a>
-    <a href="#iletisim" class="btn-ghost">Bize Ulaşın</a>
+    <a href="#hizmetler" class="btn-primary" data-i18n="hero.cta1">Hizmetlerimiz</a>
+    <a href="#iletisim" class="btn-ghost" data-i18n="hero.cta2">Bize Ulaşın</a>
   </div>
-  <div class="hero-scroll">Kaydır</div>
+  <div class="hero-scroll" data-i18n="hero.scroll">Kaydır</div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="hakkimizda">
   <div class="about-img-wrap">
-    <img class="about-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="HMİ mimarlık ofisi" decoding="async">
+    <img class="about-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="HMİ mimarlık ofisi" data-i18n-alt="about.imgAlt" decoding="async">
     <div class="about-img-badge">
       <span>2022</span>
-      <span>Kuruluş</span>
+      <span data-i18n="about.badge">Kuruluş</span>
     </div>
   </div>
   <div class="about-text">
-    <p class="section-label">Hakkımızda</p>
-    <h2 class="section-title">Mekânı Anlamlı Kılan<br><em>Mimari</em></h2>
+    <p class="section-label" data-i18n="about.label">Hakkımızda</p>
+    <h2 class="section-title" data-i18n="about.title">Mekânı Anlamlı Kılan<br><em>Mimari</em></h2>
     <div class="divider"></div>
-    <p>Mimarlığı, yalnızca bir yapı üretme süreci değil; mekânın insanla, çevreyle ve zamanla kurduğu ilişkiyi tasarlama disiplini olarak görüyoruz. Akvaryum ve tematik yapılardan konuta, kültürel yapılardan iç mimariye kadar her ölçekte; özgün, sürdürülebilir ve kalıcı değer üreten çözümler geliştiriyoruz.</p>
-    <p>Vizyonumuz; mühendislik titizliğini tasarım cesaretiyle birleştirmek, uluslararası deneyimi yerel bağlama duyarlı ve insan odaklı yapılara dönüştürmektir. Her projeye konseptten uygulamaya kadar tek bir disiplin ve tutarlı bir kalite anlayışıyla yaklaşırız.</p>
-    <p>Kurucu Baş Mimarımız <strong style="color:var(--gold-light)">Yaşar Haşimoğlu</strong>, dünya genelinde büyük ölçekli akvaryum ve tematik yapı projelerinde edindiği derin uzmanlığı stüdyomuza taşır. Ortağımız <strong style="color:var(--gold-light)">Halit Haşimoğlu</strong>'nun villa, rezidans ve tower projelerindeki birikimiyle birlikte; disiplinler arası ve güçlü bir tasarım ekibi oluşturuyoruz.</p>
-    <a href="#iletisim" class="btn-ghost" style="margin-top:24px;display:inline-block">Projenizi Konuşalım →</a>
+    <p data-i18n="about.p1">Mimarlığı, yalnızca bir yapı üretme süreci değil; mekânın insanla, çevreyle ve zamanla kurduğu ilişkiyi tasarlama disiplini olarak görüyoruz. Akvaryum ve tematik yapılardan konuta, kültürel yapılardan iç mimariye kadar her ölçekte; özgün, sürdürülebilir ve kalıcı değer üreten çözümler geliştiriyoruz.</p>
+    <p data-i18n="about.p2">Vizyonumuz; mühendislik titizliğini tasarım cesaretiyle birleştirmek, uluslararası deneyimi yerel bağlama duyarlı ve insan odaklı yapılara dönüştürmektir. Her projeye konseptten uygulamaya kadar tek bir disiplin ve tutarlı bir kalite anlayışıyla yaklaşırız.</p>
+    <p data-i18n="about.p3">Kurucu Baş Mimarımız <strong style="color:var(--gold-light)">Yaşar Haşimoğlu</strong>, dünya genelinde büyük ölçekli akvaryum ve tematik yapı projelerinde edindiği derin uzmanlığı stüdyomuza taşır. Ortağımız <strong style="color:var(--gold-light)">Halit Haşimoğlu</strong>'nun villa, rezidans ve tower projelerindeki birikimiyle birlikte; disiplinler arası ve güçlü bir tasarım ekibi oluşturuyoruz.</p>
+    <a href="#iletisim" class="btn-ghost" style="margin-top:24px;display:inline-block" data-i18n="about.link">Projenizi Konuşalım →</a>
+  </div>
+  <div class="about-flow">
+    <p class="flow-label" data-i18n="flow.label">Konseptten Teslime · Çalışma Akışımız</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></div>
+        <span class="flow-n">01</span>
+        <h4 data-i18n="flow.s1.h">Keşif &amp; Konsept</h4>
+        <p data-i18n="flow.s1.p">İhtiyaç analizi, arsa ve mevzuat değerlendirmesiyle projenin konseptini kurguluyoruz.</p>
+      </div>
+      <div class="flow-line"></div>
+      <div class="flow-step">
+        <div class="flow-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4.5-1.2L20 7.3 16.7 4 5.2 15.5 4 20z"/><path d="M14.5 5.7l3.8 3.8"/></svg></div>
+        <span class="flow-n">02</span>
+        <h4 data-i18n="flow.s2.h">Tasarım &amp; Projelendirme</h4>
+        <p data-i18n="flow.s2.p">Mimari tasarım, 3B görselleştirme ve uygulama projelerini hazırlıyoruz.</p>
+      </div>
+      <div class="flow-line"></div>
+      <div class="flow-step">
+        <div class="flow-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8.5L12 3l8 5.5V21"/><path d="M3 21h18"/><path d="M9.5 21v-5h5v5"/><path d="M9 11h1.5M13.5 11h1.5"/></svg></div>
+        <span class="flow-n">03</span>
+        <h4 data-i18n="flow.s3.h">Uygulama &amp; İnşaat</h4>
+        <p data-i18n="flow.s3.p">Ruhsat süreci, şantiye yönetimi ve kontrollü inşaat uygulamasını yürütüyoruz.</p>
+      </div>
+      <div class="flow-line"></div>
+      <div class="flow-step">
+        <div class="flow-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.8 12.4l2.7 2.7 5.7-6"/></svg></div>
+        <span class="flow-n">04</span>
+        <h4 data-i18n="flow.s4.h">Teslim &amp; Destek</h4>
+        <p data-i18n="flow.s4.p">Kalite kontrol, anahtar teslim ve teslim sonrası sürekli destek sağlıyoruz.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -504,11 +556,11 @@
 <section class="aqua">
   <div class="aqua-bg"></div>
   <div class="aqua-inner">
-    <p class="section-label">Uzmanlık Alanımız</p>
-    <h2>Dünya Çapında<br><em>Akvaryum Mimarlığı</em></h2>
-    <p class="aqua-text">Haşimoğlu Mimarlık; akvaryum ve tematik yapı tasarımında uluslararası ölçekte deneyime sahip bir mimarlık stüdyosudur. Kurucu Baş Mimarımız <strong>Yaşar Haşimoğlu</strong>, Okyanus Akvaryum bünyesinde <strong>Trabzon Akvaryum</strong>, <strong>The National Aquarium Abu Dhabi</strong> ve <strong>Magic Aquarium (Taşkent)</strong> projelerinde mimari ve tasarım sorumluluğunu yürütmüştür.</p>
-    <p class="aqua-text" style="margin-top:-14px;">Tünel akvaryum kurgusu, büyük tonajlı tank tasarımı ve tematik yapı mimarisinde edinilen bu birikim; estetiği, mühendislik disiplinini ve ziyaretçi deneyimini bütüncül bir tasarım anlayışında buluşturur.</p>
-    <a href="hizmetler/akvaryum-tasarimi.html" class="btn-primary">Akvaryum Projelerini İncele →</a>
+    <p class="section-label" data-i18n="aqua.label">Uzmanlık Alanımız</p>
+    <h2 data-i18n="aqua.h2">Dünya Çapında<br><em>Akvaryum Mimarlığı</em></h2>
+    <p class="aqua-text" data-i18n="aqua.p1">Haşimoğlu Mimarlık; akvaryum ve tematik yapı tasarımında uluslararası ölçekte deneyime sahip bir mimarlık stüdyosudur. Kurucu Baş Mimarımız <strong>Yaşar Haşimoğlu</strong>, Okyanus Akvaryum bünyesinde <strong>Trabzon Akvaryum</strong>, <strong>The National Aquarium Abu Dhabi</strong> ve <strong>Magic Aquarium (Taşkent)</strong> projelerinde mimari ve tasarım sorumluluğunu yürütmüştür.</p>
+    <p class="aqua-text" style="margin-top:-14px;" data-i18n="aqua.p2">Tünel akvaryum kurgusu, büyük tonajlı tank tasarımı ve tematik yapı mimarisinde edinilen bu birikim; estetiği, mühendislik disiplinini ve ziyaretçi deneyimini bütüncül bir tasarım anlayışında buluşturur.</p>
+    <a href="hizmetler/akvaryum-tasarimi.html" class="btn-primary" data-i18n="aqua.btn">Akvaryum Projelerini İncele →</a>
   </div>
 </section>
 
@@ -516,53 +568,53 @@
 <section class="services" id="hizmetler">
   <div class="services-header">
     <div>
-      <p class="section-label">Hizmetlerimiz</p>
-      <h2 class="section-title">Mimarlık<br><em>Çözümlerimiz</em></h2>
+      <p class="section-label" data-i18n="svc.label">Hizmetlerimiz</p>
+      <h2 class="section-title" data-i18n="svc.title">Mimarlık<br><em>Çözümlerimiz</em></h2>
     </div>
-    <p class="services-header-right">Konsept geliştirmeden projenin tamamlanmasına kadar her aşamada yanınızdayız.</p>
+    <p class="services-header-right" data-i18n="svc.intro">Konsept geliştirmeden projenin tamamlanmasına kadar her aşamada yanınızdayız.</p>
   </div>
   <div class="services-grid">
     <a class="service-card" href="hizmetler/akvaryum-tasarimi.html">
       <span class="service-num">01</span>
       <div class="service-icon">🐠</div>
-      <h3>Akvaryum Tasarımı</h3>
-      <p>Büyük tonajlı akvaryumlar, tünel akvaryumlar, doğal yaşam parkları ve su altı dekorasyon projeleri için kapsamlı tasarım ve danışmanlık hizmetleri.</p>
-      <span class="more">Detayları İncele →</span>
+      <h3 data-i18n="svc.1.h">Akvaryum Tasarımı</h3>
+      <p data-i18n="svc.1.p">Büyük tonajlı akvaryumlar, tünel akvaryumlar, doğal yaşam parkları ve su altı dekorasyon projeleri için kapsamlı tasarım ve danışmanlık hizmetleri.</p>
+      <span class="more" data-i18n="svc.more">Detayları İncele →</span>
     </a>
     <a class="service-card" href="hizmetler/mimari-tasarim.html">
       <span class="service-num">02</span>
       <div class="service-icon">🏛️</div>
-      <h3>Mimari Tasarım</h3>
-      <p>Konut, ticari, kültürel ve endüstriyel yapılar için yenilikçi, sürdürülebilir ve estetik mimari tasarım hizmetleri.</p>
-      <span class="more">Detayları İncele →</span>
+      <h3 data-i18n="svc.2.h">Mimari Tasarım</h3>
+      <p data-i18n="svc.2.p">Konut, ticari, kültürel ve endüstriyel yapılar için yenilikçi, sürdürülebilir ve estetik mimari tasarım hizmetleri.</p>
+      <span class="more" data-i18n="svc.more">Detayları İncele →</span>
     </a>
     <a class="service-card" href="hizmetler/villa-rezidans-tower.html">
       <span class="service-num">03</span>
       <div class="service-icon">🏙️</div>
-      <h3>Villa & Rezidans & Tower</h3>
-      <p>Lüks villalar, yüksek katlı rezidans ve tower projelerinde konsept geliştirmeden anahtar teslime kadar tam hizmet.</p>
-      <span class="more">Detayları İncele →</span>
+      <h3 data-i18n="svc.3.h">Villa & Rezidans & Tower</h3>
+      <p data-i18n="svc.3.p">Lüks villalar, yüksek katlı rezidans ve tower projelerinde konsept geliştirmeden anahtar teslime kadar tam hizmet.</p>
+      <span class="more" data-i18n="svc.more">Detayları İncele →</span>
     </a>
     <a class="service-card" href="hizmetler/ic-mekan-tasarimi.html">
       <span class="service-num">04</span>
       <div class="service-icon">📐</div>
-      <h3>İç Mekân Tasarımı</h3>
-      <p>Fonksiyonel ve estetik iç mekân çözümleriyle yaşam ve çalışma alanlarınızı dönüştürüyoruz.</p>
-      <span class="more">Detayları İncele →</span>
+      <h3 data-i18n="svc.4.h">İç Mekân Tasarımı</h3>
+      <p data-i18n="svc.4.p">Fonksiyonel ve estetik iç mekân çözümleriyle yaşam ve çalışma alanlarınızı dönüştürüyoruz.</p>
+      <span class="more" data-i18n="svc.more">Detayları İncele →</span>
     </a>
     <a class="service-card" href="hizmetler/kentsel-donusum.html">
       <span class="service-num">05</span>
       <div class="service-icon">🏗️</div>
-      <h3>Kentsel Dönüşüm</h3>
-      <p>Riskli yapı tespiti, yenileme ve dönüşüm projelerinde uzman ekibimizle güvenli ve modern yapılar inşa ediyoruz.</p>
-      <span class="more">Detayları İncele →</span>
+      <h3 data-i18n="svc.5.h">Kentsel Dönüşüm</h3>
+      <p data-i18n="svc.5.p">Riskli yapı tespiti, yenileme ve dönüşüm projelerinde uzman ekibimizle güvenli ve modern yapılar inşa ediyoruz.</p>
+      <span class="more" data-i18n="svc.more">Detayları İncele →</span>
     </a>
     <a class="service-card" href="hizmetler/proje-danismanligi.html">
       <span class="service-num">06</span>
       <div class="service-icon">📋</div>
-      <h3>Proje Danışmanlığı</h3>
-      <p>Fizibilite analizi, ihale süreçleri ve yatırım değerlendirmesi konularında kapsamlı danışmanlık hizmetleri.</p>
-      <span class="more">Detayları İncele →</span>
+      <h3 data-i18n="svc.6.h">Proje Danışmanlığı</h3>
+      <p data-i18n="svc.6.p">Fizibilite analizi, ihale süreçleri ve yatırım değerlendirmesi konularında kapsamlı danışmanlık hizmetleri.</p>
+      <span class="more" data-i18n="svc.more">Detayları İncele →</span>
     </a>
   </div>
 </section>
@@ -571,8 +623,8 @@
 <section class="projects" id="projeler">
   <div class="projects-header">
     <div>
-      <p class="section-label">Projelerimiz</p>
-      <h2 class="section-title">Hayata Geçirdiğimiz<br><em>Çalışma Alanları</em></h2>
+      <p class="section-label" data-i18n="prj.label">Projelerimiz</p>
+      <h2 class="section-title" data-i18n="prj.title">Hayata Geçirdiğimiz<br><em>Çalışma Alanları</em></h2>
     </div>
   </div>
   <div class="pr-strip">
@@ -580,43 +632,43 @@
     <div class="project-card">
       <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Georgia%20Aquarium%20-%20Ocean%20Voyager%20Tunnel%20Jan%202006.jpg?width=1100" alt="Tünel akvaryum tasarım projesi" decoding="async">
       <div class="project-overlay">
-        <p>Akvaryum</p>
-        <h3>Tünel & Dev Akvaryum</h3>
+        <p data-i18n="prj.1.cat">Akvaryum</p>
+        <h3 data-i18n="prj.1.name">Tünel & Dev Akvaryum</h3>
       </div>
     </div>
     <div class="project-card">
       <img src="img/texas-01.jpg" alt="Texas villa projesi" decoding="async">
       <div class="project-overlay">
-        <p>Konut</p>
-        <h3>Texas Villa</h3>
+        <p data-i18n="prj.2.cat">Konut</p>
+        <h3 data-i18n="prj.2.name">Texas Villa</h3>
       </div>
     </div>
     <div class="project-card">
       <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80" alt="Rezidans ve tower projesi" decoding="async">
       <div class="project-overlay">
-        <p>Yüksek Yapı</p>
-        <h3>Rezidans & Tower</h3>
+        <p data-i18n="prj.3.cat">Yüksek Yapı</p>
+        <h3 data-i18n="prj.3.name">Rezidans & Tower</h3>
       </div>
     </div>
     <div class="project-card">
       <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="İç mekân tasarım projesi" decoding="async">
       <div class="project-overlay">
-        <p>İç Mimari</p>
-        <h3>İç Mekân Tasarımı</h3>
+        <p data-i18n="prj.4.cat">İç Mimari</p>
+        <h3 data-i18n="prj.4.name">İç Mekân Tasarımı</h3>
       </div>
     </div>
     <div class="project-card">
       <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=900&q=80" alt="Kentsel dönüşüm projesi" decoding="async">
       <div class="project-overlay">
-        <p>Dönüşüm</p>
-        <h3>Kentsel Dönüşüm</h3>
+        <p data-i18n="prj.5.cat">Dönüşüm</p>
+        <h3 data-i18n="prj.5.name">Kentsel Dönüşüm</h3>
       </div>
     </div>
     <div class="project-card">
       <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=80" alt="Ticari ve kültürel yapı projesi" decoding="async">
       <div class="project-overlay">
-        <p>Ticari</p>
-        <h3>Ticari & Kültürel Yapı</h3>
+        <p data-i18n="prj.6.cat">Ticari</p>
+        <h3 data-i18n="prj.6.name">Ticari & Kültürel Yapı</h3>
       </div>
     </div>
   </div>
@@ -626,69 +678,69 @@
 <!-- BIM & REVIT -->
 <section class="bim" id="bim">
   <div>
-    <p class="section-label">Uzmanlık</p>
-    <h2 class="section-title">BIM &amp; Revit ile<br><em>Mimari Modelleme</em></h2>
+    <p class="section-label" data-i18n="bim.label">Uzmanlık</p>
+    <h2 class="section-title" data-i18n="bim.title">BIM &amp; Revit ile<br><em>Mimari Modelleme</em></h2>
     <div class="divider"></div>
   </div>
   <div class="bim-wrap">
     <div class="bim-text">
-      <p class="lead2">Projelerimizi BIM (Yapı Bilgi Modellemesi) metodolojisiyle, <strong style="color:var(--gold-light)">Autodesk Revit</strong> üzerinde uçtan uca üretiyoruz. En güçlü olduğumuz alan <strong style="color:var(--gold-light)">mimari Revit modelleme</strong>: kavramsal kütleden uygulama projesine, cephe ve detaylardan ruhsat paftalarına kadar tüm aşamalar tek ve tutarlı bir model üzerinden yürütülür.</p>
+      <p class="lead2" data-i18n="bim.lead">Projelerimizi BIM (Yapı Bilgi Modellemesi) metodolojisiyle, <strong style="color:var(--gold-light)">Autodesk Revit</strong> üzerinde uçtan uca üretiyoruz. En güçlü olduğumuz alan <strong style="color:var(--gold-light)">mimari Revit modelleme</strong>: kavramsal kütleden uygulama projesine, cephe ve detaylardan ruhsat paftalarına kadar tüm aşamalar tek ve tutarlı bir model üzerinden yürütülür.</p>
       <ul class="bim-list">
-        <li><strong>Mimari Revit Modelleme</strong> — kütle, kat planları, cephe, kesit, detay, ruhsat paftaları ve gerçekçi görselleştirme. (Ana uzmanlık alanımız.)</li>
-        <li><strong>Statik / Yapısal Revit</strong> — taşıyıcı sistem modeli, kalıp & donatı, mimari–statik koordinasyon ve analiz modeline veri aktarımı.</li>
-        <li><strong>Disiplinler Arası Koordinasyon</strong> — mimari, statik ve mekanik modellerin birleştirilmesi, çakışma (clash) kontrolü.</li>
-        <li><strong>Family &amp; Şablon Geliştirme</strong> — projeye özel Revit Family kütüphaneleri, ofis standardı şablonlar ve LOD yönetimi.</li>
-        <li><strong>Metraj &amp; Dokümantasyon</strong> — modelden otomatik miktar/metraj çıkarımı ve eksiksiz pafta üretimi.</li>
+        <li data-i18n="bim.li1"><strong>Mimari Revit Modelleme</strong> — kütle, kat planları, cephe, kesit, detay, ruhsat paftaları ve gerçekçi görselleştirme. (Ana uzmanlık alanımız.)</li>
+        <li data-i18n="bim.li2"><strong>Statik / Yapısal Revit</strong> — taşıyıcı sistem modeli, kalıp & donatı, mimari–statik koordinasyon ve analiz modeline veri aktarımı.</li>
+        <li data-i18n="bim.li3"><strong>Disiplinler Arası Koordinasyon</strong> — mimari, statik ve mekanik modellerin birleştirilmesi, çakışma (clash) kontrolü.</li>
+        <li data-i18n="bim.li4"><strong>Family &amp; Şablon Geliştirme</strong> — projeye özel Revit Family kütüphaneleri, ofis standardı şablonlar ve LOD yönetimi.</li>
+        <li data-i18n="bim.li5"><strong>Metraj &amp; Dokümantasyon</strong> — modelden otomatik miktar/metraj çıkarımı ve eksiksiz pafta üretimi.</li>
       </ul>
       <div class="bim-cta">
-        <a href="hizmetler/bim-revit.html" class="btn-primary">Detaylı Bilgi</a>
-        <a href="#iletisim" class="btn-ghost">Teklif Alın</a>
+        <a href="hizmetler/bim-revit.html" class="btn-primary" data-i18n="bim.btn">Detaylı Bilgi</a>
+        <a href="#iletisim" class="btn-ghost" data-i18n="btn.quote">Teklif Alın</a>
       </div>
     </div>
     <div class="bim-figure">
       <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1100&q=80" alt="Bilgisayar üzerinde BIM / Revit modelleme ve koordinasyon" decoding="async">
-      <p class="cap">Revit · Mimari Modelleme &amp; Dokümantasyon</p>
+      <p class="cap" data-i18n="bim.cap">Revit · Mimari Modelleme &amp; Dokümantasyon</p>
     </div>
   </div>
 </section>
 
 <!-- REVIT MIMARI PROJELER -->
 <section class="revit" id="revit-projeler">
-  <p class="section-label">Revit</p>
-  <h2 class="section-title">Revit Mimari Proje<br><em>Çalışmalarımız</em></h2>
+  <p class="section-label" data-i18n="rv.label">Revit</p>
+  <h2 class="section-title" data-i18n="rv.title">Revit Mimari Proje<br><em>Çalışmalarımız</em></h2>
   <div class="rv-strip">
   <div class="rv-track" id="rvTrack">
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" alt="Rezidans bloğu mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Konut · Mimari Revit</span><span class="n">Rezidans Bloğu</span><span class="m">Yaklaşık 14.500 m² · LOD 350</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.1.t">Konut · Mimari Revit</span><span class="n" data-i18n="rv.1.n">Rezidans Bloğu</span><span class="m" data-i18n="rv.1.m">Yaklaşık 14.500 m² · LOD 350</span></div>
     </div>
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Ofis kulesi mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Yüksek Yapı · Mimari Revit</span><span class="n">Ofis Kulesi</span><span class="m">Yaklaşık 32.000 m² · LOD 350</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.2.t">Yüksek Yapı · Mimari Revit</span><span class="n" data-i18n="rv.2.n">Ofis Kulesi</span><span class="m" data-i18n="rv.2.m">Yaklaşık 32.000 m² · LOD 350</span></div>
     </div>
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80" alt="Karma kullanım AVM mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Karma Kullanım · Mimari + Koordinasyon</span><span class="n">AVM &amp; Çarşı</span><span class="m">Yaklaşık 46.000 m²</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.3.t">Karma Kullanım · Mimari + Koordinasyon</span><span class="n" data-i18n="rv.3.n">AVM &amp; Çarşı</span><span class="m" data-i18n="rv.3.m">Yaklaşık 46.000 m²</span></div>
     </div>
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" alt="Lüks villa mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Konut · Mimari Revit &amp; Detay</span><span class="n">Lüks Villa</span><span class="m">Yaklaşık 1.250 m²</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.4.t">Konut · Mimari Revit &amp; Detay</span><span class="n" data-i18n="rv.4.n">Lüks Villa</span><span class="m" data-i18n="rv.4.m">Yaklaşık 1.250 m²</span></div>
     </div>
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=800&q=80" alt="Kültür merkezi mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Kültürel Yapı · Mimari Revit</span><span class="n">Kültür Merkezi</span><span class="m">Yaklaşık 8.400 m²</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.5.t">Kültürel Yapı · Mimari Revit</span><span class="n" data-i18n="rv.5.n">Kültür Merkezi</span><span class="m" data-i18n="rv.5.m">Yaklaşık 8.400 m²</span></div>
     </div>
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&q=80" alt="Akvaryum yapısı mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Tematik Yapı · Mimari Revit</span><span class="n">Akvaryum Yapısı</span><span class="m">Yaklaşık 6.800 m²</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.6.t">Tematik Yapı · Mimari Revit</span><span class="n" data-i18n="rv.6.n">Akvaryum Yapısı</span><span class="m" data-i18n="rv.6.m">Yaklaşık 6.800 m²</span></div>
     </div>
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?w=800&q=80" alt="Kentsel dönüşüm konut sitesi mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Kentsel Dönüşüm · Mimari Revit</span><span class="n">Konut Sitesi</span><span class="m">Yaklaşık 22.000 m²</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.7.t">Kentsel Dönüşüm · Mimari Revit</span><span class="n" data-i18n="rv.7.n">Konut Sitesi</span><span class="m" data-i18n="rv.7.m">Yaklaşık 22.000 m²</span></div>
     </div>
     <div class="rv-card">
       <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Otel mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t">Konaklama · Mimari Revit</span><span class="n">Otel</span><span class="m">Yaklaşık 17.500 m²</span></div>
+      <div class="rv-ov"><span class="t" data-i18n="rv.8.t">Konaklama · Mimari Revit</span><span class="n" data-i18n="rv.8.n">Otel</span><span class="m" data-i18n="rv.8.m">Yaklaşık 17.500 m²</span></div>
     </div>
   </div>
   </div>
@@ -696,7 +748,7 @@
 
 <!-- REFERENCES -->
 <div class="references">
-  <p class="ref-title">Çalıştığımız Firmalar</p>
+  <p class="ref-title" data-i18n="ref.title">Çalıştığımız Firmalar</p>
   <div class="ref-grid">
     <a class="ref-item" href="https://www.okyanusakvaryum.com.tr/" target="_blank" rel="noopener">
       <div class="ref-logo">OA</div>
@@ -708,63 +760,63 @@
 <!-- TEAMS TOPLANTI -->
 <section class="contact" id="iletisim">
   <div>
-    <p class="section-label">İletişim</p>
-    <h2 class="section-title">Projenizi<br><em>Konuşalım</em></h2>
+    <p class="section-label" data-i18n="ct.label">İletişim</p>
+    <h2 class="section-title" data-i18n="ct.title">Projenizi<br><em>Konuşalım</em></h2>
     <div class="divider"></div>
     <div class="contact-info-item" style="margin-bottom:26px;">
-      <p class="label">Online Danışmanlık</p>
-      <p class="value">Projeniz için uzman ekibimizle çevrimiçi danışmanlık görüşmesi planlayın. Size uygun zamanı seçin; Google Meet bağlantısı e-posta adresinize iletilsin.</p>
+      <p class="label" data-i18n="ct.online.label">Online Danışmanlık</p>
+      <p class="value" data-i18n="ct.online.value">Projeniz için uzman ekibimizle çevrimiçi danışmanlık görüşmesi planlayın. Size uygun zamanı seçin; Google Meet bağlantısı e-posta adresinize iletilsin.</p>
     </div>
     <div class="contact-cta">
-      <a href="https://calendar.app.google/C3Sr6DfDdFUz5ar97" target="_blank" rel="noopener" class="btn-primary">Online Görüşme Planla →</a>
+      <a href="https://calendar.app.google/C3Sr6DfDdFUz5ar97" target="_blank" rel="noopener" class="btn-primary" data-i18n="ct.online.btn">Online Görüşme Planla →</a>
     </div>
   </div>
   <div>
-    <p class="section-label" style="margin-bottom:32px">Mesaj Gönderin</p>
+    <p class="section-label" style="margin-bottom:32px" data-i18n="ct.msg.label">Mesaj Gönderin</p>
     <div class="contact-form">
       <form action="https://formspree.io/f/mbdwlwgd" method="POST" id="contactForm">
         <div class="form-row">
-          <div class="form-group"><label>Ad Soyad</label><input type="text" name="ad_soyad" placeholder="Adınız" required></div>
-          <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+90"></div>
+          <div class="form-group"><label data-i18n="ct.f.name">Ad Soyad</label><input type="text" name="ad_soyad" placeholder="Adınız" data-i18n-ph="ct.f.namePh" required></div>
+          <div class="form-group"><label data-i18n="ct.f.phone">Telefon</label><input type="tel" name="telefon" placeholder="+90"></div>
         </div>
         <div class="form-group">
-          <label>E-posta</label>
+          <label data-i18n="ct.f.email">E-posta</label>
           <div class="email-field">
-            <input type="text" id="emailLocal" placeholder="kullanıcı adınız" autocomplete="off" required>
-            <select id="emailDomain" aria-label="E-posta sağlayıcısı">
+            <input type="text" id="emailLocal" placeholder="kullanıcı adınız" data-i18n-ph="ct.f.emailPh" autocomplete="off" required>
+            <select id="emailDomain" aria-label="E-posta sağlayıcısı" data-i18n-aria="ct.f.emailProvider">
               <option value="@gmail.com">@gmail.com</option>
               <option value="@hotmail.com">@hotmail.com</option>
               <option value="@outlook.com">@outlook.com</option>
               <option value="@icloud.com">@icloud.com</option>
               <option value="@yahoo.com">@yahoo.com</option>
               <option value="@yandex.com">@yandex.com</option>
-              <option value="__other">Diğer…</option>
+              <option value="__other" data-i18n="ct.f.other">Diğer…</option>
             </select>
             <input type="text" id="emailDomainOther" placeholder="alanadi.com" style="display:none;">
           </div>
           <input type="hidden" name="email" id="emailFull">
         </div>
         <div class="form-group">
-          <label>Proje Türü</label>
+          <label data-i18n="ct.f.ptype">Proje Türü</label>
           <select name="proje_turu">
-            <option value="">Seçiniz</option>
-            <option>Akvaryum Tasarımı</option>
-            <option>Konut Projesi</option>
-            <option>Villa / Rezidans / Tower</option>
-            <option>Ticari Proje</option>
-            <option>Kentsel Dönüşüm</option>
-            <option>İç Mekân Tasarımı</option>
-            <option>Danışmanlık</option>
+            <option value="" data-i18n="ct.f.ptype.0">Seçiniz</option>
+            <option value="Akvaryum Tasarımı" data-i18n="ct.f.ptype.1">Akvaryum Tasarımı</option>
+            <option value="Konut Projesi" data-i18n="ct.f.ptype.2">Konut Projesi</option>
+            <option value="Villa / Rezidans / Tower" data-i18n="ct.f.ptype.3">Villa / Rezidans / Tower</option>
+            <option value="Ticari Proje" data-i18n="ct.f.ptype.4">Ticari Proje</option>
+            <option value="Kentsel Dönüşüm" data-i18n="ct.f.ptype.5">Kentsel Dönüşüm</option>
+            <option value="İç Mekân Tasarımı" data-i18n="ct.f.ptype.6">İç Mekân Tasarımı</option>
+            <option value="Danışmanlık" data-i18n="ct.f.ptype.7">Danışmanlık</option>
           </select>
         </div>
-        <div class="form-group"><label>Mesajınız</label><textarea name="mesaj" placeholder="Projenizi kısaca anlatın…" required></textarea></div>
+        <div class="form-group"><label data-i18n="ct.f.msg">Mesajınız</label><textarea name="mesaj" placeholder="Projenizi kısaca anlatın…" data-i18n-ph="ct.f.msgPh" required></textarea></div>
         <div style="margin:6px 0 4px;display:flex;flex-direction:column;gap:12px;">
-          <label class="kvkk-check"><input type="checkbox" name="kvkk_onay" value="Onaylandı" required><span><button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button>'ni okudum ve onaylıyorum.</span></label>
-          <label class="kvkk-check"><input type="checkbox" name="bulten" value="Evet"><span>Bülten ve duyurulardan haberdar olmak istiyorum. (İsteğe bağlı)</span></label>
+          <label class="kvkk-check"><input type="checkbox" name="kvkk_onay" value="Onaylandı" required><span><button type="button" class="kvkk-link" data-i18n="ct.kvkk.link">KVKK Aydınlatma Metni</button><span data-i18n="ct.kvkk.rest">'ni okudum ve onaylıyorum.</span></span></label>
+          <label class="kvkk-check"><input type="checkbox" name="bulten" value="Evet"><span data-i18n="ct.kvkk.news">Bülten ve duyurulardan haberdar olmak istiyorum. (İsteğe bağlı)</span></label>
         </div>
-        <button type="submit" class="btn-primary" style="width:100%;font-size:.75rem">Mesaj Gönder</button>
+        <button type="submit" class="btn-primary" style="width:100%;font-size:.75rem" data-i18n="ct.submit">Mesaj Gönder</button>
       </form>
-      <div id="successMsg" style="display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);color:var(--gold);font-size:.85rem;text-align:center;">✅ Mesajınız alındı! En kısa sürede size dönüş yapacağız.</div>
+      <div id="successMsg" style="display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);color:var(--gold);font-size:.85rem;text-align:center;" data-i18n="ct.success">✅ Mesajınız alındı! En kısa sürede size dönüş yapacağız.</div>
     </div>
   </div>
 </section>
@@ -772,37 +824,37 @@
 <!-- KONUMLAR -->
 <section class="locations" id="konumlar">
   <div class="loc-head">
-    <p class="section-label">Konumlarımız</p>
-    <h2 class="section-title">Merkez Ofis ve<br><em>Şubelerimiz</em></h2>
+    <p class="section-label" data-i18n="loc.label">Konumlarımız</p>
+    <h2 class="section-title" data-i18n="loc.title">Merkez Ofis ve<br><em>Şubelerimiz</em></h2>
   </div>
   <div class="loc-grid">
     <div class="loc-card">
-      <iframe src="https://www.google.com/maps?q=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Merkez Ofis konumu"></iframe>
+      <iframe src="https://www.google.com/maps?q=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Merkez Ofis konumu" data-i18n-title="loc.1.maptitle"></iframe>
       <div class="loc-body">
-        <p class="loc-tag">Merkez Ofis</p>
-        <p class="loc-name">Ataşehir / İstanbul</p>
-        <p class="loc-func">Muhasebe Departmanı &amp; İnsan Kaynakları</p>
+        <p class="loc-tag" data-i18n="loc.1.tag">Merkez Ofis</p>
+        <p class="loc-name" data-i18n="loc.1.name">Ataşehir / İstanbul</p>
+        <p class="loc-func" data-i18n="loc.1.func">Muhasebe Departmanı &amp; İnsan Kaynakları</p>
         <p class="loc-addr">Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B, İç Kapı No:376, 34764 Ataşehir / İstanbul</p>
-        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul" target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul" target="_blank" rel="noopener" data-i18n="loc.dir">📍 Yol Tarifi Al</a>
       </div>
     </div>
     <div class="loc-card">
-      <iframe src="https://www.google.com/maps?q=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ümraniye şubesi konumu"></iframe>
+      <iframe src="https://www.google.com/maps?q=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ümraniye şubesi konumu" data-i18n-title="loc.2.maptitle"></iframe>
       <div class="loc-body">
-        <p class="loc-tag">Şube</p>
-        <p class="loc-name">Ümraniye / İstanbul</p>
-        <p class="loc-func">Mimari Departman · Mühendislik Ofisi · Ön Muhasebe</p>
+        <p class="loc-tag" data-i18n="loc.2.tag">Şube</p>
+        <p class="loc-name" data-i18n="loc.2.name">Ümraniye / İstanbul</p>
+        <p class="loc-func" data-i18n="loc.2.func">Mimari Departman · Mühendislik Ofisi · Ön Muhasebe</p>
         <p class="loc-addr">Tepeüstü, Çayırbaşı Sk. No:9, Okyanus Akvaryum Binası 1. Kat, 34771 Ümraniye / İstanbul</p>
-        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul" target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul" target="_blank" rel="noopener" data-i18n="loc.dir">📍 Yol Tarifi Al</a>
       </div>
     </div>
     <div class="loc-card">
-      <iframe src="https://www.google.com/maps?q=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eskişehir şubesi konumu"></iframe>
+      <iframe src="https://www.google.com/maps?q=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eskişehir şubesi konumu" data-i18n-title="loc.3.maptitle"></iframe>
       <div class="loc-body">
-        <p class="loc-tag">Şube</p>
-        <p class="loc-name">Odunpazarı / Eskişehir</p>
-        <p class="loc-addr">75. Yıl Mah. 75. Yıl OSB, 2007. Cadde No:14, Dekor Safari Fabrikası, 26250 Odunpazarı / Eskişehir<span class="note">Toplantı ve görüşmeler randevu ile yapılır</span></p>
-        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir" target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+        <p class="loc-tag" data-i18n="loc.3.tag">Şube</p>
+        <p class="loc-name" data-i18n="loc.3.name">Odunpazarı / Eskişehir</p>
+        <p class="loc-addr">75. Yıl Mah. 75. Yıl OSB, 2007. Cadde No:14, Dekor Safari Fabrikası, 26250 Odunpazarı / Eskişehir<span class="note" data-i18n="loc.3.note">Toplantı ve görüşmeler randevu ile yapılır</span></p>
+        <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&destination=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir" target="_blank" rel="noopener" data-i18n="loc.dir">📍 Yol Tarifi Al</a>
       </div>
     </div>
   </div>
@@ -813,7 +865,7 @@
   <div class="footer-top">
     <div>
       <a href="#" class="logo"><span class="logo-abbr">HMİ</span></a>
-      <p class="footer-tagline">Haşimoğlu Mimarlık İnşaat Ltd. Şti. — Mekânı dönüştüren mimarlık.</p>
+      <p class="footer-tagline" data-i18n="ft.tagline">Haşimoğlu Mimarlık İnşaat Ltd. Şti. — Mekânı dönüştüren mimarlık.</p>
       <div class="social-links">
         <a href="https://www.instagram.com/hmi.mimarlik/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
         <a href="https://www.linkedin.com/company/hmimar/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
@@ -822,23 +874,23 @@
     </div>
     <div class="footer-nav">
       <div class="footer-nav-col">
-        <h4>Kurumsal</h4>
+        <h4 data-i18n="ft.col1.h">Kurumsal</h4>
         <ul>
-          <li><a href="#hakkimizda">Hakkımızda</a></li>
-          <li><a href="ekip.html">Ekibimiz</a></li>
+          <li><a href="#hakkimizda" data-i18n="ft.col1.a1">Hakkımızda</a></li>
+          <li><a href="ekip.html" data-i18n="ft.col1.a2">Ekibimiz</a></li>
         </ul>
       </div>
       <div class="footer-nav-col">
-        <h4>Hizmetler</h4>
+        <h4 data-i18n="ft.col2.h">Hizmetler</h4>
         <ul>
-          <li><a href="#hizmetler">Akvaryum Tasarımı</a></li>
-          <li><a href="#hizmetler">Mimari Tasarım</a></li>
-          <li><a href="#hizmetler">Villa & Tower</a></li>
-          <li><a href="#hizmetler">Kentsel Dönüşüm</a></li>
+          <li><a href="#hizmetler" data-i18n="ft.col2.a1">Akvaryum Tasarımı</a></li>
+          <li><a href="#hizmetler" data-i18n="ft.col2.a2">Mimari Tasarım</a></li>
+          <li><a href="#hizmetler" data-i18n="ft.col2.a3">Villa & Tower</a></li>
+          <li><a href="#hizmetler" data-i18n="ft.col2.a4">Kentsel Dönüşüm</a></li>
         </ul>
       </div>
       <div class="footer-nav-col">
-        <h4>İletişim</h4>
+        <h4 data-i18n="ft.col3.h">İletişim</h4>
         <ul>
           <li><a href="tel:+905416085292">+90 541 608 52 92</a></li>
           <li><a href="tel:+905421754133">+90 542 175 41 33</a></li>
@@ -848,8 +900,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2022–2026 Haşimoğlu Mimarlık İnşaat Limited Şirketi — Tüm hakları saklıdır.</p>
-    <p><button type="button" class="kvkk-link">KVKK Aydınlatma Metni</button></p>
+    <p data-i18n="ft.bottom">© 2022–2026 Haşimoğlu Mimarlık İnşaat Limited Şirketi — Tüm hakları saklıdır.</p>
+    <p><button type="button" class="kvkk-link" data-i18n="ft.kvkk">KVKK Aydınlatma Metni</button></p>
   </div>
 </footer>
 
@@ -857,14 +909,14 @@
 <div class="kvkk-modal" id="kvkkModal" role="dialog" aria-modal="true" aria-label="KVKK Aydınlatma Metni">
   <div class="kvkk-panel">
     <header>
-      <h3>İletişim Formu'nda İşlenen Kişisel Verilere İlişkin Aydınlatma Metni</h3>
-      <button type="button" class="kvkk-close" id="kvkkClose" aria-label="Kapat">×</button>
+      <h3 data-i18n="kv.title">İletişim Formu'nda İşlenen Kişisel Verilere İlişkin Aydınlatma Metni</h3>
+      <button type="button" class="kvkk-close" id="kvkkClose" aria-label="Kapat" data-i18n-aria="kv.close">×</button>
     </header>
     <div class="kvkk-body">
-      <p>İşbu aydınlatma metni, veri sorumlusu sıfatıyla hareket eden <strong>Haşimoğlu Mimarlık İnşaat Ltd. Şti.</strong> tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi ile Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ çerçevesinde, kişisel verilerinizin işlenme amaçları, hukuki nedenleri, toplanma yöntemi, kimlere aktarılabileceği ve KVKK kapsamındaki haklarınız konularına ilişkin olarak sizleri bilgilendirmek amacıyla hazırlanmıştır.</p>
-      <p>İnternet sitemizdeki İletişim ve Randevu Formu aracılığıyla paylaştığınız ad, soyadı, e-posta, telefon vb. kişisel verileriniz; şirketimiz tarafından sunulan ürün ve hizmetlerden ilgili kişileri faydalandırmak için gerekli çalışmaların iş birimleri tarafından yapılması, ilgili iş süreçlerinin yürütülmesi ve başvuruda bulunduğunuz konu hakkında sizinle iletişim kurulabilmesi amaçlarıyla işlenmektedir. Ayrıca işbu form ile paylaştığınız bilgiler üzerinde mutlak bir kontrolümüz bulunmamaktadır. Bilmemizi istemediğiniz kişisel verilerinizi ve özel nitelikli kişisel verilerinizi Şirketimizle paylaşmamanızı tavsiye ederiz.</p>
-      <p>Söz konusu kişisel veriler, KVKK'nın 5. maddesinde yer alan "ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması" ve "veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması" hukuki sebeplerine dayanarak otomatik yolla işlenmektedir ve sadece hukuki uyuşmazlıklarda ilgili yargı mercileriyle paylaşılacaktır.</p>
-      <p>Kanun'un ilgili kişinin haklarını düzenleyen 11. maddesi kapsamındaki taleplerinizi, "Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ"e göre, <strong>Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B İç Kapı No:376, 34764 Ataşehir / İstanbul</strong> adresine yazılı olarak gönderebilir veya <strong>info@hmimar.com</strong> e-posta adresine iletebilirsiniz.</p>
+      <p data-i18n="kv.p1">İşbu aydınlatma metni, veri sorumlusu sıfatıyla hareket eden <strong>Haşimoğlu Mimarlık İnşaat Ltd. Şti.</strong> tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi ile Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ çerçevesinde, kişisel verilerinizin işlenme amaçları, hukuki nedenleri, toplanma yöntemi, kimlere aktarılabileceği ve KVKK kapsamındaki haklarınız konularına ilişkin olarak sizleri bilgilendirmek amacıyla hazırlanmıştır.</p>
+      <p data-i18n="kv.p2">İnternet sitemizdeki İletişim ve Randevu Formu aracılığıyla paylaştığınız ad, soyadı, e-posta, telefon vb. kişisel verileriniz; şirketimiz tarafından sunulan ürün ve hizmetlerden ilgili kişileri faydalandırmak için gerekli çalışmaların iş birimleri tarafından yapılması, ilgili iş süreçlerinin yürütülmesi ve başvuruda bulunduğunuz konu hakkında sizinle iletişim kurulabilmesi amaçlarıyla işlenmektedir. Ayrıca işbu form ile paylaştığınız bilgiler üzerinde mutlak bir kontrolümüz bulunmamaktadır. Bilmemizi istemediğiniz kişisel verilerinizi ve özel nitelikli kişisel verilerinizi Şirketimizle paylaşmamanızı tavsiye ederiz.</p>
+      <p data-i18n="kv.p3">Söz konusu kişisel veriler, KVKK'nın 5. maddesinde yer alan "ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması" ve "veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması" hukuki sebeplerine dayanarak otomatik yolla işlenmektedir ve sadece hukuki uyuşmazlıklarda ilgili yargı mercileriyle paylaşılacaktır.</p>
+      <p data-i18n="kv.p4">Kanun'un ilgili kişinin haklarını düzenleyen 11. maddesi kapsamındaki taleplerinizi, "Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ"e göre, <strong>Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B İç Kapı No:376, 34764 Ataşehir / İstanbul</strong> adresine yazılı olarak gönderebilir veya <strong>info@hmimar.com</strong> e-posta adresine iletebilirsiniz.</p>
     </div>
   </div>
 </div>
@@ -874,8 +926,8 @@
   <div class="search-box">
     <div class="search-bar">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
-      <input type="text" id="searchInput" placeholder="Sitede ara: akvaryum, Revit, ekip, iletişim…" autocomplete="off">
-      <button type="button" class="search-close" id="searchClose" aria-label="Aramayı kapat">×</button>
+      <input type="text" id="searchInput" placeholder="Sitede ara: akvaryum, Revit, ekip, iletişim…" data-i18n-ph="search.ph" autocomplete="off">
+      <button type="button" class="search-close" id="searchClose" aria-label="Aramayı kapat" data-i18n-aria="search.close">×</button>
     </div>
     <div class="search-results" id="searchResults"></div>
   </div>
@@ -1093,5 +1145,301 @@
   sRes.addEventListener('click', e => { if (e.target.closest('a')) closeSearch(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
 </script>
+
+<script>
+window.HMI_I18N = {
+  en: {
+    'meta.title': "Haşimoğlu Architecture & Construction | İstanbul, Bursa, Eskişehir, Trabzon",
+    'search.aria': "Search the site",
+    'search.ph': "Search the site: aquarium, Revit, team, contact…",
+    'search.close': "Close search",
+    'toptop.aria': "Back to top",
+    'toptop.title': "Back to top",
+    'hero.prev': "Previous image",
+    'hero.next': "Next image",
+    'hero.tag': "Established 2022 · İstanbul, Türkiye",
+    'hero.h1': "Architecture That <em>Transforms</em><br>Space",
+    'hero.sub': "As Haşimoğlu Mimarlık İnşaat Limited Şirketi, we deliver end-to-end architectural consultancy and construction services across aquarium design, residential, commercial and cultural buildings.",
+    'hero.cta1': "Our Services",
+    'hero.cta2': "Get in Touch",
+    'hero.scroll': "Scroll",
+    'about.imgAlt': "HMİ architecture office",
+    'about.badge': "Established",
+    'about.label': "About Us",
+    'about.title': "Architecture That Gives<br><em>Space Meaning</em>",
+    'about.p1': "We see architecture not merely as the process of producing a building, but as the discipline of designing the relationship a space builds with people, the environment and time. From aquariums and themed structures to housing, from cultural buildings to interiors, we develop original, sustainable solutions that create lasting value at every scale.",
+    'about.p2': "Our vision is to combine engineering precision with design courage, and to turn international experience into human-centred buildings that stay sensitive to their local context. We approach every project from concept to completion under a single discipline and a consistent understanding of quality.",
+    'about.p3': "Our Founding Chief Architect <strong>Yaşar Haşimoğlu</strong> brings to our studio deep expertise gained on large-scale aquarium and themed-structure projects worldwide. Together with the experience of our partner <strong>Halit Haşimoğlu</strong> in villa, residence and tower projects, we form a strong, multidisciplinary design team.",
+    'about.link': "Let's Discuss Your Project →",
+    'flow.label': "From Concept to Delivery · Our Workflow",
+    'flow.s1.h': "Discovery & Concept",
+    'flow.s1.p': "We shape the project concept through needs analysis and assessment of the site and regulations.",
+    'flow.s2.h': "Design & Drafting",
+    'flow.s2.p': "We prepare the architectural design, 3D visualisation and construction drawings.",
+    'flow.s3.h': "Implementation & Construction",
+    'flow.s3.p': "We manage the permit process, site supervision and controlled construction.",
+    'flow.s4.h': "Delivery & Support",
+    'flow.s4.p': "We provide quality control, turnkey handover and continuous post-delivery support.",
+    'aqua.label': "Our Field of Expertise",
+    'aqua.h2': "World-Class<br><em>Aquarium Architecture</em>",
+    'aqua.p1': "Haşimoğlu Mimarlık is an architecture studio with international-scale experience in aquarium and themed-structure design. Our Founding Chief Architect <strong>Yaşar Haşimoğlu</strong> has carried the architectural and design responsibility for the <strong>Trabzon Aquarium</strong>, <strong>The National Aquarium Abu Dhabi</strong> and <strong>Magic Aquarium (Tashkent)</strong> projects within Okyanus Akvaryum.",
+    'aqua.p2': "This expertise — gained in tunnel-aquarium layout, large-volume tank design and themed-structure architecture — unites aesthetics, engineering discipline and the visitor experience within a holistic design approach.",
+    'aqua.btn': "Explore Aquarium Projects →",
+    'svc.label': "Our Services",
+    'svc.title': "Our Architectural<br><em>Solutions</em>",
+    'svc.intro': "From concept development to project completion, we are with you at every stage.",
+    'svc.1.h': "Aquarium Design",
+    'svc.1.p': "Comprehensive design and consultancy services for large-volume aquariums, tunnel aquariums, wildlife parks and underwater décor projects.",
+    'svc.2.h': "Architectural Design",
+    'svc.2.p': "Innovative, sustainable and aesthetic architectural design services for residential, commercial, cultural and industrial buildings.",
+    'svc.3.h': "Villa & Residence & Tower",
+    'svc.3.p': "Full service from concept development to turnkey delivery for luxury villas, high-rise residences and tower projects.",
+    'svc.4.h': "Interior Design",
+    'svc.4.p': "We transform your living and working spaces with functional and aesthetic interior solutions.",
+    'svc.5.h': "Urban Transformation",
+    'svc.5.p': "With our expert team, we build safe and modern structures in risky-building assessment, renovation and transformation projects.",
+    'svc.6.h': "Project Consultancy",
+    'svc.6.p': "Comprehensive consultancy services in feasibility analysis, tender processes and investment assessment.",
+    'svc.more': "View Details →",
+    'prj.label': "Our Projects",
+    'prj.title': "The Spaces We<br><em>Have Brought to Life</em>",
+    'prj.1.cat': "Aquarium", 'prj.1.name': "Tunnel & Giant Aquarium",
+    'prj.2.cat': "Residential", 'prj.2.name': "Texas Villa",
+    'prj.3.cat': "High-Rise", 'prj.3.name': "Residence & Tower",
+    'prj.4.cat': "Interior", 'prj.4.name': "Interior Design",
+    'prj.5.cat': "Transformation", 'prj.5.name': "Urban Transformation",
+    'prj.6.cat': "Commercial", 'prj.6.name': "Commercial & Cultural Building",
+    'bim.label': "Expertise",
+    'bim.title': "Architectural Modelling<br>with <em>BIM & Revit</em>",
+    'bim.lead': "We produce our projects end-to-end with the BIM (Building Information Modelling) methodology on <strong>Autodesk Revit</strong>. Our strongest area is <strong>architectural Revit modelling</strong>: from conceptual massing to construction drawings, from façades and details to permit sheets, every stage is carried out on a single, consistent model.",
+    'bim.li1': "<strong>Architectural Revit Modelling</strong> — massing, floor plans, façades, sections, details, permit sheets and realistic visualisation. (Our core area of expertise.)",
+    'bim.li2': "<strong>Structural Revit</strong> — load-bearing system model, formwork & reinforcement, architectural–structural coordination and data transfer to the analysis model.",
+    'bim.li3': "<strong>Cross-Disciplinary Coordination</strong> — merging of architectural, structural and mechanical models, clash detection and resolution.",
+    'bim.li4': "<strong>Family & Template Development</strong> — project-specific Revit Family libraries, office-standard templates and LOD management.",
+    'bim.li5': "<strong>Quantity Take-off & Documentation</strong> — automatic quantity extraction from the model and complete sheet production.",
+    'bim.btn': "Learn More",
+    'bim.cap': "Revit · Architectural Modelling & Documentation",
+    'rv.label': "Revit",
+    'rv.title': "Our Revit Architectural<br><em>Project Work</em>",
+    'rv.1.t': "Residential · Architectural Revit", 'rv.1.n': "Residential Block", 'rv.1.m': "Approx. 14,500 m² · LOD 350",
+    'rv.2.t': "High-Rise · Architectural Revit", 'rv.2.n': "Office Tower", 'rv.2.m': "Approx. 32,000 m² · LOD 350",
+    'rv.3.t': "Mixed-Use · Architecture + Coordination", 'rv.3.n': "Mall & Bazaar", 'rv.3.m': "Approx. 46,000 m²",
+    'rv.4.t': "Residential · Architectural Revit & Detail", 'rv.4.n': "Luxury Villa", 'rv.4.m': "Approx. 1,250 m²",
+    'rv.5.t': "Cultural Building · Architectural Revit", 'rv.5.n': "Cultural Centre", 'rv.5.m': "Approx. 8,400 m²",
+    'rv.6.t': "Themed Structure · Architectural Revit", 'rv.6.n': "Aquarium Structure", 'rv.6.m': "Approx. 6,800 m²",
+    'rv.7.t': "Urban Transformation · Architectural Revit", 'rv.7.n': "Housing Estate", 'rv.7.m': "Approx. 22,000 m²",
+    'rv.8.t': "Hospitality · Architectural Revit", 'rv.8.n': "Hotel", 'rv.8.m': "Approx. 17,500 m²",
+    'ref.title': "Companies We Work With",
+    'ct.label': "Contact",
+    'ct.title': "Let's Discuss<br><em>Your Project</em>",
+    'ct.online.label': "Online Consultancy",
+    'ct.online.value': "Plan an online consultancy meeting with our expert team for your project. Choose a time that suits you; the Google Meet link will be sent to your e-mail address.",
+    'ct.online.btn': "Schedule an Online Meeting →",
+    'ct.msg.label': "Send a Message",
+    'ct.f.name': "Full Name",
+    'ct.f.namePh': "Your name",
+    'ct.f.phone': "Phone",
+    'ct.f.email': "E-mail",
+    'ct.f.emailPh': "your username",
+    'ct.f.emailProvider': "E-mail provider",
+    'ct.f.other': "Other…",
+    'ct.f.ptype': "Project Type",
+    'ct.f.ptype.0': "Please select",
+    'ct.f.ptype.1': "Aquarium Design",
+    'ct.f.ptype.2': "Residential Project",
+    'ct.f.ptype.3': "Villa / Residence / Tower",
+    'ct.f.ptype.4': "Commercial Project",
+    'ct.f.ptype.5': "Urban Transformation",
+    'ct.f.ptype.6': "Interior Design",
+    'ct.f.ptype.7': "Consultancy",
+    'ct.f.msg': "Your Message",
+    'ct.f.msgPh': "Briefly describe your project…",
+    'ct.kvkk.link': "KVKK Privacy Notice",
+    'ct.kvkk.rest': " — I have read and accept it.",
+    'ct.kvkk.news': "I would like to receive newsletters and announcements. (Optional)",
+    'ct.submit': "Send Message",
+    'ct.success': "✅ Your message has been received! We will get back to you as soon as possible.",
+    'loc.label': "Our Locations",
+    'loc.title': "Head Office and<br><em>Our Branches</em>",
+    'loc.1.maptitle': "Head Office location",
+    'loc.1.tag': "Head Office",
+    'loc.1.name': "Ataşehir / İstanbul",
+    'loc.1.func': "Accounting Department & Human Resources",
+    'loc.2.maptitle': "Ümraniye branch location",
+    'loc.2.tag': "Branch",
+    'loc.2.name': "Ümraniye / İstanbul",
+    'loc.2.func': "Architecture Department · Engineering Office · Pre-Accounting",
+    'loc.3.maptitle': "Eskişehir branch location",
+    'loc.3.tag': "Branch",
+    'loc.3.name': "Odunpazarı / Eskişehir",
+    'loc.3.note': "Meetings and visits are held by appointment",
+    'loc.dir': "📍 Get Directions",
+    'ft.tagline': "Haşimoğlu Mimarlık İnşaat Ltd. Şti. — Architecture that transforms space.",
+    'ft.col1.h': "Corporate",
+    'ft.col1.a1': "About Us",
+    'ft.col1.a2': "Our Team",
+    'ft.col2.h': "Services",
+    'ft.col2.a1': "Aquarium Design",
+    'ft.col2.a2': "Architectural Design",
+    'ft.col2.a3': "Villa & Tower",
+    'ft.col2.a4': "Urban Transformation",
+    'ft.col3.h': "Contact",
+    'ft.bottom': "© 2022–2026 Haşimoğlu Mimarlık İnşaat Limited Şirketi — All rights reserved.",
+    'ft.kvkk': "KVKK Privacy Notice",
+    'kv.title': "Privacy Notice on Personal Data Processed in the Contact Form",
+    'kv.close': "Close",
+    'kv.p1': "This privacy notice has been prepared by <strong>Haşimoğlu Mimarlık İnşaat Ltd. Şti.</strong>, acting as the data controller, in order to inform you about the purposes and legal grounds for processing your personal data, the method of collection, to whom it may be transferred and your rights, within the framework of Article 10 of the Turkish Personal Data Protection Law No. 6698 (“KVKK”) and the related Communiqué.",
+    'kv.p2': "Personal data such as your name, surname, e-mail and phone number that you share through the Contact and Appointment Form on our website is processed for the purposes of carrying out the necessary work by the relevant business units so that related persons may benefit from the products and services offered by our company, conducting the relevant business processes, and contacting you about the subject of your application. We do not have absolute control over the information you share through this form. We advise you not to share with our company any personal data or special-category personal data that you do not wish us to know.",
+    'kv.p3': "The personal data in question is processed by automated means based on the legal grounds set out in Article 5 of the KVKK — namely that “processing is necessary for the legitimate interests of the data controller, provided that it does not harm the fundamental rights and freedoms of the data subject” and that “it is necessary for the data controller to fulfil its legal obligation” — and will only be shared with the relevant judicial authorities in the event of legal disputes.",
+    'kv.p4': "You may submit your requests under Article 11 of the Law, which regulates the rights of the data subject, in writing to the address <strong>Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B İç Kapı No:376, 34764 Ataşehir / İstanbul</strong> or by e-mail to <strong>info@hmimar.com</strong>, in accordance with the Communiqué on the Procedures and Principles of Application to the Data Controller."
+  },
+  ar: {
+    'meta.title': "هاشم أوغلو للهندسة المعمارية والإنشاءات | إسطنبول، بورصة، إسكي شهير، طرابزون",
+    'search.aria': "ابحث في الموقع",
+    'search.ph': "ابحث في الموقع: الأحواض المائية، Revit، الفريق، التواصل…",
+    'search.close': "إغلاق البحث",
+    'toptop.aria': "العودة إلى الأعلى",
+    'toptop.title': "العودة إلى الأعلى",
+    'hero.prev': "الصورة السابقة",
+    'hero.next': "الصورة التالية",
+    'hero.tag': "تأسست عام 2022 · إسطنبول، تركيا",
+    'hero.h1': "عمارة <em>تُحوّل</em><br>المكان",
+    'hero.sub': "نحن في شركة هاشم أوغلو للهندسة المعمارية والإنشاءات نقدّم خدمات استشارية معمارية وإنشائية متكاملة في تصميم الأحواض المائية والمباني السكنية والتجارية والثقافية.",
+    'hero.cta1': "خدماتنا",
+    'hero.cta2': "تواصل معنا",
+    'hero.scroll': "مرّر",
+    'about.imgAlt': "مكتب هاشم أوغلو للهندسة المعمارية",
+    'about.badge': "سنة التأسيس",
+    'about.label': "من نحن",
+    'about.title': "عمارة تمنح<br><em>المكان معناه</em>",
+    'about.p1': "نرى العمارة ليست مجرد عملية إنشاء مبنى، بل هي علمٌ لتصميم العلاقة التي يبنيها المكان مع الإنسان والبيئة والزمن. من الأحواض المائية والمباني ذات الطابع الخاص إلى المساكن، ومن المباني الثقافية إلى التصميم الداخلي، نطوّر حلولاً أصيلة ومستدامة تصنع قيمة دائمة على كل المستويات.",
+    'about.p2': "رؤيتنا هي الجمع بين دقة الهندسة وجرأة التصميم، وتحويل الخبرة الدولية إلى مبانٍ تركّز على الإنسان وتراعي سياقها المحلي. نتعامل مع كل مشروع من الفكرة حتى التنفيذ ضمن منهجية واحدة ومفهوم ثابت للجودة.",
+    'about.p3': "يجلب كبير المعماريين المؤسس <strong>ياشار هاشم أوغلو</strong> إلى استوديونا خبرة عميقة اكتسبها في مشاريع الأحواض المائية والمباني ذات الطابع الخاص واسعة النطاق حول العالم. وبالاقتران مع خبرة شريكنا <strong>حالت هاشم أوغلو</strong> في مشاريع الفلل والمجمعات السكنية والأبراج، نشكّل فريق تصميم قوياً ومتعدد التخصصات.",
+    'about.link': "لنتحدّث عن مشروعك ←",
+    'flow.label': "من الفكرة إلى التسليم · منهجية عملنا",
+    'flow.s1.h': "الاستكشاف والمفهوم",
+    'flow.s1.p': "نبلور مفهوم المشروع من خلال تحليل الاحتياجات وتقييم الموقع واللوائح التنظيمية.",
+    'flow.s2.h': "التصميم وإعداد المشروع",
+    'flow.s2.p': "نُعدّ التصميم المعماري والتصوّر ثلاثي الأبعاد ومخططات التنفيذ.",
+    'flow.s3.h': "التنفيذ والإنشاء",
+    'flow.s3.p': "نُدير إجراءات التراخيص وإدارة الموقع والتنفيذ الإنشائي المُحكم.",
+    'flow.s4.h': "التسليم والدعم",
+    'flow.s4.p': "نوفّر مراقبة الجودة والتسليم الجاهز والدعم المستمر بعد التسليم.",
+    'aqua.label': "مجال تخصّصنا",
+    'aqua.h2': "عمارة الأحواض المائية<br><em>على مستوى عالمي</em>",
+    'aqua.p1': "هاشم أوغلو للهندسة المعمارية استوديو معماري يمتلك خبرة على نطاق دولي في تصميم الأحواض المائية والمباني ذات الطابع الخاص. تولّى كبير المعماريين المؤسس <strong>ياشار هاشم أوغلو</strong> المسؤولية المعمارية والتصميمية لمشاريع <strong>حوض طرابزون المائي</strong> و<strong>الحوض الوطني في أبوظبي</strong> و<strong>ماجيك أكواريوم (طشقند)</strong> ضمن شركة أوكيانوس أكواريوم.",
+    'aqua.p2': "هذه الخبرة — المكتسبة في تخطيط الأحواض النفقية وتصميم الخزانات كبيرة الحجم وعمارة المباني ذات الطابع الخاص — تجمع بين الجماليات وانضباط الهندسة وتجربة الزائر ضمن منهجية تصميم متكاملة.",
+    'aqua.btn': "استعرض مشاريع الأحواض المائية ←",
+    'svc.label': "خدماتنا",
+    'svc.title': "حلولنا<br><em>المعمارية</em>",
+    'svc.intro': "من تطوير الفكرة حتى إنجاز المشروع، نحن معك في كل مرحلة.",
+    'svc.1.h': "تصميم الأحواض المائية",
+    'svc.1.p': "خدمات تصميم واستشارات شاملة للأحواض المائية كبيرة الحجم والأحواض النفقية وحدائق الحياة البرية ومشاريع الديكور تحت الماء.",
+    'svc.2.h': "التصميم المعماري",
+    'svc.2.p': "خدمات تصميم معماري مبتكرة ومستدامة وجمالية للمباني السكنية والتجارية والثقافية والصناعية.",
+    'svc.3.h': "الفلل والمجمعات السكنية والأبراج",
+    'svc.3.p': "خدمة متكاملة من تطوير الفكرة حتى التسليم الجاهز لمشاريع الفلل الفاخرة والمجمعات السكنية والأبراج.",
+    'svc.4.h': "التصميم الداخلي",
+    'svc.4.p': "نحوّل مساحات معيشتك وعملك بحلول داخلية وظيفية وجمالية.",
+    'svc.5.h': "التحول الحضري",
+    'svc.5.p': "بفريقنا المتخصص، نبني مبانٍ آمنة وحديثة في مشاريع تقييم المباني المعرّضة للخطر والتجديد والتحول.",
+    'svc.6.h': "الاستشارات الهندسية للمشاريع",
+    'svc.6.p': "خدمات استشارية شاملة في دراسات الجدوى وإجراءات المناقصات وتقييم الاستثمار.",
+    'svc.more': "عرض التفاصيل ←",
+    'prj.label': "مشاريعنا",
+    'prj.title': "المساحات التي<br><em>حقّقناها على أرض الواقع</em>",
+    'prj.1.cat': "أحواض مائية", 'prj.1.name': "حوض نفقي وعملاق",
+    'prj.2.cat': "سكني", 'prj.2.name': "فيلا تكساس",
+    'prj.3.cat': "مبانٍ شاهقة", 'prj.3.name': "مجمع سكني وبرج",
+    'prj.4.cat': "تصميم داخلي", 'prj.4.name': "التصميم الداخلي",
+    'prj.5.cat': "تحول حضري", 'prj.5.name': "التحول الحضري",
+    'prj.6.cat': "تجاري", 'prj.6.name': "مبنى تجاري وثقافي",
+    'bim.label': "تخصّص",
+    'bim.title': "النمذجة المعمارية<br>بتقنية <em>BIM وRevit</em>",
+    'bim.lead': "نُنتج مشاريعنا بشكل متكامل بمنهجية BIM (نمذجة معلومات البناء) على برنامج <strong>Autodesk Revit</strong>. أقوى مجالاتنا هو <strong>النمذجة المعمارية على Revit</strong>: من الكتلة المفاهيمية إلى مخططات التنفيذ، ومن الواجهات والتفاصيل إلى لوحات التراخيص، تُنفَّذ جميع المراحل على نموذج واحد متّسق.",
+    'bim.li1': "<strong>النمذجة المعمارية على Revit</strong> — الكتل، مخططات الطوابق، الواجهات، المقاطع، التفاصيل، لوحات التراخيص والتصوّر الواقعي. (مجال تخصصنا الأساسي.)",
+    'bim.li2': "<strong>Revit الإنشائي</strong> — نموذج النظام الحامل، القوالب والتسليح، التنسيق المعماري–الإنشائي ونقل البيانات إلى نموذج التحليل.",
+    'bim.li3': "<strong>التنسيق بين التخصصات</strong> — دمج النماذج المعمارية والإنشائية والميكانيكية، وكشف التعارضات ومعالجتها.",
+    'bim.li4': "<strong>تطوير الـ Family والقوالب</strong> — مكتبات Revit Family خاصة بالمشروع، قوالب بمعيار المكتب وإدارة مستويات التفصيل (LOD).",
+    'bim.li5': "<strong>حصر الكميات والتوثيق</strong> — استخراج الكميات تلقائياً من النموذج وإنتاج لوحات كاملة.",
+    'bim.btn': "معلومات تفصيلية",
+    'bim.cap': "Revit · النمذجة المعمارية والتوثيق",
+    'rv.label': "Revit",
+    'rv.title': "أعمالنا في المشاريع<br><em>المعمارية على Revit</em>",
+    'rv.1.t': "سكني · Revit معماري", 'rv.1.n': "كتلة سكنية", 'rv.1.m': "نحو 14,500 م² · LOD 350",
+    'rv.2.t': "مبنى شاهق · Revit معماري", 'rv.2.n': "برج مكاتب", 'rv.2.m': "نحو 32,000 م² · LOD 350",
+    'rv.3.t': "استخدام مختلط · معماري + تنسيق", 'rv.3.n': "مركز تجاري وسوق", 'rv.3.m': "نحو 46,000 م²",
+    'rv.4.t': "سكني · Revit معماري وتفاصيل", 'rv.4.n': "فيلا فاخرة", 'rv.4.m': "نحو 1,250 م²",
+    'rv.5.t': "مبنى ثقافي · Revit معماري", 'rv.5.n': "مركز ثقافي", 'rv.5.m': "نحو 8,400 م²",
+    'rv.6.t': "مبنى ذو طابع خاص · Revit معماري", 'rv.6.n': "مبنى حوض مائي", 'rv.6.m': "نحو 6,800 م²",
+    'rv.7.t': "تحول حضري · Revit معماري", 'rv.7.n': "مجمّع سكني", 'rv.7.m': "نحو 22,000 م²",
+    'rv.8.t': "ضيافة · Revit معماري", 'rv.8.n': "فندق", 'rv.8.m': "نحو 17,500 م²",
+    'ref.title': "الشركات التي نتعاون معها",
+    'ct.label': "تواصل معنا",
+    'ct.title': "لنتحدّث عن<br><em>مشروعك</em>",
+    'ct.online.label': "استشارة عبر الإنترنت",
+    'ct.online.value': "خطّط لجلسة استشارية عبر الإنترنت مع فريقنا المتخصص لمشروعك. اختر الوقت المناسب لك؛ وسيُرسَل رابط Google Meet إلى بريدك الإلكتروني.",
+    'ct.online.btn': "احجز اجتماعاً عبر الإنترنت ←",
+    'ct.msg.label': "أرسل رسالة",
+    'ct.f.name': "الاسم الكامل",
+    'ct.f.namePh': "اسمك",
+    'ct.f.phone': "الهاتف",
+    'ct.f.email': "البريد الإلكتروني",
+    'ct.f.emailPh': "اسم المستخدم",
+    'ct.f.emailProvider': "مزود البريد الإلكتروني",
+    'ct.f.other': "أخرى…",
+    'ct.f.ptype': "نوع المشروع",
+    'ct.f.ptype.0': "اختر",
+    'ct.f.ptype.1': "تصميم أحواض مائية",
+    'ct.f.ptype.2': "مشروع سكني",
+    'ct.f.ptype.3': "فيلا / مجمع سكني / برج",
+    'ct.f.ptype.4': "مشروع تجاري",
+    'ct.f.ptype.5': "تحول حضري",
+    'ct.f.ptype.6': "تصميم داخلي",
+    'ct.f.ptype.7': "استشارات",
+    'ct.f.msg': "رسالتك",
+    'ct.f.msgPh': "صِف مشروعك باختصار…",
+    'ct.kvkk.link': "نص الإفصاح بشأن حماية البيانات (KVKK)",
+    'ct.kvkk.rest': " — لقد قرأته وأوافق عليه.",
+    'ct.kvkk.news': "أرغب في تلقّي النشرات والإعلانات. (اختياري)",
+    'ct.submit': "إرسال الرسالة",
+    'ct.success': "✅ تم استلام رسالتك! سنعاود التواصل معك في أقرب وقت ممكن.",
+    'loc.label': "مواقعنا",
+    'loc.title': "المكتب الرئيسي<br><em>وفروعنا</em>",
+    'loc.1.maptitle': "موقع المكتب الرئيسي",
+    'loc.1.tag': "المكتب الرئيسي",
+    'loc.1.name': "أتاشهير / إسطنبول",
+    'loc.1.func': "قسم المحاسبة والموارد البشرية",
+    'loc.2.maptitle': "موقع فرع أمرانية",
+    'loc.2.tag': "فرع",
+    'loc.2.name': "أمرانية / إسطنبول",
+    'loc.2.func': "القسم المعماري · مكتب الهندسة · المحاسبة الأولية",
+    'loc.3.maptitle': "موقع فرع إسكي شهير",
+    'loc.3.tag': "فرع",
+    'loc.3.name': "أودون بازاري / إسكي شهير",
+    'loc.3.note': "تُعقد الاجتماعات والمقابلات بموعد مسبق",
+    'loc.dir': "📍 احصل على الاتجاهات",
+    'ft.tagline': "هاشم أوغلو للهندسة المعمارية والإنشاءات — عمارة تُحوّل المكان.",
+    'ft.col1.h': "الشركة",
+    'ft.col1.a1': "من نحن",
+    'ft.col1.a2': "فريقنا",
+    'ft.col2.h': "الخدمات",
+    'ft.col2.a1': "تصميم الأحواض المائية",
+    'ft.col2.a2': "التصميم المعماري",
+    'ft.col2.a3': "الفلل والأبراج",
+    'ft.col2.a4': "التحول الحضري",
+    'ft.col3.h': "تواصل معنا",
+    'ft.bottom': "© 2022–2026 هاشم أوغلو للهندسة المعمارية والإنشاءات — جميع الحقوق محفوظة.",
+    'ft.kvkk': "نص الإفصاح بشأن حماية البيانات (KVKK)",
+    'kv.title': "نص الإفصاح بشأن البيانات الشخصية المُعالَجة في نموذج التواصل",
+    'kv.close': "إغلاق",
+    'kv.p1': "أُعِدّ نص الإفصاح هذا من قِبَل <strong>شركة هاشم أوغلو للهندسة المعمارية والإنشاءات المحدودة</strong>، بصفتها المسؤولة عن البيانات، بهدف إعلامكم بأغراض معالجة بياناتكم الشخصية وأسبابها القانونية وطريقة جمعها والجهات التي قد تُنقل إليها وحقوقكم، وذلك في إطار المادة العاشرة من قانون حماية البيانات الشخصية التركي رقم 6698 («KVKK») والبلاغ ذي الصلة.",
+    'kv.p2': "تُعالَج بياناتكم الشخصية، مثل الاسم واللقب والبريد الإلكتروني والهاتف، التي تشاركونها عبر نموذج التواصل والمواعيد في موقعنا الإلكتروني، بغرض تنفيذ الأعمال اللازمة من قِبَل وحدات العمل المعنية لاستفادة الأشخاص المعنيين من المنتجات والخدمات التي تقدّمها شركتنا، وإدارة العمليات ذات الصلة، والتواصل معكم بشأن موضوع طلبكم. كما أنه ليس لدينا سيطرة مطلقة على المعلومات التي تشاركونها عبر هذا النموذج. ننصحكم بعدم مشاركة أي بيانات شخصية أو بيانات شخصية ذات طبيعة خاصة لا ترغبون في اطّلاعنا عليها.",
+    'kv.p3': "تُعالَج البيانات الشخصية المذكورة بالوسائل الآلية استناداً إلى الأسباب القانونية الواردة في المادة الخامسة من قانون KVKK، وهي «ضرورة معالجة البيانات من أجل المصالح المشروعة للمسؤول عن البيانات، بشرط عدم الإضرار بالحقوق والحريات الأساسية للشخص المعني» و«ضرورة ذلك لوفاء المسؤول عن البيانات بالتزاماته القانونية»، ولن تُشارَك إلا مع الجهات القضائية المختصة في حال نشوء نزاعات قانونية.",
+    'kv.p4': "يمكنكم تقديم طلباتكم بموجب المادة الحادية عشرة من القانون، التي تنظّم حقوق الشخص المعني، كتابةً إلى العنوان <strong>Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul Sitesi C1 Blok No:2B İç Kapı No:376, 34764 Ataşehir / İstanbul</strong> أو عبر البريد الإلكتروني <strong>info@hmimar.com</strong>، وفقاً للبلاغ المتعلق بإجراءات ومبادئ تقديم الطلبات إلى المسؤول عن البيانات."
+  }
+};
+</script>
+<script src="i18n.js"></script>
 </body>
 </html>
