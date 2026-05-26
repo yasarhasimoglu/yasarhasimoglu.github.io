@@ -147,7 +147,9 @@
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link rel="preconnect" href="https://commons.wikimedia.org" crossorigin>
 <link rel="dns-prefetch" href="https://flagcdn.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Barlow:wght@300;400;500&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Barlow:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Barlow:wght@300;400;500&display=swap"></noscript>
 <style>
   :root {
     --coal: #f4f1ea; --off-black: #ebe5d8; --graphite: #ffffff; --stone: #efe9db;
@@ -283,6 +285,12 @@
   .loc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .loc-card { background: var(--graphite); border: 1px solid rgba(168,119,42,.2); display: flex; flex-direction: column; }
   .loc-card iframe { width: 100%; height: 220px; border: 0; display: block; filter: grayscale(30%) contrast(1.04); }
+  .loc-map { width: 100%; height: 220px; background: linear-gradient(135deg, var(--off-black) 0%, var(--stone) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; cursor: pointer; }
+  .loc-map::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, rgba(168,119,42,.05) 0 14px, transparent 14px 28px); pointer-events: none; }
+  .loc-map .loc-map-btn { padding: 12px 26px; background: var(--gold); color: var(--ink); border: 0; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; cursor: pointer; transition: background .25s, transform .2s; font-family: var(--sans); font-weight: 500; z-index: 1; }
+  .loc-map .loc-map-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .loc-map .loc-map-hint { font-size: .64rem; letter-spacing: .12em; color: var(--platinum); opacity: .7; z-index: 1; }
+  .loc-map iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(30%) contrast(1.04); }
   .loc-body { padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1; }
   .loc-tag { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
   .loc-name { font-family: var(--serif); font-size: 1.35rem; color: var(--white); margin-bottom: 6px; }
@@ -879,7 +887,10 @@
   </div>
   <div class="loc-grid">
     <div class="loc-card">
-      <iframe src="https://www.google.com/maps?q=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Merkez Ofis konumu" data-i18n-title="loc.1.maptitle"></iframe>
+      <div class="loc-map" data-map-src="https://www.google.com/maps?q=Metropol%20%C4%B0stanbul%20Ata%C5%9Fehir%20%C4%B0stanbul&output=embed">
+        <button class="loc-map-btn" type="button" data-i18n="loc.maps.open">📍 Haritayı Aç</button>
+        <p class="loc-map-hint" data-i18n="loc.maps.hint">Tıklayın · harita yüklensin</p>
+      </div>
       <div class="loc-body">
         <p class="loc-tag" data-i18n="loc.1.tag">Merkez Ofis</p>
         <p class="loc-name" data-i18n="loc.1.name">Ataşehir / İstanbul</p>
@@ -889,7 +900,10 @@
       </div>
     </div>
     <div class="loc-card">
-      <iframe src="https://www.google.com/maps?q=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ümraniye şubesi konumu" data-i18n-title="loc.2.maptitle"></iframe>
+      <div class="loc-map" data-map-src="https://www.google.com/maps?q=Okyanus%20Akvaryum%20%C3%87ay%C4%B1rba%C5%9F%C4%B1%20Sokak%20No%209%20%C3%9Cmraniye%20%C4%B0stanbul&output=embed">
+        <button class="loc-map-btn" type="button" data-i18n="loc.maps.open">📍 Haritayı Aç</button>
+        <p class="loc-map-hint" data-i18n="loc.maps.hint">Tıklayın · harita yüklensin</p>
+      </div>
       <div class="loc-body">
         <p class="loc-tag" data-i18n="loc.2.tag">Şube</p>
         <p class="loc-name" data-i18n="loc.2.name">Ümraniye / İstanbul</p>
@@ -899,7 +913,10 @@
       </div>
     </div>
     <div class="loc-card">
-      <iframe src="https://www.google.com/maps?q=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eskişehir şubesi konumu" data-i18n-title="loc.3.maptitle"></iframe>
+      <div class="loc-map" data-map-src="https://www.google.com/maps?q=75.%20Y%C4%B1l%20OSB%202007.%20Cadde%20No%2014%20Odunpazar%C4%B1%20Eski%C5%9Fehir&output=embed">
+        <button class="loc-map-btn" type="button" data-i18n="loc.maps.open">📍 Haritayı Aç</button>
+        <p class="loc-map-hint" data-i18n="loc.maps.hint">Tıklayın · harita yüklensin</p>
+      </div>
       <div class="loc-body">
         <p class="loc-tag" data-i18n="loc.3.tag">Şube</p>
         <p class="loc-name" data-i18n="loc.3.name">Odunpazarı / Eskişehir</p>
@@ -1194,6 +1211,22 @@
   sModal.addEventListener('click', e => { if (e.target === sModal) closeSearch(); });
   sRes.addEventListener('click', e => { if (e.target.closest('a')) closeSearch(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
+
+  document.querySelectorAll('.loc-map').forEach(map => {
+    const btn = map.querySelector('.loc-map-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const src = map.dataset.mapSrc;
+      if (!src) return;
+      const name = map.closest('.loc-card')?.querySelector('.loc-name')?.textContent?.trim() || 'Konum';
+      const ifr = document.createElement('iframe');
+      ifr.src = src;
+      ifr.title = name;
+      ifr.loading = 'lazy';
+      ifr.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+      map.replaceChildren(ifr);
+    });
+  });
 </script>
 
 <script>
@@ -1324,6 +1357,8 @@ window.HMI_I18N = {
     'loc.3.name': "Odunpazarı / Eskişehir",
     'loc.3.note': "Meetings and visits are held by appointment",
     'loc.dir': "📍 Get Directions",
+    'loc.maps.open': "📍 Load Map",
+    'loc.maps.hint': "Click to load the map",
     'ft.tagline': "Haşimoğlu Mimarlık İnşaat Ltd. Şti. — Architecture that transforms space.",
     'ft.col1.h': "Corporate",
     'ft.col1.a1': "About Us",
@@ -1469,6 +1504,8 @@ window.HMI_I18N = {
     'loc.3.name': "أودون بازاري / إسكي شهير",
     'loc.3.note': "تُعقد الاجتماعات والمقابلات بموعد مسبق",
     'loc.dir': "📍 احصل على الاتجاهات",
+    'loc.maps.open': "📍 تحميل الخريطة",
+    'loc.maps.hint': "انقر لتحميل الخريطة",
     'ft.tagline': "هاشم أوغلو للهندسة المعمارية والإنشاءات — عمارة تُحوّل المكان.",
     'ft.col1.h': "الشركة",
     'ft.col1.a1': "من نحن",
