@@ -1,0 +1,12 @@
+# .NET build çıktıları
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

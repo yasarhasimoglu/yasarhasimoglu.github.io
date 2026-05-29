@@ -1,0 +1,13 @@
+{
+  "_aciklama": "Bu içeriği Claude Desktop ayar dosyasına ekleyin. Windows yolu: %APPDATA%\\Claude\\claude_desktop_config.json — 'command' ve 'args' yollarını kendi kurulumunuza göre düzeltin.",
+  "mcpServers": {
+    "revit-2027": {
+      "command": "python",
+      "args": ["C:\\\\revit-2027-mcp\\\\mcp-server\\\\server.py"],
+      "env": {
+        "REVIT_MCP_HOST": "127.0.0.1",
+        "REVIT_MCP_PORT": "5577"
+      }
+    }
+  }
+}

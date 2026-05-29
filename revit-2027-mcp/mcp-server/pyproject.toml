@@ -1,0 +1,13 @@
+[project]
+name = "revit-2027-mcp"
+version = "0.1.0"
+description = "Claude Desktop ile Revit 2027 arasında köprü kuran MCP sunucusu"
+requires-python = ">=3.10"
+dependencies = ["mcp>=1.2.0"]
+
+[project.scripts]
+revit-2027-mcp = "server:mcp.run"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

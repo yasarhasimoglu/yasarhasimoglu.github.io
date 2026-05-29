@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Revit MCP Plugin</Name>
+    <!-- DeployAddin hedefi DLL'i bu alt klasöre kopyalar -->
+    <Assembly>RevitMcpPlugin\RevitMcpPlugin.dll</Assembly>
+    <AddInId>81511c93-8e8c-4970-bbcd-58257eacf44d</AddInId>
+    <FullClassName>RevitMcpPlugin.App</FullClassName>
+    <VendorId>YHMIM</VendorId>
+    <VendorDescription>Yaşar Haşimoğlu Mimarlık - Revit MCP</VendorDescription>
+  </AddIn>
+</RevitAddIns>
