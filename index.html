@@ -377,12 +377,15 @@
   .projects-header-right { max-width: 360px; font-size: .9rem; line-height: 1.8; color: var(--mid); }
   .pr-strip { overflow: hidden; cursor: grab; touch-action: pan-y; }
   .pr-track { display: flex; width: max-content; }
-  .project-card { position: relative; height: 440px; width: 380px; flex: 0 0 380px; margin-right: 14px; overflow: hidden; }
-  .project-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) brightness(.68); transition: transform .6s, filter .6s; }
-  .project-card:hover img { transform: scale(1.06); filter: grayscale(0%) brightness(.85); }
-  .project-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; background: linear-gradient(0deg, rgba(13,13,13,.88) 0%, transparent 62%); }
+  .project-card { position: relative; height: 440px; width: 380px; flex: 0 0 380px; margin-right: 14px; overflow: hidden; display: block; text-decoration: none; color: inherit; background: linear-gradient(145deg, var(--graphite) 0%, var(--off-black) 100%); border: 1px solid rgba(168,119,42,.18); cursor: pointer; }
+  .project-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) brightness(.78); transition: transform .6s, filter .6s; }
+  .project-card:hover { border-color: rgba(168,119,42,.55); }
+  .project-card:hover img { transform: scale(1.06); filter: grayscale(0%) brightness(.92); }
+  .project-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px 30px 30px; background: linear-gradient(0deg, rgba(13,13,13,.94) 0%, rgba(13,13,13,.35) 45%, transparent 78%); pointer-events: none; }
   .project-overlay p { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-  .project-overlay h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--on-dark); }
+  .project-overlay h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--on-dark); line-height: 1.15; }
+  .project-overlay::after { content: '→'; position: absolute; top: 22px; right: 22px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1rem; opacity: 0; transform: translateY(-4px); transition: opacity .3s, transform .3s; }
+  .project-card:hover .project-overlay::after { opacity: 1; transform: translateY(0); }
 
   .ongoing { padding: 100px 60px; background: var(--off-black); color: var(--on-dark); position: relative; overflow: hidden; }
   .ongoing::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(168,119,42,.05) 1px, transparent 1px), linear-gradient(0deg, rgba(168,119,42,.05) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; opacity: .55; mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); }
@@ -785,48 +788,48 @@
   </div>
   <div class="pr-strip">
   <div class="pr-track" id="prTrack">
-    <div class="project-card">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Georgia%20Aquarium%20-%20Ocean%20Voyager%20Tunnel%20Jan%202006.jpg?width=1100" alt="Tünel akvaryum tasarım projesi" decoding="async">
+    <a class="project-card" href="projeler/tematik-macaw-papagan.html">
+      <img src="img/slide-parrot-hero.jpg" alt="Macaw Papağan tematik su kaydırağı — Romanya teslim" loading="lazy" decoding="async">
       <div class="project-overlay">
-        <p data-i18n="prj.1.cat">Akvaryum</p>
-        <h3 data-i18n="prj.1.name">Tünel & Dev Akvaryum</h3>
+        <p data-i18n="prj.1.cat">Ürün Tasarımı · Romanya</p>
+        <h3 data-i18n="prj.1.name">Macaw Papağan Kaydırağı</h3>
       </div>
-    </div>
-    <div class="project-card">
-      <img src="img/texas-01.jpg" alt="Texas villa projesi" decoding="async">
+    </a>
+    <a class="project-card" href="projeler/tematik-anka-kusu.html">
+      <img src="img/slide-phoenix-hero.jpg" alt="Anka Kuşu tematik su kaydırağı — Romanya teslim" loading="lazy" decoding="async">
       <div class="project-overlay">
-        <p data-i18n="prj.2.cat">Konut</p>
-        <h3 data-i18n="prj.2.name">Texas Villa</h3>
+        <p data-i18n="prj.2.cat">Ürün Tasarımı · Romanya</p>
+        <h3 data-i18n="prj.2.name">Anka Kuşu Kaydırağı</h3>
       </div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80" alt="Rezidans ve tower projesi" decoding="async">
+    </a>
+    <a class="project-card" href="#devam-eden">
+      <img src="img/dekor-safari-render.jpg" alt="Dekor Safari fabrika inşaatı — mimari görselleştirme, Eskişehir EOSB" loading="lazy" decoding="async">
       <div class="project-overlay">
-        <p data-i18n="prj.3.cat">Yüksek Yapı</p>
-        <h3 data-i18n="prj.3.name">Rezidans & Tower</h3>
+        <p data-i18n="prj.3.cat">Fabrika · Eskişehir EOSB</p>
+        <h3 data-i18n="prj.3.name">Dekor Safari Fabrikası</h3>
       </div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="İç mekân tasarım projesi" decoding="async">
+    </a>
+    <a class="project-card" href="hizmetler/villa-rezidans-tower.html">
+      <img src="img/texas-01.jpg" alt="Texas Villa — konut projesi, ABD" loading="lazy" decoding="async">
       <div class="project-overlay">
-        <p data-i18n="prj.4.cat">İç Mimari</p>
-        <h3 data-i18n="prj.4.name">İç Mekân Tasarımı</h3>
+        <p data-i18n="prj.4.cat">Konut · Texas · ABD</p>
+        <h3 data-i18n="prj.4.name">Texas Villa</h3>
       </div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=900&q=80" alt="Kentsel dönüşüm projesi" decoding="async">
+    </a>
+    <a class="project-card" href="#devam-eden">
+      <img src="img/dekor-safari-01.jpg" alt="Dekor Safari şantiye — temel donatı çalışmaları" loading="lazy" decoding="async">
       <div class="project-overlay">
-        <p data-i18n="prj.5.cat">Dönüşüm</p>
-        <h3 data-i18n="prj.5.name">Kentsel Dönüşüm</h3>
+        <p data-i18n="prj.5.cat">Şantiye · Devam Eden</p>
+        <h3 data-i18n="prj.5.name">EOSB Şantiye Süreci</h3>
       </div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=80" alt="Ticari ve kültürel yapı projesi" decoding="async">
+    </a>
+    <a class="project-card" href="hizmetler/villa-rezidans-tower.html">
+      <img src="img/texas-02.jpg" alt="Texas Villa — iç mimari detayı" loading="lazy" decoding="async">
       <div class="project-overlay">
-        <p data-i18n="prj.6.cat">Ticari</p>
-        <h3 data-i18n="prj.6.name">Ticari & Kültürel Yapı</h3>
+        <p data-i18n="prj.6.cat">Villa · İç Mimari</p>
+        <h3 data-i18n="prj.6.name">Texas Villa · Detay</h3>
       </div>
-    </div>
+    </a>
   </div>
   </div>
 </section>
