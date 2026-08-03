@@ -457,13 +457,14 @@
   .cmp-meta > div { display: flex; flex-direction: column; gap: 8px; }
   .cmp-meta span:first-child { font-family: var(--sans); font-size: .56rem; letter-spacing: .28em; color: var(--mid); text-transform: uppercase; }
   .cmp-meta span:last-child { font-family: var(--serif); font-size: 1rem; color: var(--white); line-height: 1.45; font-weight: 400; }
-  .cmp-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 28px 30px 32px; }
-  .cmp-gallery-title { grid-column: 1 / -1; font-family: var(--sans); font-size: .58rem; letter-spacing: .28em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 4px; opacity: .85; }
-  .cmp-shot { display: block; aspect-ratio: 3 / 4; overflow: hidden; position: relative; border: 1px solid rgba(168,119,42,.16); background: var(--off-black); }
-  .cmp-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s, filter .5s; filter: grayscale(12%) contrast(1.03); display: block; }
-  .cmp-shot:hover img { transform: scale(1.08); filter: none; }
-  .cmp-shot::after { content: '↗'; position: absolute; top: 8px; right: 10px; color: var(--gold); font-size: 1rem; opacity: 0; transition: opacity .3s; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
-  .cmp-shot:hover::after { opacity: 1; }
+  .cmp-cta { padding: 32px 42px 36px; text-align: center; }
+  .cmp-cta-note { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 1rem; color: var(--platinum); max-width: 640px; margin: 0 auto 22px; line-height: 1.75; }
+  .cmp-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cmp-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: transparent; border: 1px solid rgba(168,119,42,.5); color: var(--white); text-decoration: none; font-family: var(--serif); font-size: 1.05rem; font-weight: 300; transition: background .3s, border-color .3s, transform .25s; }
+  .cmp-cta-btn:hover { background: rgba(168,119,42,.12); border-color: var(--gold); transform: translateY(-2px); }
+  .cmp-cta-btn em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .cmp-hero-tag { transition: background .3s, color .3s; }
+  .cmp-hero:hover .cmp-hero-tag { background: var(--gold); color: var(--ink); border-color: var(--gold); }
   @media (max-width: 900px) {
     .completed { padding: 70px 22px; }
     .cmp-head { margin-bottom: 40px; }
@@ -475,7 +476,8 @@
     .cmp-desc p { font-size: .92rem; line-height: 1.8; }
     .cmp-meta { grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 22px; }
     .cmp-meta span:last-child { font-size: .92rem; }
-    .cmp-gallery { grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 20px 18px 22px; }
+    .cmp-cta { padding: 24px 20px 26px; }
+    .cmp-cta-btn { font-size: .98rem; padding: 14px 24px; }
   }
 
   .bim { background: var(--coal); }
@@ -907,13 +909,13 @@
   </div>
   <article class="cmp-feature">
     <div class="cmp-heroes">
-      <a class="cmp-hero" href="img/slide-parrot-hero.jpg" target="_blank" rel="noopener" aria-label="Macaw papağan kaydırağı — büyüt">
+      <a class="cmp-hero" href="projeler/tematik-macaw-papagan.html" aria-label="Macaw papağan kaydırağı — vaka çalışması sayfasına git">
         <img src="img/slide-parrot-hero.jpg" alt="Macaw papağanı tematik cam elyafı su kaydırağı — kırmızı, sarı, mavi tüylü figür" loading="lazy" decoding="async" width="1500" height="1125">
-        <span class="cmp-hero-tag" data-i18n="cmp.hero.parrot">Macaw Papağan</span>
+        <span class="cmp-hero-tag" data-i18n="cmp.hero.parrot">Macaw Papağan · Detayları Gör →</span>
       </a>
-      <a class="cmp-hero" href="img/slide-phoenix-hero.jpg" target="_blank" rel="noopener" aria-label="Anka Kuşu kaydırağı — büyüt">
+      <a class="cmp-hero" href="projeler/tematik-anka-kusu.html" aria-label="Anka Kuşu kaydırağı — vaka çalışması sayfasına git">
         <img src="img/slide-phoenix-hero.jpg" alt="Anka Kuşu tematik cam elyafı su kaydırağı — gökkuşağı renkli figür" loading="lazy" decoding="async" width="1500" height="1125">
-        <span class="cmp-hero-tag" data-i18n="cmp.hero.phoenix">Anka Kuşu</span>
+        <span class="cmp-hero-tag" data-i18n="cmp.hero.phoenix">Anka Kuşu · Detayları Gör →</span>
       </a>
     </div>
     <div class="cmp-content">
@@ -947,26 +949,12 @@
         </div>
       </div>
     </div>
-    <div class="cmp-gallery">
-      <p class="cmp-gallery-title" data-i18n="cmp.gallery">Galeri · Farklı Açılar &amp; Üretim Süreci</p>
-      <a class="cmp-shot" href="img/slide-parrot-front.jpg" target="_blank" rel="noopener" aria-label="Papağan kaydırağı — ön görünüm">
-        <img src="img/slide-parrot-front.jpg" alt="Macaw papağan kaydırağı — ön görünüm, turkuaz kayma yüzeyi" loading="lazy" decoding="async" width="1100" height="1466">
-      </a>
-      <a class="cmp-shot" href="img/slide-parrot-rear.jpg" target="_blank" rel="noopener" aria-label="Papağan kaydırağı — arka merdiven">
-        <img src="img/slide-parrot-rear.jpg" alt="Macaw papağan kaydırağı — arka merdiven, kırmızı basamaklar" loading="lazy" decoding="async" width="1100" height="1466">
-      </a>
-      <a class="cmp-shot" href="img/slide-parrot-side.jpg" target="_blank" rel="noopener" aria-label="Papağan kaydırağı — yan detay">
-        <img src="img/slide-parrot-side.jpg" alt="Macaw papağan kaydırağı — yan görünüm ve kaya kaide detayı" loading="lazy" decoding="async" width="1100" height="825">
-      </a>
-      <a class="cmp-shot" href="img/slide-phoenix-front.jpg" target="_blank" rel="noopener" aria-label="Anka Kuşu kaydırağı — ön görünüm">
-        <img src="img/slide-phoenix-front.jpg" alt="Anka Kuşu kaydırağı — ön görünüm, sarı kayma yüzeyi" loading="lazy" decoding="async" width="1100" height="1466">
-      </a>
-      <a class="cmp-shot" href="img/slide-phoenix-rear.jpg" target="_blank" rel="noopener" aria-label="Anka Kuşu kaydırağı — arka merdiven">
-        <img src="img/slide-phoenix-rear.jpg" alt="Anka Kuşu kaydırağı — arka merdiven, sarı basamaklar" loading="lazy" decoding="async" width="1100" height="1466">
-      </a>
-      <a class="cmp-shot" href="img/slide-craft.jpg" target="_blank" rel="noopener" aria-label="Üretim süreci — ham fiberglass aşama">
-        <img src="img/slide-craft.jpg" alt="Üretim süreci — cam elyafı ham gövde, boyama öncesi aşama" loading="lazy" decoding="async" width="1100" height="1466">
-      </a>
+    <div class="cmp-cta">
+      <p class="cmp-cta-note" data-i18n="cmp.cta.note">Her figürün detay sayfasında kalıptan boyaya tüm üretim aşamaları ve teslimat açıklamalı olarak yer alır.</p>
+      <div class="cmp-cta-row">
+        <a href="projeler/tematik-macaw-papagan.html" class="cmp-cta-btn">Macaw <em>Papağan →</em></a>
+        <a href="projeler/tematik-anka-kusu.html" class="cmp-cta-btn">Anka <em>Kuşu →</em></a>
+      </div>
     </div>
   </article>
 </section>
@@ -1547,8 +1535,9 @@ window.HMI_I18N = {
     'ong.2.loc': "Milas OIZ · Muğla",
     'cmp.label': "Completed Projects",
     'cmp.title': "From Our<br><em>Portfolio</em>",
-    'cmp.hero.parrot': "Macaw Parrot",
-    'cmp.hero.phoenix': "Phoenix",
+    'cmp.hero.parrot': "Macaw Parrot · View Details →",
+    'cmp.hero.phoenix': "Phoenix · View Details →",
+    'cmp.cta.note': "Each figure has its own detail page with the full production journey — from mould to paint to delivery — explained image by image.",
     'cmp.badge.status': "Delivered",
     'cmp.badge.country': "🇷🇴 Romania",
     'cmp.badge.category': "Product Design",
@@ -1560,7 +1549,6 @@ window.HMI_I18N = {
     'cmp.meta.2.label': "Client",   'cmp.meta.2.value': "Private · Romania",
     'cmp.meta.3.label': "Material", 'cmp.meta.3.value': "Glass-reinforced polyester (GRP)",
     'cmp.meta.4.label': "Scope",    'cmp.meta.4.value': "Concept → Mould → Paint → Shipment",
-    'cmp.gallery': "Gallery · Different Angles &amp; Production Process",
     'bim.label': "Expertise",
     'bim.title': "Architectural Modelling<br>with <em>BIM & Revit</em>",
     'bim.lead': "We produce our projects end-to-end with the BIM (Building Information Modelling) methodology on <strong>Autodesk Revit</strong>. Our strongest area is <strong>architectural Revit modelling</strong>: from conceptual massing to construction drawings, from façades and details to permit sheets, every stage is carried out on a single, consistent model.",
@@ -1725,8 +1713,9 @@ window.HMI_I18N = {
     'ong.2.loc': "منطقة ميلاس الصناعية · موغلا",
     'cmp.label': "مشاريع مكتملة",
     'cmp.title': "من محفظتنا<br><em>أعمال مميّزة</em>",
-    'cmp.hero.parrot': "ببغاء الماكاو",
-    'cmp.hero.phoenix': "طائر العنقاء",
+    'cmp.hero.parrot': "ببغاء الماكاو · شاهد التفاصيل →",
+    'cmp.hero.phoenix': "طائر العنقاء · شاهد التفاصيل →",
+    'cmp.cta.note': "لكل قطعة صفحة تفصيلية تشرح رحلة الإنتاج الكاملة صورةً بصورة — من القالب إلى الطلاء إلى التسليم.",
     'cmp.badge.status': "تم التسليم",
     'cmp.badge.country': "🇷🇴 رومانيا",
     'cmp.badge.category': "تصميم منتجات",
@@ -1738,7 +1727,6 @@ window.HMI_I18N = {
     'cmp.meta.2.label': "العميل", 'cmp.meta.2.value': "خاص · رومانيا",
     'cmp.meta.3.label': "الخامة", 'cmp.meta.3.value': "بوليستر مقوّى بالألياف الزجاجية",
     'cmp.meta.4.label': "النطاق", 'cmp.meta.4.value': "المفهوم → القالب → الطلاء → الشحن",
-    'cmp.gallery': "المعرض · زوايا مختلفة ومراحل الإنتاج",
     'bim.label': "تخصّص",
     'bim.title': "النمذجة المعمارية<br>بتقنية <em>BIM وRevit</em>",
     'bim.lead': "نُنتج مشاريعنا بشكل متكامل بمنهجية BIM (نمذجة معلومات البناء) على برنامج <strong>Autodesk Revit</strong>. أقوى مجالاتنا هو <strong>النمذجة المعمارية على Revit</strong>: من الكتلة المفاهيمية إلى مخططات التنفيذ، ومن الواجهات والتفاصيل إلى لوحات التراخيص، تُنفَّذ جميع المراحل على نموذج واحد متّسق.",
