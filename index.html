@@ -432,6 +432,52 @@
     .ong-shots { gap: 8px; margin-top: 20px; }
   }
 
+  .completed { padding: 100px 60px; background: var(--coal); color: var(--on-dark); position: relative; }
+  .cmp-head { max-width: 1400px; margin: 0 auto 56px; }
+  .cmp-feature { max-width: 1400px; margin: 0 auto; background: linear-gradient(150deg, var(--graphite) 0%, var(--off-black) 100%); border: 1px solid rgba(168,119,42,.22); overflow: hidden; position: relative; }
+  .cmp-feature::before { content: ''; position: absolute; top: -2px; left: -2px; width: 52px; height: 52px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); pointer-events: none; z-index: 4; }
+  .cmp-feature::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 52px; height: 52px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); pointer-events: none; z-index: 4; }
+  .cmp-heroes { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid rgba(168,119,42,.22); }
+  .cmp-hero { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--off-black); }
+  .cmp-hero + .cmp-hero { border-left: 1px solid rgba(168,119,42,.22); }
+  .cmp-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease, filter .6s; filter: grayscale(6%) contrast(1.02); display: block; }
+  .cmp-hero:hover img { transform: scale(1.04); filter: none; }
+  .cmp-hero-tag { position: absolute; top: 14px; left: 14px; font-family: var(--sans); font-size: .58rem; letter-spacing: .26em; text-transform: uppercase; padding: 6px 12px 5px; background: rgba(13,13,13,.78); color: var(--gold-light); border: 1px solid rgba(168,119,42,.45); z-index: 2; backdrop-filter: blur(4px); }
+  .cmp-content { padding: 50px 48px 44px; border-bottom: 1px solid rgba(168,119,42,.22); }
+  .cmp-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .cmp-badge { padding: 6px 14px 5px; border: 1px solid rgba(168,119,42,.42); font-family: var(--sans); font-size: .58rem; letter-spacing: .24em; color: var(--gold-light); text-transform: uppercase; font-weight: 500; }
+  .cmp-badge-primary { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .cmp-badge-flag { padding-left: 8px; }
+  .cmp-name { font-family: var(--serif); font-weight: 300; font-size: 2.7rem; color: var(--white); line-height: 1.08; margin-bottom: 6px; letter-spacing: -.005em; }
+  .cmp-name em { font-style: italic; color: var(--gold-light); font-weight: 400; }
+  .cmp-sub { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 1.18rem; color: var(--platinum); margin-bottom: 30px; }
+  .cmp-desc p { font-size: .95rem; line-height: 1.9; color: var(--mid); margin-bottom: 14px; max-width: 780px; }
+  .cmp-desc p strong { color: var(--gold-light); font-weight: 500; }
+  .cmp-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-top: 30px; margin-top: 14px; border-top: 1px solid rgba(168,119,42,.18); }
+  .cmp-meta > div { display: flex; flex-direction: column; gap: 8px; }
+  .cmp-meta span:first-child { font-family: var(--sans); font-size: .56rem; letter-spacing: .28em; color: var(--mid); text-transform: uppercase; }
+  .cmp-meta span:last-child { font-family: var(--serif); font-size: 1rem; color: var(--white); line-height: 1.45; font-weight: 400; }
+  .cmp-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 28px 30px 32px; }
+  .cmp-gallery-title { grid-column: 1 / -1; font-family: var(--sans); font-size: .58rem; letter-spacing: .28em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 4px; opacity: .85; }
+  .cmp-shot { display: block; aspect-ratio: 3 / 4; overflow: hidden; position: relative; border: 1px solid rgba(168,119,42,.16); background: var(--off-black); }
+  .cmp-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s, filter .5s; filter: grayscale(12%) contrast(1.03); display: block; }
+  .cmp-shot:hover img { transform: scale(1.08); filter: none; }
+  .cmp-shot::after { content: '↗'; position: absolute; top: 8px; right: 10px; color: var(--gold); font-size: 1rem; opacity: 0; transition: opacity .3s; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+  .cmp-shot:hover::after { opacity: 1; }
+  @media (max-width: 900px) {
+    .completed { padding: 70px 22px; }
+    .cmp-head { margin-bottom: 40px; }
+    .cmp-heroes { grid-template-columns: 1fr; }
+    .cmp-hero + .cmp-hero { border-left: 0; border-top: 1px solid rgba(168,119,42,.22); }
+    .cmp-content { padding: 34px 26px 30px; }
+    .cmp-name { font-size: 2rem; }
+    .cmp-sub { font-size: 1rem; margin-bottom: 22px; }
+    .cmp-desc p { font-size: .92rem; line-height: 1.8; }
+    .cmp-meta { grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 22px; }
+    .cmp-meta span:last-child { font-size: .92rem; }
+    .cmp-gallery { grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 20px 18px 22px; }
+  }
+
   .bim { background: var(--coal); }
   .bim-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 50px; }
   .bim-text .lead2 { font-size: .98rem; line-height: 1.95; color: var(--platinum); margin: 22px 0; }
@@ -571,6 +617,7 @@
     <li><a href="#hizmetler" data-i18n="nav.hizmetler">Hizmetler</a></li>
     <li><a href="#projeler" data-i18n="nav.projeler">Projeler</a></li>
     <li><a href="#devam-eden" data-i18n="nav.devam">Devam Eden</a></li>
+    <li><a href="#tamamlanan" data-i18n="nav.tamamlanan">Tamamlanan</a></li>
     <li><a href="ekip.html" data-i18n="nav.ekip">Ekip</a></li>
     <li><a href="kariyer.html" data-i18n="nav.kariyer">Kariyer</a></li>
     <li><a href="#iletisim" data-i18n="nav.iletisim">İletişim</a></li>
@@ -849,6 +896,79 @@
       </div>
     </article>
   </div>
+</section>
+
+<!-- TAMAMLANMIŞ PROJELER -->
+<section class="completed" id="tamamlanan">
+  <div class="cmp-head">
+    <p class="section-label" data-i18n="cmp.label">Tamamlanmış Projeler</p>
+    <h2 class="section-title" data-i18n="cmp.title">Portföyümüzden<br><em>Öne Çıkan</em></h2>
+    <div class="divider"></div>
+  </div>
+  <article class="cmp-feature">
+    <div class="cmp-heroes">
+      <a class="cmp-hero" href="img/slide-parrot-hero.jpg" target="_blank" rel="noopener" aria-label="Macaw papağan kaydırağı — büyüt">
+        <img src="img/slide-parrot-hero.jpg" alt="Macaw papağanı tematik cam elyafı su kaydırağı — kırmızı, sarı, mavi tüylü figür" loading="lazy" decoding="async" width="1500" height="1125">
+        <span class="cmp-hero-tag" data-i18n="cmp.hero.parrot">Macaw Papağan</span>
+      </a>
+      <a class="cmp-hero" href="img/slide-phoenix-hero.jpg" target="_blank" rel="noopener" aria-label="Anka Kuşu kaydırağı — büyüt">
+        <img src="img/slide-phoenix-hero.jpg" alt="Anka Kuşu tematik cam elyafı su kaydırağı — gökkuşağı renkli figür" loading="lazy" decoding="async" width="1500" height="1125">
+        <span class="cmp-hero-tag" data-i18n="cmp.hero.phoenix">Anka Kuşu</span>
+      </a>
+    </div>
+    <div class="cmp-content">
+      <div class="cmp-badges">
+        <span class="cmp-badge cmp-badge-primary" data-i18n="cmp.badge.status">Tamamlandı &amp; Teslim Edildi</span>
+        <span class="cmp-badge cmp-badge-flag" data-i18n="cmp.badge.country">🇷🇴 Romanya</span>
+        <span class="cmp-badge" data-i18n="cmp.badge.category">Ürün Tasarımı</span>
+      </div>
+      <h3 class="cmp-name" data-i18n="cmp.name">Tematik <em>Kaydırak Tasarımı</em></h3>
+      <p class="cmp-sub" data-i18n="cmp.sub">Papağan &amp; Anka Kuşu — çocuk havuzu için özel üretim</p>
+      <div class="cmp-desc">
+        <p data-i18n="cmp.desc1"><strong>Kurucu Baş Mimarımız Yaşar Haşimoğlu</strong> tarafından tasarlanmış, uluslararası bir müşteri için Türkiye'de üretilerek Romanya'ya teslim edilmiş tematik cam elyafı (fiberglass) su kaydırakları — kırmızı Amerika papağanı (Macaw) ve efsanevi Anka Kuşu figürleri.</p>
+        <p data-i18n="cmp.desc2">Formdan renk paletine, tüy dokusundan kayma yüzeyi ergonomisine kadar her ayrıntı stüdyoda kavramlaştırıldı. Onaylanan çizimler doğrultusunda kalıp üretimi, gelcoat, boyama ve rötuş aşamaları uzman atölyede yürütüldü; bitmiş ürünler paketlenerek müşteriye ulaştırıldı.</p>
+      </div>
+      <div class="cmp-meta">
+        <div>
+          <span data-i18n="cmp.meta.1.label">Kategori</span>
+          <span data-i18n="cmp.meta.1.value">Tematik Ürün Tasarımı</span>
+        </div>
+        <div>
+          <span data-i18n="cmp.meta.2.label">Müşteri</span>
+          <span data-i18n="cmp.meta.2.value">Özel · Romanya</span>
+        </div>
+        <div>
+          <span data-i18n="cmp.meta.3.label">Malzeme</span>
+          <span data-i18n="cmp.meta.3.value">Cam elyafı takviyeli polyester (CTP)</span>
+        </div>
+        <div>
+          <span data-i18n="cmp.meta.4.label">Kapsam</span>
+          <span data-i18n="cmp.meta.4.value">Konsept → Kalıp → Boyama → Sevkiyat</span>
+        </div>
+      </div>
+    </div>
+    <div class="cmp-gallery">
+      <p class="cmp-gallery-title" data-i18n="cmp.gallery">Galeri · Farklı Açılar &amp; Üretim Süreci</p>
+      <a class="cmp-shot" href="img/slide-parrot-front.jpg" target="_blank" rel="noopener" aria-label="Papağan kaydırağı — ön görünüm">
+        <img src="img/slide-parrot-front.jpg" alt="Macaw papağan kaydırağı — ön görünüm, turkuaz kayma yüzeyi" loading="lazy" decoding="async" width="1100" height="1466">
+      </a>
+      <a class="cmp-shot" href="img/slide-parrot-rear.jpg" target="_blank" rel="noopener" aria-label="Papağan kaydırağı — arka merdiven">
+        <img src="img/slide-parrot-rear.jpg" alt="Macaw papağan kaydırağı — arka merdiven, kırmızı basamaklar" loading="lazy" decoding="async" width="1100" height="1466">
+      </a>
+      <a class="cmp-shot" href="img/slide-parrot-side.jpg" target="_blank" rel="noopener" aria-label="Papağan kaydırağı — yan detay">
+        <img src="img/slide-parrot-side.jpg" alt="Macaw papağan kaydırağı — yan görünüm ve kaya kaide detayı" loading="lazy" decoding="async" width="1100" height="825">
+      </a>
+      <a class="cmp-shot" href="img/slide-phoenix-front.jpg" target="_blank" rel="noopener" aria-label="Anka Kuşu kaydırağı — ön görünüm">
+        <img src="img/slide-phoenix-front.jpg" alt="Anka Kuşu kaydırağı — ön görünüm, sarı kayma yüzeyi" loading="lazy" decoding="async" width="1100" height="1466">
+      </a>
+      <a class="cmp-shot" href="img/slide-phoenix-rear.jpg" target="_blank" rel="noopener" aria-label="Anka Kuşu kaydırağı — arka merdiven">
+        <img src="img/slide-phoenix-rear.jpg" alt="Anka Kuşu kaydırağı — arka merdiven, sarı basamaklar" loading="lazy" decoding="async" width="1100" height="1466">
+      </a>
+      <a class="cmp-shot" href="img/slide-craft.jpg" target="_blank" rel="noopener" aria-label="Üretim süreci — ham fiberglass aşama">
+        <img src="img/slide-craft.jpg" alt="Üretim süreci — cam elyafı ham gövde, boyama öncesi aşama" loading="lazy" decoding="async" width="1100" height="1466">
+      </a>
+    </div>
+  </article>
 </section>
 
 <!-- BIM & REVIT -->
@@ -1425,6 +1545,22 @@ window.HMI_I18N = {
     'ong.2.name': "Adec <em>LSS</em>",
     'ong.2.sub': "Industrial building",
     'ong.2.loc': "Milas OIZ · Muğla",
+    'cmp.label': "Completed Projects",
+    'cmp.title': "From Our<br><em>Portfolio</em>",
+    'cmp.hero.parrot': "Macaw Parrot",
+    'cmp.hero.phoenix': "Phoenix",
+    'cmp.badge.status': "Delivered",
+    'cmp.badge.country': "🇷🇴 Romania",
+    'cmp.badge.category': "Product Design",
+    'cmp.name': "Themed <em>Slide Design</em>",
+    'cmp.sub': "Parrot &amp; Phoenix — bespoke pieces for a children's pool",
+    'cmp.desc1': "<strong>Designed by our Founding Chief Architect Yaşar Haşimoğlu</strong>, these bespoke fibreglass water slides were produced in Turkey and delivered to a private client in Romania — a scarlet Macaw parrot and a mythological Phoenix.",
+    'cmp.desc2': "Every detail — from form and colour palette to feather texture and the ergonomics of the sliding surface — was conceived in-studio. Following design approval, moulding, gelcoat, painting and finishing were carried out at a specialist fibreglass workshop; the finished pieces were then packed and shipped to the client.",
+    'cmp.meta.1.label': "Category", 'cmp.meta.1.value': "Themed Product Design",
+    'cmp.meta.2.label': "Client",   'cmp.meta.2.value': "Private · Romania",
+    'cmp.meta.3.label': "Material", 'cmp.meta.3.value': "Glass-reinforced polyester (GRP)",
+    'cmp.meta.4.label': "Scope",    'cmp.meta.4.value': "Concept → Mould → Paint → Shipment",
+    'cmp.gallery': "Gallery · Different Angles &amp; Production Process",
     'bim.label': "Expertise",
     'bim.title': "Architectural Modelling<br>with <em>BIM & Revit</em>",
     'bim.lead': "We produce our projects end-to-end with the BIM (Building Information Modelling) methodology on <strong>Autodesk Revit</strong>. Our strongest area is <strong>architectural Revit modelling</strong>: from conceptual massing to construction drawings, from façades and details to permit sheets, every stage is carried out on a single, consistent model.",
@@ -1587,6 +1723,22 @@ window.HMI_I18N = {
     'ong.2.name': "أديك <em>LSS</em>",
     'ong.2.sub': "مبنى صناعي",
     'ong.2.loc': "منطقة ميلاس الصناعية · موغلا",
+    'cmp.label': "مشاريع مكتملة",
+    'cmp.title': "من محفظتنا<br><em>أعمال مميّزة</em>",
+    'cmp.hero.parrot': "ببغاء الماكاو",
+    'cmp.hero.phoenix': "طائر العنقاء",
+    'cmp.badge.status': "تم التسليم",
+    'cmp.badge.country': "🇷🇴 رومانيا",
+    'cmp.badge.category': "تصميم منتجات",
+    'cmp.name': "تصميم <em>الزحاليق المُواضيعيّة</em>",
+    'cmp.sub': "الببغاء وطائر العنقاء — قطع خاصة لحوض سباحة الأطفال",
+    'cmp.desc1': "<strong>من تصميم كبير المهندسين المؤسِّس ياشار هاشم أوغلو</strong>؛ زحاليق مائية من الألياف الزجاجية أُنتجت في تركيا وسُلِّمت لعميل خاص في رومانيا — بشكل ببغاء الماكاو الأحمر وطائر العنقاء الأسطوري.",
+    'cmp.desc2': "كل تفصيلة — من الشكل ولوحة الألوان إلى نسيج الريش وأركوماتية سطح الانزلاق — نُوقشت واعتُمِدت في الاستوديو. وبعد إقرار التصاميم، جرى صبّ القوالب والطلاء والتشطيب في ورشة متخصصة، ثم شُحنت القطع المكتملة إلى العميل.",
+    'cmp.meta.1.label': "الفئة", 'cmp.meta.1.value': "تصميم منتجات مواضيعية",
+    'cmp.meta.2.label': "العميل", 'cmp.meta.2.value': "خاص · رومانيا",
+    'cmp.meta.3.label': "الخامة", 'cmp.meta.3.value': "بوليستر مقوّى بالألياف الزجاجية",
+    'cmp.meta.4.label': "النطاق", 'cmp.meta.4.value': "المفهوم → القالب → الطلاء → الشحن",
+    'cmp.gallery': "المعرض · زوايا مختلفة ومراحل الإنتاج",
     'bim.label': "تخصّص",
     'bim.title': "النمذجة المعمارية<br>بتقنية <em>BIM وRevit</em>",
     'bim.lead': "نُنتج مشاريعنا بشكل متكامل بمنهجية BIM (نمذجة معلومات البناء) على برنامج <strong>Autodesk Revit</strong>. أقوى مجالاتنا هو <strong>النمذجة المعمارية على Revit</strong>: من الكتلة المفاهيمية إلى مخططات التنفيذ، ومن الواجهات والتفاصيل إلى لوحات التراخيص، تُنفَّذ جميع المراحل على نموذج واحد متّسق.",
