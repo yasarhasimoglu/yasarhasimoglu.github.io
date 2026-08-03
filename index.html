@@ -384,6 +384,37 @@
   .project-overlay p { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
   .project-overlay h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--on-dark); }
 
+  .ongoing { padding: 100px 60px; background: var(--off-black); color: var(--on-dark); position: relative; overflow: hidden; }
+  .ongoing::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(168,119,42,.05) 1px, transparent 1px), linear-gradient(0deg, rgba(168,119,42,.05) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; opacity: .55; mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); }
+  .ong-head { max-width: 1400px; margin: 0 auto 56px; position: relative; }
+  .ong-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; position: relative; }
+  .ong-card { position: relative; background: linear-gradient(150deg, var(--graphite) 0%, var(--off-black) 100%); border: 1px solid rgba(168,119,42,.22); padding: 46px 44px 40px; overflow: hidden; transition: transform .35s, border-color .35s, box-shadow .35s; }
+  .ong-card:hover { transform: translateY(-4px); border-color: rgba(168,119,42,.55); box-shadow: 0 22px 42px rgba(0,0,0,.4); }
+  .ong-card::before { content: ''; position: absolute; top: -2px; left: -2px; width: 46px; height: 46px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); pointer-events: none; }
+  .ong-card::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 46px; height: 46px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); pointer-events: none; }
+  .ong-badge { display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: .6rem; font-weight: 500; letter-spacing: .3em; color: var(--gold); padding: 7px 15px 6px; border: 1px solid var(--gold); text-transform: uppercase; margin-bottom: 30px; background: rgba(168,119,42,.06); }
+  .ong-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: ong-pulse 1.8s ease-in-out infinite; }
+  @keyframes ong-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+  .ong-cat { font-family: var(--sans); font-size: .66rem; letter-spacing: .24em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 12px; }
+  .ong-name { font-family: var(--serif); font-weight: 300; font-size: 2.5rem; color: var(--white); line-height: 1.08; margin-bottom: 4px; letter-spacing: -.005em; }
+  .ong-name em { font-style: italic; color: var(--gold-light); font-weight: 400; }
+  .ong-sub { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 1.05rem; color: var(--platinum); margin-bottom: 34px; }
+  .ong-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 26px; border-top: 1px solid rgba(168,119,42,.22); }
+  .ong-meta-item { display: flex; flex-direction: column; gap: 8px; }
+  .ong-meta-label { font-family: var(--sans); font-size: .56rem; letter-spacing: .28em; color: var(--mid); text-transform: uppercase; }
+  .ong-meta-value { font-family: var(--serif); font-size: 1.4rem; color: var(--white); font-weight: 400; line-height: 1.15; }
+  .ong-meta-value em { font-family: var(--sans); font-size: .8rem; font-weight: 400; font-style: normal; color: var(--gold-light); letter-spacing: .08em; margin-left: 3px; text-transform: lowercase; }
+  @media (max-width: 900px) {
+    .ongoing { padding: 70px 22px; }
+    .ong-head { margin-bottom: 40px; }
+    .ong-grid { grid-template-columns: 1fr; gap: 20px; }
+    .ong-card { padding: 34px 28px 32px; }
+    .ong-name { font-size: 2rem; }
+    .ong-sub { font-size: .98rem; margin-bottom: 26px; }
+    .ong-meta { gap: 18px; padding-top: 22px; }
+    .ong-meta-value { font-size: 1.2rem; }
+  }
+
   .bim { background: var(--coal); }
   .bim-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 50px; }
   .bim-text .lead2 { font-size: .98rem; line-height: 1.95; color: var(--platinum); margin: 22px 0; }
@@ -522,6 +553,7 @@
     <li><a href="#hakkimizda" data-i18n="nav.kurumsal">Kurumsal</a></li>
     <li><a href="#hizmetler" data-i18n="nav.hizmetler">Hizmetler</a></li>
     <li><a href="#projeler" data-i18n="nav.projeler">Projeler</a></li>
+    <li><a href="#devam-eden" data-i18n="nav.devam">Devam Eden</a></li>
     <li><a href="ekip.html" data-i18n="nav.ekip">Ekip</a></li>
     <li><a href="kariyer.html" data-i18n="nav.kariyer">Kariyer</a></li>
     <li><a href="#iletisim" data-i18n="nav.iletisim">İletişim</a></li>
@@ -730,6 +762,49 @@
       </div>
     </div>
   </div>
+  </div>
+</section>
+
+<!-- DEVAM EDEN İŞLER -->
+<section class="ongoing" id="devam-eden">
+  <div class="ong-head">
+    <p class="section-label" data-i18n="ong.label">Devam Eden İşler</p>
+    <h2 class="section-title" data-i18n="ong.title">Şantiyede<br><em>Aktif Projeler</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="ong-grid">
+    <article class="ong-card">
+      <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
+      <p class="ong-cat" data-i18n="ong.1.cat">Fabrika İnşaatı</p>
+      <h3 class="ong-name" data-i18n="ong.1.name">Dekor <em>Safari</em></h3>
+      <p class="ong-sub" data-i18n="ong.1.sub">Endüstriyel yapı</p>
+      <div class="ong-meta">
+        <div class="ong-meta-item">
+          <span class="ong-meta-label" data-i18n="ong.area">Alan</span>
+          <span class="ong-meta-value">2.282 <em>m²</em></span>
+        </div>
+        <div class="ong-meta-item">
+          <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
+          <span class="ong-meta-value" data-i18n="ong.1.loc">EOSB · Eskişehir</span>
+        </div>
+      </div>
+    </article>
+    <article class="ong-card">
+      <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
+      <p class="ong-cat" data-i18n="ong.2.cat">Fabrika İnşaatı</p>
+      <h3 class="ong-name" data-i18n="ong.2.name">Adec <em>LSS</em></h3>
+      <p class="ong-sub" data-i18n="ong.2.sub">Endüstriyel yapı</p>
+      <div class="ong-meta">
+        <div class="ong-meta-item">
+          <span class="ong-meta-label" data-i18n="ong.area">Alan</span>
+          <span class="ong-meta-value">4.000 <em>m²</em></span>
+        </div>
+        <div class="ong-meta-item">
+          <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
+          <span class="ong-meta-value" data-i18n="ong.2.loc">Milas OSB · Muğla</span>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -1292,6 +1367,19 @@ window.HMI_I18N = {
     'prj.4.cat': "Interior", 'prj.4.name': "Interior Design",
     'prj.5.cat': "Transformation", 'prj.5.name': "Urban Transformation",
     'prj.6.cat': "Commercial", 'prj.6.name': "Commercial & Cultural Building",
+    'ong.label': "Ongoing Works",
+    'ong.title': "Active<br><em>On-Site Projects</em>",
+    'ong.status': "In Progress",
+    'ong.area': "Floor Area",
+    'ong.location': "Location",
+    'ong.1.cat': "Factory Construction",
+    'ong.1.name': "Dekor <em>Safari</em>",
+    'ong.1.sub': "Industrial building",
+    'ong.1.loc': "EOSB · Eskişehir",
+    'ong.2.cat': "Factory Construction",
+    'ong.2.name': "Adec <em>LSS</em>",
+    'ong.2.sub': "Industrial building",
+    'ong.2.loc': "Milas OIZ · Muğla",
     'bim.label': "Expertise",
     'bim.title': "Architectural Modelling<br>with <em>BIM & Revit</em>",
     'bim.lead': "We produce our projects end-to-end with the BIM (Building Information Modelling) methodology on <strong>Autodesk Revit</strong>. Our strongest area is <strong>architectural Revit modelling</strong>: from conceptual massing to construction drawings, from façades and details to permit sheets, every stage is carried out on a single, consistent model.",
@@ -1439,6 +1527,19 @@ window.HMI_I18N = {
     'prj.4.cat': "تصميم داخلي", 'prj.4.name': "التصميم الداخلي",
     'prj.5.cat': "تحول حضري", 'prj.5.name': "التحول الحضري",
     'prj.6.cat': "تجاري", 'prj.6.name': "مبنى تجاري وثقافي",
+    'ong.label': "مشاريع قيد التنفيذ",
+    'ong.title': "مشاريع نشطة<br><em>في الموقع</em>",
+    'ong.status': "قيد التنفيذ",
+    'ong.area': "المساحة",
+    'ong.location': "الموقع",
+    'ong.1.cat': "إنشاء مصنع",
+    'ong.1.name': "ديكور <em>سفاري</em>",
+    'ong.1.sub': "مبنى صناعي",
+    'ong.1.loc': "المنطقة الصناعية · إسكي شهير",
+    'ong.2.cat': "إنشاء مصنع",
+    'ong.2.name': "أديك <em>LSS</em>",
+    'ong.2.sub': "مبنى صناعي",
+    'ong.2.loc': "منطقة ميلاس الصناعية · موغلا",
     'bim.label': "تخصّص",
     'bim.title': "النمذجة المعمارية<br>بتقنية <em>BIM وRevit</em>",
     'bim.lead': "نُنتج مشاريعنا بشكل متكامل بمنهجية BIM (نمذجة معلومات البناء) على برنامج <strong>Autodesk Revit</strong>. أقوى مجالاتنا هو <strong>النمذجة المعمارية على Revit</strong>: من الكتلة المفاهيمية إلى مخططات التنفيذ، ومن الواجهات والتفاصيل إلى لوحات التراخيص، تُنفَّذ جميع المراحل على نموذج واحد متّسق.",
