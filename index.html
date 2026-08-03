@@ -387,11 +387,27 @@
   .ongoing { padding: 100px 60px; background: var(--off-black); color: var(--on-dark); position: relative; overflow: hidden; }
   .ongoing::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(168,119,42,.05) 1px, transparent 1px), linear-gradient(0deg, rgba(168,119,42,.05) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; opacity: .55; mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); }
   .ong-head { max-width: 1400px; margin: 0 auto 56px; position: relative; }
-  .ong-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; position: relative; }
-  .ong-card { position: relative; background: linear-gradient(150deg, var(--graphite) 0%, var(--off-black) 100%); border: 1px solid rgba(168,119,42,.22); padding: 46px 44px 40px; overflow: hidden; transition: transform .35s, border-color .35s, box-shadow .35s; }
+  .ong-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; position: relative; align-items: start; }
+  .ong-card { position: relative; background: linear-gradient(150deg, var(--graphite) 0%, var(--off-black) 100%); border: 1px solid rgba(168,119,42,.22); overflow: hidden; transition: transform .35s, border-color .35s, box-shadow .35s; display: flex; flex-direction: column; }
   .ong-card:hover { transform: translateY(-4px); border-color: rgba(168,119,42,.55); box-shadow: 0 22px 42px rgba(0,0,0,.4); }
-  .ong-card::before { content: ''; position: absolute; top: -2px; left: -2px; width: 46px; height: 46px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); pointer-events: none; }
-  .ong-card::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 46px; height: 46px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); pointer-events: none; }
+  .ong-card::before { content: ''; position: absolute; top: -2px; left: -2px; width: 46px; height: 46px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); pointer-events: none; z-index: 3; }
+  .ong-card::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 46px; height: 46px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); pointer-events: none; z-index: 3; }
+  .ong-hero { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: var(--coal); border-bottom: 1px solid rgba(168,119,42,.22); }
+  .ong-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease, filter .6s; filter: grayscale(8%) contrast(1.03); display: block; }
+  .ong-hero:hover img { transform: scale(1.04); filter: none; }
+  .ong-hero-tag { position: absolute; top: 14px; left: 14px; font-family: var(--sans); font-size: .56rem; letter-spacing: .24em; text-transform: uppercase; padding: 6px 12px 5px; background: rgba(13,13,13,.78); color: var(--gold-light); border: 1px solid rgba(168,119,42,.45); z-index: 2; backdrop-filter: blur(4px); }
+  .ong-hero-placeholder { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--graphite) 0%, var(--coal) 60%, var(--off-black) 100%); position: relative; overflow: hidden; }
+  .ong-hero-placeholder::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(168,119,42,.08) 1px, transparent 1px), linear-gradient(0deg, rgba(168,119,42,.08) 1px, transparent 1px); background-size: 32px 32px; opacity: .5; }
+  .ong-hero-placeholder-inner { position: relative; text-align: center; padding: 24px; }
+  .ong-hero-placeholder-inner svg { width: 48px; height: 48px; color: var(--gold); opacity: .5; margin-bottom: 14px; }
+  .ong-hero-placeholder-inner p { font-family: var(--sans); font-size: .6rem; letter-spacing: .3em; color: var(--platinum); text-transform: uppercase; opacity: .75; }
+  .ong-body { padding: 40px 42px 36px; display: flex; flex-direction: column; flex: 1; }
+  .ong-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+  .ong-shot { display: block; aspect-ratio: 4 / 3; overflow: hidden; position: relative; border: 1px solid rgba(168,119,42,.2); }
+  .ong-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s, filter .5s; filter: grayscale(20%) contrast(1.03); display: block; }
+  .ong-shot:hover img { transform: scale(1.08); filter: none; }
+  .ong-shot::after { content: '↗'; position: absolute; top: 8px; right: 10px; color: var(--gold); font-size: 1rem; opacity: 0; transition: opacity .3s; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+  .ong-shot:hover::after { opacity: 1; }
   .ong-badge { display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: .6rem; font-weight: 500; letter-spacing: .3em; color: var(--gold); padding: 7px 15px 6px; border: 1px solid var(--gold); text-transform: uppercase; margin-bottom: 30px; background: rgba(168,119,42,.06); }
   .ong-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: ong-pulse 1.8s ease-in-out infinite; }
   @keyframes ong-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
@@ -408,11 +424,12 @@
     .ongoing { padding: 70px 22px; }
     .ong-head { margin-bottom: 40px; }
     .ong-grid { grid-template-columns: 1fr; gap: 20px; }
-    .ong-card { padding: 34px 28px 32px; }
+    .ong-body { padding: 30px 26px 28px; }
     .ong-name { font-size: 2rem; }
     .ong-sub { font-size: .98rem; margin-bottom: 26px; }
     .ong-meta { gap: 18px; padding-top: 22px; }
     .ong-meta-value { font-size: 1.2rem; }
+    .ong-shots { gap: 8px; margin-top: 20px; }
   }
 
   .bim { background: var(--coal); }
@@ -774,34 +791,60 @@
   </div>
   <div class="ong-grid">
     <article class="ong-card">
-      <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
-      <p class="ong-cat" data-i18n="ong.1.cat">Fabrika İnşaatı</p>
-      <h3 class="ong-name" data-i18n="ong.1.name">Dekor <em>Safari</em></h3>
-      <p class="ong-sub" data-i18n="ong.1.sub">Endüstriyel yapı</p>
-      <div class="ong-meta">
-        <div class="ong-meta-item">
-          <span class="ong-meta-label" data-i18n="ong.area">Alan</span>
-          <span class="ong-meta-value">2.282 <em>m²</em></span>
+      <a class="ong-hero" href="img/dekor-safari-render.jpg" target="_blank" rel="noopener" aria-label="Dekor Safari mimari görselleştirme — büyüt">
+        <img src="img/dekor-safari-render.jpg" alt="Dekor Safari Fabrikası — mimari görselleştirme (cam cephe, taş kaplama)" loading="lazy" decoding="async" width="1400" height="787">
+        <span class="ong-hero-tag" data-i18n="ong.render">Mimari Görselleştirme</span>
+      </a>
+      <div class="ong-body">
+        <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
+        <p class="ong-cat" data-i18n="ong.1.cat">Fabrika İnşaatı</p>
+        <h3 class="ong-name" data-i18n="ong.1.name">Dekor <em>Safari</em></h3>
+        <p class="ong-sub" data-i18n="ong.1.sub">Endüstriyel yapı</p>
+        <div class="ong-meta">
+          <div class="ong-meta-item">
+            <span class="ong-meta-label" data-i18n="ong.area">Alan</span>
+            <span class="ong-meta-value">2.282 <em>m²</em></span>
+          </div>
+          <div class="ong-meta-item">
+            <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
+            <span class="ong-meta-value" data-i18n="ong.1.loc">EOSB · Eskişehir</span>
+          </div>
         </div>
-        <div class="ong-meta-item">
-          <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
-          <span class="ong-meta-value" data-i18n="ong.1.loc">EOSB · Eskişehir</span>
+        <div class="ong-shots">
+          <a class="ong-shot" href="img/dekor-safari-01.jpg" target="_blank" rel="noopener" aria-label="Şantiye — temel çalışmaları">
+            <img src="img/dekor-safari-01.jpg" alt="Dekor Safari şantiyesi — temel donatı ve beton çalışmaları" loading="lazy" decoding="async" width="1400" height="787">
+          </a>
+          <a class="ong-shot" href="img/dekor-safari-02.jpg" target="_blank" rel="noopener" aria-label="Şantiye — donatı hazırlığı">
+            <img src="img/dekor-safari-02.jpg" alt="Dekor Safari şantiyesi — alan hazırlığı ve donatı işleri" loading="lazy" decoding="async" width="1400" height="787">
+          </a>
         </div>
       </div>
     </article>
     <article class="ong-card">
-      <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
-      <p class="ong-cat" data-i18n="ong.2.cat">Fabrika İnşaatı</p>
-      <h3 class="ong-name" data-i18n="ong.2.name">Adec <em>LSS</em></h3>
-      <p class="ong-sub" data-i18n="ong.2.sub">Endüstriyel yapı</p>
-      <div class="ong-meta">
-        <div class="ong-meta-item">
-          <span class="ong-meta-label" data-i18n="ong.area">Alan</span>
-          <span class="ong-meta-value">4.000 <em>m²</em></span>
+      <div class="ong-hero ong-hero-placeholder" aria-hidden="true">
+        <div class="ong-hero-placeholder-inner">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="6" y="10" width="36" height="30"/>
+            <path d="M6 18 L42 18 M14 10 L14 40 M30 18 L30 40"/>
+            <path d="M20 26 L28 26 M20 32 L28 32" opacity=".6"/>
+          </svg>
+          <p data-i18n="ong.soon">Görseller yakında</p>
         </div>
-        <div class="ong-meta-item">
-          <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
-          <span class="ong-meta-value" data-i18n="ong.2.loc">Milas OSB · Muğla</span>
+      </div>
+      <div class="ong-body">
+        <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
+        <p class="ong-cat" data-i18n="ong.2.cat">Fabrika İnşaatı</p>
+        <h3 class="ong-name" data-i18n="ong.2.name">Adec <em>LSS</em></h3>
+        <p class="ong-sub" data-i18n="ong.2.sub">Endüstriyel yapı</p>
+        <div class="ong-meta">
+          <div class="ong-meta-item">
+            <span class="ong-meta-label" data-i18n="ong.area">Alan</span>
+            <span class="ong-meta-value">4.000 <em>m²</em></span>
+          </div>
+          <div class="ong-meta-item">
+            <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
+            <span class="ong-meta-value" data-i18n="ong.2.loc">Milas OSB · Muğla</span>
+          </div>
         </div>
       </div>
     </article>
@@ -1372,6 +1415,8 @@ window.HMI_I18N = {
     'ong.status': "In Progress",
     'ong.area': "Floor Area",
     'ong.location': "Location",
+    'ong.render': "Architectural Render",
+    'ong.soon': "Visuals coming soon",
     'ong.1.cat': "Factory Construction",
     'ong.1.name': "Dekor <em>Safari</em>",
     'ong.1.sub': "Industrial building",
@@ -1532,6 +1577,8 @@ window.HMI_I18N = {
     'ong.status': "قيد التنفيذ",
     'ong.area': "المساحة",
     'ong.location': "الموقع",
+    'ong.render': "تصور معماري",
+    'ong.soon': "الصور قريباً",
     'ong.1.cat': "إنشاء مصنع",
     'ong.1.name': "ديكور <em>سفاري</em>",
     'ong.1.sub': "مبنى صناعي",
