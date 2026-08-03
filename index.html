@@ -411,6 +411,12 @@
   .ong-shot:hover img { transform: scale(1.08); filter: none; }
   .ong-shot::after { content: '↗'; position: absolute; top: 8px; right: 10px; color: var(--gold); font-size: 1rem; opacity: 0; transition: opacity .3s; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
   .ong-shot:hover::after { opacity: 1; }
+  .ong-shot-placeholder { background: linear-gradient(135deg, var(--graphite) 0%, var(--coal) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: default; }
+  .ong-shot-placeholder::after { display: none; }
+  .ong-shot-placeholder::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(168,119,42,.07) 1px, transparent 1px), linear-gradient(0deg, rgba(168,119,42,.07) 1px, transparent 1px); background-size: 22px 22px; opacity: .5; }
+  .ong-shot-placeholder-inner { position: relative; text-align: center; padding: 14px; }
+  .ong-shot-placeholder-inner svg { width: 32px; height: 32px; color: var(--gold); opacity: .55; margin-bottom: 8px; }
+  .ong-shot-placeholder-inner p { font-family: var(--sans); font-size: .56rem; letter-spacing: .22em; color: var(--platinum); text-transform: uppercase; opacity: .8; line-height: 1.4; }
   .ong-badge { display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: .6rem; font-weight: 500; letter-spacing: .3em; color: var(--gold); padding: 7px 15px 6px; border: 1px solid var(--gold); text-transform: uppercase; margin-bottom: 30px; background: rgba(168,119,42,.06); }
   .ong-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: ong-pulse 1.8s ease-in-out infinite; }
   @keyframes ong-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
@@ -803,10 +809,10 @@
       </div>
     </a>
     <a class="project-card" href="#devam-eden">
-      <img src="img/dekor-safari-render.jpg" alt="Dekor Safari fabrika inşaatı — mimari görselleştirme, Eskişehir EOSB" loading="lazy" decoding="async">
+      <img src="img/adec-lss-render.jpg" alt="Adec LSS fabrika inşaatı — mimari görselleştirme, Milas OSB" loading="lazy" decoding="async">
       <div class="project-overlay">
-        <p data-i18n="prj.3.cat">Fabrika · Eskişehir EOSB</p>
-        <h3 data-i18n="prj.3.name">Dekor Safari Fabrikası</h3>
+        <p data-i18n="prj.3.cat">Fabrika · Milas OSB</p>
+        <h3 data-i18n="prj.3.name">Adec LSS Fabrikası</h3>
       </div>
     </a>
     <a class="project-card" href="hizmetler/villa-rezidans-tower.html">
@@ -843,9 +849,9 @@
   </div>
   <div class="ong-grid">
     <article class="ong-card">
-      <a class="ong-hero" href="img/dekor-safari-render.jpg" target="_blank" rel="noopener" aria-label="Dekor Safari mimari görselleştirme — büyüt">
-        <img src="img/dekor-safari-render.jpg" alt="Dekor Safari Fabrikası — mimari görselleştirme (cam cephe, taş kaplama)" loading="lazy" decoding="async" width="1400" height="787">
-        <span class="ong-hero-tag" data-i18n="ong.render">Mimari Görselleştirme</span>
+      <a class="ong-hero" href="img/dekor-safari-01.jpg" target="_blank" rel="noopener" aria-label="Dekor Safari şantiye — büyüt">
+        <img src="img/dekor-safari-01.jpg" alt="Dekor Safari Fabrikası şantiyesi — temel donatı ve beton çalışmaları, Eskişehir EOSB" loading="lazy" decoding="async" width="1400" height="787">
+        <span class="ong-hero-tag" data-i18n="ong.site">Şantiye Aşaması</span>
       </a>
       <div class="ong-body">
         <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
@@ -863,26 +869,23 @@
           </div>
         </div>
         <div class="ong-shots">
-          <a class="ong-shot" href="img/dekor-safari-01.jpg" target="_blank" rel="noopener" aria-label="Şantiye — temel çalışmaları">
-            <img src="img/dekor-safari-01.jpg" alt="Dekor Safari şantiyesi — temel donatı ve beton çalışmaları" loading="lazy" decoding="async" width="1400" height="787">
-          </a>
           <a class="ong-shot" href="img/dekor-safari-02.jpg" target="_blank" rel="noopener" aria-label="Şantiye — donatı hazırlığı">
             <img src="img/dekor-safari-02.jpg" alt="Dekor Safari şantiyesi — alan hazırlığı ve donatı işleri" loading="lazy" decoding="async" width="1400" height="787">
           </a>
+          <div class="ong-shot ong-shot-placeholder" aria-hidden="true">
+            <div class="ong-shot-placeholder-inner">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="8" width="30" height="24"/><path d="M5 14 L35 14 M12 8 L12 32 M26 14 L26 32" opacity=".6"/></svg>
+              <p data-i18n="ong.render.soon">3D Görsel Yakında</p>
+            </div>
+          </div>
         </div>
       </div>
     </article>
     <article class="ong-card">
-      <div class="ong-hero ong-hero-placeholder" aria-hidden="true">
-        <div class="ong-hero-placeholder-inner">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
-            <rect x="6" y="10" width="36" height="30"/>
-            <path d="M6 18 L42 18 M14 10 L14 40 M30 18 L30 40"/>
-            <path d="M20 26 L28 26 M20 32 L28 32" opacity=".6"/>
-          </svg>
-          <p data-i18n="ong.soon">Görseller yakında</p>
-        </div>
-      </div>
+      <a class="ong-hero" href="img/adec-lss-render.jpg" target="_blank" rel="noopener" aria-label="Adec LSS mimari görselleştirme — büyüt">
+        <img src="img/adec-lss-render.jpg" alt="Adec LSS Fabrikası — mimari görselleştirme (cam cephe, taş kaplama), Milas OSB" loading="lazy" decoding="async" width="1400" height="787">
+        <span class="ong-hero-tag" data-i18n="ong.render">Mimari Görselleştirme</span>
+      </a>
       <div class="ong-body">
         <div class="ong-badge" data-i18n="ong.status">Devam Ediyor</div>
         <p class="ong-cat" data-i18n="ong.2.cat">Fabrika İnşaatı</p>
@@ -896,6 +899,20 @@
           <div class="ong-meta-item">
             <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
             <span class="ong-meta-value" data-i18n="ong.2.loc">Milas OSB · Muğla</span>
+          </div>
+        </div>
+        <div class="ong-shots">
+          <div class="ong-shot ong-shot-placeholder" aria-hidden="true">
+            <div class="ong-shot-placeholder-inner">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="8" width="30" height="24"/><path d="M5 14 L35 14 M12 8 L12 32 M26 14 L26 32" opacity=".6"/></svg>
+              <p data-i18n="ong.site.soon">Şantiye Kareleri Yakında</p>
+            </div>
+          </div>
+          <div class="ong-shot ong-shot-placeholder" aria-hidden="true">
+            <div class="ong-shot-placeholder-inner">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="20" cy="20" r="12"/><path d="M20 8 L20 32 M8 20 L32 20" opacity=".6"/></svg>
+              <p data-i18n="ong.plan.soon">Kesit &amp; Plan Yakında</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1527,7 +1544,11 @@ window.HMI_I18N = {
     'ong.area': "Floor Area",
     'ong.location': "Location",
     'ong.render': "Architectural Render",
+    'ong.site': "Site Progress",
     'ong.soon': "Visuals coming soon",
+    'ong.render.soon': "3D render coming soon",
+    'ong.site.soon': "Site photos coming soon",
+    'ong.plan.soon': "Section &amp; plan coming soon",
     'ong.1.cat': "Factory Construction",
     'ong.1.name': "Dekor <em>Safari</em>",
     'ong.1.sub': "Industrial building",
@@ -1705,7 +1726,11 @@ window.HMI_I18N = {
     'ong.area': "المساحة",
     'ong.location': "الموقع",
     'ong.render': "تصور معماري",
+    'ong.site': "مرحلة الموقع",
     'ong.soon': "الصور قريباً",
+    'ong.render.soon': "التصور ثلاثي الأبعاد قريباً",
+    'ong.site.soon': "صور الموقع قريباً",
+    'ong.plan.soon': "المقطع والمخطط قريباً",
     'ong.1.cat': "إنشاء مصنع",
     'ong.1.name': "ديكور <em>سفاري</em>",
     'ong.1.sub': "مبنى صناعي",
