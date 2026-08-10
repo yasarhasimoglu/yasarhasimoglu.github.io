@@ -197,6 +197,27 @@
   .hero-dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.2); }
   @keyframes fadeup { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
+  .metrics { padding: 54px 60px 56px; background: var(--coal); border-top: 1px solid rgba(168,119,42,.24); border-bottom: 1px solid rgba(168,119,42,.24); position: relative; }
+  .metrics::before, .metrics::after { content: ''; position: absolute; left: 60px; right: 60px; height: 1px; pointer-events: none; opacity: .28; background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent); }
+  .metrics::before { top: -1px; }
+  .metrics::after { bottom: -1px; display: none; }
+  .metrics-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+  .metric { display: flex; flex-direction: column; gap: 10px; padding-left: 22px; border-left: 1px solid rgba(168,119,42,.32); }
+  .metric-num { font-family: var(--serif); font-weight: 300; font-size: 3.1rem; color: var(--gold); line-height: 1; letter-spacing: -.02em; display: inline-flex; align-items: baseline; gap: 6px; }
+  .metric-num em { font-family: var(--sans); font-size: .95rem; font-style: normal; color: var(--gold-light); font-weight: 400; letter-spacing: .04em; text-transform: lowercase; }
+  .metric-num sup { font-family: var(--serif); font-size: 1.4rem; color: var(--gold-light); font-weight: 300; align-self: flex-start; margin-top: 4px; }
+  .metric-label { font-family: var(--sans); font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--white); font-weight: 500; }
+  .metric-note { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: .88rem; color: var(--mid); line-height: 1.55; }
+  @media (max-width: 900px) {
+    .metrics { padding: 36px 22px; }
+    .metrics::before, .metrics::after { left: 22px; right: 22px; }
+    .metrics-inner { grid-template-columns: repeat(2, 1fr); gap: 26px 22px; }
+    .metric { padding-left: 14px; gap: 8px; }
+    .metric-num { font-size: 2.2rem; }
+    .metric-label { font-size: .6rem; letter-spacing: .18em; }
+    .metric-note { font-size: .78rem; }
+  }
+
   section { padding: 132px 60px; }
   .section-label { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
   .section-title { font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4.4rem); font-weight: 300; line-height: 1.12; color: var(--white); letter-spacing: -.01em; }
@@ -663,6 +684,32 @@
     <a href="#iletisim" class="btn-ghost" data-i18n="hero.cta2">Bize Ulaşın</a>
   </div>
   <div class="hero-scroll" data-i18n="hero.scroll">Kaydır</div>
+</section>
+
+<!-- RAKAMLARLA HMİ -->
+<section class="metrics" aria-label="Rakamlarla HMİ Haşimoğlu Mimarlık">
+  <div class="metrics-inner">
+    <div class="metric">
+      <span class="metric-num">4</span>
+      <span class="metric-label" data-i18n="mtr.1.label">Ülke · Proje Teslimi</span>
+      <span class="metric-note" data-i18n="mtr.1.note">Türkiye · Romanya · BAE · Özbekistan</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">6.282<em>m²</em></span>
+      <span class="metric-label" data-i18n="mtr.2.label">Aktif İnşaat</span>
+      <span class="metric-note" data-i18n="mtr.2.note">Milas OSB + Eskişehir EOSB fabrikaları</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">3</span>
+      <span class="metric-label" data-i18n="mtr.3.label">Ofis</span>
+      <span class="metric-note" data-i18n="mtr.3.note">Ataşehir · Ümraniye · Eskişehir</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">6<em>+</em></span>
+      <span class="metric-label" data-i18n="mtr.4.label">Disiplin · Kadro</span>
+      <span class="metric-note" data-i18n="mtr.4.note">Mimar · Mühendis · Uzman ekip</span>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
@@ -1543,6 +1590,14 @@ window.HMI_I18N = {
     'ong.status': "In Progress",
     'ong.area': "Floor Area",
     'ong.location': "Location",
+    'mtr.1.label': "Countries · Delivered",
+    'mtr.1.note': "Türkiye · Romania · UAE · Uzbekistan",
+    'mtr.2.label': "Active Construction",
+    'mtr.2.note': "Milas OIZ + Eskişehir OIZ factories",
+    'mtr.3.label': "Offices",
+    'mtr.3.note': "Ataşehir · Ümraniye · Eskişehir",
+    'mtr.4.label': "Disciplines · Team",
+    'mtr.4.note': "Architects · Engineers · Specialists",
     'ong.render': "Architectural Render",
     'ong.site': "Site Progress",
     'ong.soon': "Visuals coming soon",
@@ -1725,6 +1780,14 @@ window.HMI_I18N = {
     'ong.status': "قيد التنفيذ",
     'ong.area': "المساحة",
     'ong.location': "الموقع",
+    'mtr.1.label': "دول · تسليمات المشاريع",
+    'mtr.1.note': "تركيا · رومانيا · الإمارات · أوزبكستان",
+    'mtr.2.label': "إنشاءات نشطة",
+    'mtr.2.note': "مصنع منطقة ميلاس الصناعية + إسكي شهير",
+    'mtr.3.label': "مكاتب",
+    'mtr.3.note': "أتاشهير · أوم رنيه · إسكي شهير",
+    'mtr.4.label': "تخصصات · الفريق",
+    'mtr.4.note': "معماريون · مهندسون · متخصصون",
     'ong.render': "تصور معماري",
     'ong.site': "مرحلة الموقع",
     'ong.soon': "الصور قريباً",
