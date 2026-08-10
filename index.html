@@ -495,6 +495,31 @@
   .cmp-cta-btn em { color: var(--gold-light); font-style: italic; font-weight: 400; }
   .cmp-hero-tag { transition: background .3s, color .3s; }
   .cmp-hero:hover .cmp-hero-tag { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+  .global { padding: 120px 60px; background: var(--off-black); color: var(--on-dark); position: relative; overflow: hidden; }
+  .global::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(168,119,42,.06) 0, transparent 40%), radial-gradient(circle at 80% 70%, rgba(168,119,42,.08) 0, transparent 45%); pointer-events: none; }
+  .global-head { max-width: 1400px; margin: 0 auto 60px; position: relative; }
+  .global-intro { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 1.08rem; color: var(--platinum); line-height: 1.85; max-width: 720px; margin-top: 22px; }
+  .global-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; position: relative; }
+  .global-card { position: relative; background: linear-gradient(155deg, var(--graphite) 0%, var(--off-black) 100%); border: 1px solid rgba(168,119,42,.22); padding: 38px 32px 34px; display: flex; flex-direction: column; gap: 20px; transition: border-color .35s, transform .35s, box-shadow .35s; overflow: hidden; }
+  .global-card:hover { border-color: rgba(168,119,42,.55); transform: translateY(-3px); box-shadow: 0 18px 34px rgba(0,0,0,.35); }
+  .global-card::before { content: ''; position: absolute; top: 0; left: 0; width: 32px; height: 32px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); pointer-events: none; opacity: .7; }
+  .global-flag { font-size: 2.6rem; line-height: 1; filter: saturate(1.15); }
+  .global-body { display: flex; flex-direction: column; gap: 8px; }
+  .global-country { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; color: var(--white); line-height: 1.15; letter-spacing: -.005em; }
+  .global-cities { font-family: var(--sans); font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .global-context { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: .95rem; color: var(--mid); line-height: 1.65; margin-top: 4px; }
+  @media (max-width: 1080px) {
+    .global-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .global { padding: 70px 22px; }
+    .global-head { margin-bottom: 40px; }
+    .global-grid { grid-template-columns: 1fr; gap: 16px; }
+    .global-card { padding: 30px 26px 28px; }
+    .global-country { font-size: 1.25rem; }
+    .global-intro { font-size: 1rem; }
+  }
   @media (max-width: 900px) {
     .completed { padding: 70px 22px; }
     .cmp-head { margin-bottom: 40px; }
@@ -650,6 +675,7 @@
     <li><a href="#projeler" data-i18n="nav.projeler">Projeler</a></li>
     <li><a href="#devam-eden" data-i18n="nav.devam">Devam Eden</a></li>
     <li><a href="#tamamlanan" data-i18n="nav.tamamlanan">Tamamlanan</a></li>
+    <li><a href="#global" data-i18n="nav.global">Küresel</a></li>
     <li><a href="ekip.html" data-i18n="nav.ekip">Ekip</a></li>
     <li><a href="kariyer.html" data-i18n="nav.kariyer">Kariyer</a></li>
     <li><a href="#iletisim" data-i18n="nav.iletisim">İletişim</a></li>
@@ -1024,6 +1050,50 @@
       </div>
     </div>
   </article>
+</section>
+
+<!-- KÜRESEL DENEYİM -->
+<section class="global" id="global" aria-label="HMİ Haşimoğlu Mimarlık'ın küresel proje deneyimi">
+  <div class="global-head">
+    <p class="section-label" data-i18n="glo.label">Küresel Deneyim</p>
+    <h2 class="section-title" data-i18n="glo.title">Üç Kıta<br><em>Beş Şehir · Dört Ülke</em></h2>
+    <div class="divider"></div>
+    <p class="global-intro" data-i18n="glo.intro">Türkiye merkezli stüdyomuz; Ortadoğu, Orta Asya ve Doğu Avrupa'daki projelerle uluslararası bir deneyim birikimi taşır. Aşağıdaki dört ülke, bugüne kadar teslim ettiğimiz veya aktif olarak yürüttüğümüz projelerin coğrafi izini gösterir.</p>
+  </div>
+  <div class="global-grid">
+    <article class="global-card">
+      <div class="global-flag" aria-hidden="true">🇹🇷</div>
+      <div class="global-body">
+        <p class="global-country" data-i18n="glo.1.country">Türkiye</p>
+        <p class="global-cities" data-i18n="glo.1.cities">İstanbul · Eskişehir · Milas · Trabzon</p>
+        <p class="global-context" data-i18n="glo.1.context">Merkez ofis · şube · aktif inşaat · akvaryum mimarlığı</p>
+      </div>
+    </article>
+    <article class="global-card">
+      <div class="global-flag" aria-hidden="true">🇦🇪</div>
+      <div class="global-body">
+        <p class="global-country" data-i18n="glo.2.country">Birleşik Arap Emirlikleri</p>
+        <p class="global-cities" data-i18n="glo.2.cities">Abu Dabi</p>
+        <p class="global-context" data-i18n="glo.2.context">The National Aquarium — Kurucu Baş Mimarımızın uluslararası imzası</p>
+      </div>
+    </article>
+    <article class="global-card">
+      <div class="global-flag" aria-hidden="true">🇺🇿</div>
+      <div class="global-body">
+        <p class="global-country" data-i18n="glo.3.country">Özbekistan</p>
+        <p class="global-cities" data-i18n="glo.3.cities">Taşkent</p>
+        <p class="global-context" data-i18n="glo.3.context">Magic Aquarium — Orta Asya'nın büyük tematik akvaryum projesi</p>
+      </div>
+    </article>
+    <article class="global-card">
+      <div class="global-flag" aria-hidden="true">🇷🇴</div>
+      <div class="global-body">
+        <p class="global-country" data-i18n="glo.4.country">Romanya</p>
+        <p class="global-cities" data-i18n="glo.4.cities">Özel müşteri</p>
+        <p class="global-context" data-i18n="glo.4.context">Tematik cam elyafı figürler (Macaw &amp; Anka Kuşu) — 2 adet tamamlanıp teslim edildi</p>
+      </div>
+    </article>
+  </div>
 </section>
 
 <!-- BIM & REVIT -->
@@ -1628,6 +1698,21 @@ window.HMI_I18N = {
     'cmp.meta.2.label': "Client",   'cmp.meta.2.value': "Private · Romania",
     'cmp.meta.3.label': "Material", 'cmp.meta.3.value': "Glass-reinforced polyester (GRP)",
     'cmp.meta.4.label': "Scope",    'cmp.meta.4.value': "Concept → Mould → Paint → Shipment",
+    'glo.label': "Global Experience",
+    'glo.title': "Three Continents<br><em>Five Cities · Four Countries</em>",
+    'glo.intro': "Our Türkiye-based studio carries an international project record across the Middle East, Central Asia and Eastern Europe. The four countries below trace the geographic footprint of projects we have delivered or are actively running today.",
+    'glo.1.country': "Türkiye",
+    'glo.1.cities': "İstanbul · Eskişehir · Milas · Trabzon",
+    'glo.1.context': "Head office · branches · active construction · aquarium architecture",
+    'glo.2.country': "United Arab Emirates",
+    'glo.2.cities': "Abu Dhabi",
+    'glo.2.context': "The National Aquarium — the international signature of our Founding Chief Architect",
+    'glo.3.country': "Uzbekistan",
+    'glo.3.cities': "Tashkent",
+    'glo.3.context': "Magic Aquarium — Central Asia's landmark themed aquarium project",
+    'glo.4.country': "Romania",
+    'glo.4.cities': "Private client",
+    'glo.4.context': "Themed fibreglass figures (Macaw &amp; Phoenix) — 2 pieces completed and delivered",
     'bim.label': "Expertise",
     'bim.title': "Architectural Modelling<br>with <em>BIM & Revit</em>",
     'bim.lead': "We produce our projects end-to-end with the BIM (Building Information Modelling) methodology on <strong>Autodesk Revit</strong>. Our strongest area is <strong>architectural Revit modelling</strong>: from conceptual massing to construction drawings, from façades and details to permit sheets, every stage is carried out on a single, consistent model.",
@@ -1818,6 +1903,21 @@ window.HMI_I18N = {
     'cmp.meta.2.label': "العميل", 'cmp.meta.2.value': "خاص · رومانيا",
     'cmp.meta.3.label': "الخامة", 'cmp.meta.3.value': "بوليستر مقوّى بالألياف الزجاجية",
     'cmp.meta.4.label': "النطاق", 'cmp.meta.4.value': "المفهوم → القالب → الطلاء → الشحن",
+    'glo.label': "خبرة عالمية",
+    'glo.title': "ثلاث قارات<br><em>خمس مدن · أربع دول</em>",
+    'glo.intro': "استوديونا الذي مقره تركيا يحمل سجلاً دولياً من المشاريع عبر الشرق الأوسط وآسيا الوسطى وأوروبا الشرقية. تتبع الدول الأربع أدناه البصمة الجغرافية للمشاريع التي سلَّمناها أو ننفذها فعلياً اليوم.",
+    'glo.1.country': "تركيا",
+    'glo.1.cities': "إسطنبول · إسكي شهير · ميلاس · طرابزون",
+    'glo.1.context': "المكتب الرئيسي · الفروع · إنشاءات نشطة · عمارة أحواض السمك",
+    'glo.2.country': "الإمارات العربية المتحدة",
+    'glo.2.cities': "أبوظبي",
+    'glo.2.context': "المتحف الوطني للأحياء المائية — التوقيع الدولي لكبير المهندسين المؤسِّس",
+    'glo.3.country': "أوزبكستان",
+    'glo.3.cities': "طشقند",
+    'glo.3.context': "Magic Aquarium — مشروع الحوض المواضيعي البارز في آسيا الوسطى",
+    'glo.4.country': "رومانيا",
+    'glo.4.cities': "عميل خاص",
+    'glo.4.context': "قطع من الألياف الزجاجية بأشكال مواضيعية (ماكاو وعنقاء) — قطعتان أُنجزتا وسُلِّمتا",
     'bim.label': "تخصّص",
     'bim.title': "النمذجة المعمارية<br>بتقنية <em>BIM وRevit</em>",
     'bim.lead': "نُنتج مشاريعنا بشكل متكامل بمنهجية BIM (نمذجة معلومات البناء) على برنامج <strong>Autodesk Revit</strong>. أقوى مجالاتنا هو <strong>النمذجة المعمارية على Revit</strong>: من الكتلة المفاهيمية إلى مخططات التنفيذ، ومن الواجهات والتفاصيل إلى لوحات التراخيص، تُنفَّذ جميع المراحل على نموذج واحد متّسق.",
