@@ -15,6 +15,7 @@
     en: {
       'nav.kurumsal': 'About',
       'nav.hizmetler': 'Services',
+      'nav.portfoy': 'Portfolio',
       'nav.projeler': 'Projects',
       'nav.devam': 'Ongoing',
       'nav.tamamlanan': 'Completed',
@@ -38,6 +39,7 @@
     ar: {
       'nav.kurumsal': 'من نحن',
       'nav.hizmetler': 'خدماتنا',
+      'nav.portfoy': 'أعمالنا',
       'nav.projeler': 'مشاريعنا',
       'nav.devam': 'قيد التنفيذ',
       'nav.tamamlanan': 'المكتملة',

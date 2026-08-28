@@ -169,6 +169,13 @@
   .nav-links { display: flex; gap: 44px; list-style: none; }
   .nav-links a { font-size: .72rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--platinum); text-decoration: none; opacity: .75; transition: opacity .25s, color .25s; }
   .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+  .nav-drop { position: relative; }
+  .nav-drop > a { padding-bottom: 16px; margin-bottom: -16px; }
+  .nav-drop > a::after { content: '▾'; font-size: .62em; margin-left: 7px; opacity: .65; }
+  .nav-drop-menu { list-style: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(6px); background: rgba(244,241,234,.98); border: 1px solid rgba(168,119,42,.3); min-width: 196px; padding: 12px 0; opacity: 0; visibility: hidden; transition: opacity .22s ease, transform .22s ease, visibility .22s; box-shadow: 0 18px 40px rgba(13,13,13,.14); z-index: 110; }
+  .nav-drop:hover .nav-drop-menu, .nav-drop:focus-within .nav-drop-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-drop-menu a { display: block; padding: 11px 24px; font-size: .68rem; }
+  .nav-drop-menu a:hover { background: rgba(168,119,42,.08); }
 
   .hero { height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 60px 80px; overflow: hidden; touch-action: pan-y; cursor: grab; }
   .hero.dragging { cursor: grabbing; }
@@ -223,7 +230,9 @@
   }
 
   section { padding: 132px 60px; }
-  .section-label { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .section-label { display: inline-flex; align-items: center; gap: 14px; font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: .65; flex: none; }
+  section[id] { scroll-margin-top: 86px; }
   .section-title { font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4.4rem); font-weight: 300; line-height: 1.12; color: var(--white); letter-spacing: -.01em; }
   .section-title em { font-style: italic; color: var(--gold-light); }
   .divider { width: 60px; height: 1px; background: var(--gold); margin: 28px 0; opacity: .6; }
@@ -608,6 +617,11 @@
     .nav-links { position: fixed; top: 0; right: 0; width: min(60vw, 226px); max-height: 100vh; background: var(--off-black); flex-direction: column; gap: 0; padding: 84px 24px 26px; transform: translateX(110%); transition: transform .18s ease; border-left: 1px solid rgba(168,119,42,.25); border-bottom: 1px solid rgba(168,119,42,.18); box-shadow: -14px 16px 38px rgba(13,13,13,.2); z-index: 105; overflow-y: auto; }
     .nav-links.open { transform: translateX(0); }
     .nav-links a { font-size: .9rem; padding: 16px 0; display: block; opacity: .9; }
+    .nav-drop { position: static; }
+    .nav-drop > a { display: none; }
+    .nav-drop-menu { position: static; transform: none; opacity: 1; visibility: visible; border: 0; box-shadow: none; background: transparent; padding: 0; min-width: 0; }
+    .nav-drop-menu a { font-size: .9rem; padding: 16px 0; }
+    .nav-drop-menu a:hover { background: transparent; }
 
     section { padding: 70px 22px; }
     .hero { padding: 0 22px 60px; }
@@ -676,10 +690,15 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#hakkimizda" data-i18n="nav.kurumsal">Kurumsal</a></li>
     <li><a href="#hizmetler" data-i18n="nav.hizmetler">Hizmetler</a></li>
-    <li><a href="#projeler" data-i18n="nav.projeler">Projeler</a></li>
-    <li><a href="#devam-eden" data-i18n="nav.devam">Devam Eden</a></li>
-    <li><a href="#tamamlanan" data-i18n="nav.tamamlanan">Tamamlanan</a></li>
-    <li><a href="#global" data-i18n="nav.global">Küresel</a></li>
+    <li class="nav-drop">
+      <a href="#projeler" data-i18n="nav.portfoy" aria-haspopup="true">Portföy</a>
+      <ul class="nav-drop-menu">
+        <li><a href="#projeler" data-i18n="nav.projeler">Projeler</a></li>
+        <li><a href="#devam-eden" data-i18n="nav.devam">Devam Eden</a></li>
+        <li><a href="#tamamlanan" data-i18n="nav.tamamlanan">Tamamlanan</a></li>
+        <li><a href="#global" data-i18n="nav.global">Küresel</a></li>
+      </ul>
+    </li>
     <li><a href="ekip.html" data-i18n="nav.ekip">Ekip</a></li>
     <li><a href="kariyer.html" data-i18n="nav.kariyer">Kariyer</a></li>
     <li><a href="#iletisim" data-i18n="nav.iletisim">İletişim</a></li>
