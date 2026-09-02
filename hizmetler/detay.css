@@ -91,3 +91,6 @@ section { padding: 92px 60px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+
+/* Özgün çizimler (SVG) — galeri ve hero'da kağıt zemin, kırpmasız */
+.gal-grid img[src$=".svg"], .featured-img img[src$=".svg"] { object-fit: cover; object-position: 58% 45%; filter: none; background: #f4f1ea; }

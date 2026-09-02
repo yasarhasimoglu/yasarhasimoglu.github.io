@@ -144,8 +144,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link rel="preconnect" href="https://commons.wikimedia.org" crossorigin>
 <link rel="dns-prefetch" href="https://flagcdn.com">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Barlow:wght@300;400;500&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Barlow:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
@@ -240,6 +238,7 @@
   .about { background: var(--off-black); display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
   .about-img-wrap { position: relative; height: 580px; }
   .about-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.05); }
+  .about-img-draw { object-fit: contain; object-position: center; background: #f4f1ea; filter: none; border: 1px solid rgba(168,119,42,.22); }
   .about-img-badge { position: absolute; bottom: -24px; right: -24px; width: 160px; height: 160px; background: var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
   .about-img-badge span:first-child { font-family: var(--serif); font-size: 2.8rem; font-weight: 600; color: var(--ink); line-height: 1; }
   .about-img-badge span:last-child { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); opacity: .75; }
@@ -264,7 +263,7 @@
   }
 
   .aqua { position: relative; padding: 130px 60px; overflow: hidden; }
-  .aqua-bg { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13,13,13,.86) 0%, rgba(13,13,13,.5) 100%), url('https://commons.wikimedia.org/wiki/Special:FilePath/Georgia%20Aquarium%20-%20Ocean%20Voyager%20Tunnel%20Jan%202006.jpg?width=1800') center/cover no-repeat; }
+  .aqua-bg { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13,13,13,.86) 0%, rgba(13,13,13,.5) 100%), url('img/illus/aquarium-tunnel-dark.svg') center/cover no-repeat; }
   .aqua-inner { position: relative; max-width: 760px; }
   .aqua .section-label { color: var(--gold-light); }
   .aqua h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4.6vw, 3.7rem); font-weight: 300; color: #fff; line-height: 1.12; letter-spacing: -.01em; }
@@ -420,6 +419,9 @@
   .project-overlay h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--on-dark); line-height: 1.15; }
   .project-overlay::after { content: '→'; position: absolute; top: 22px; right: 22px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1rem; opacity: 0; transform: translateY(-4px); transition: opacity .3s, transform .3s; }
   .project-card:hover .project-overlay::after { opacity: 1; transform: translateY(0); }
+  .project-card-draw { background: #f4f1ea; }
+  .project-card-draw img { filter: none; object-position: 58% 45%; }
+  .project-card-draw:hover img { filter: none; }
 
   .ongoing { padding: 100px 60px; background: var(--off-black); color: var(--on-dark); position: relative; overflow: hidden; }
   .ongoing::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(168,119,42,.05) 1px, transparent 1px), linear-gradient(0deg, rgba(168,119,42,.05) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; opacity: .55; mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%); }
@@ -451,6 +453,19 @@
   .ong-shot-placeholder-inner { position: relative; text-align: center; padding: 14px; }
   .ong-shot-placeholder-inner svg { width: 32px; height: 32px; color: var(--gold); opacity: .55; margin-bottom: 8px; }
   .ong-shot-placeholder-inner p { font-family: var(--sans); font-size: .56rem; letter-spacing: .22em; color: var(--platinum); text-transform: uppercase; opacity: .8; line-height: 1.4; }
+  .ong-shots-3 { grid-template-columns: repeat(3, 1fr); }
+  .ong-shot-draw { background: #f4f1ea; }
+  .ong-shot-draw img { object-fit: cover; object-position: 62% 50%; filter: none; }
+  .ong-hero-draw img { filter: none; }
+  .ong-shot-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 7px 10px 6px; font-family: var(--sans); font-size: .54rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-light); background: linear-gradient(0deg, rgba(13,13,13,.82), rgba(13,13,13,0)); pointer-events: none; }
+  .ong-shot-map { display: flex; align-items: center; justify-content: center; text-decoration: none; background: linear-gradient(135deg, var(--graphite) 0%, var(--coal) 100%); position: relative; overflow: hidden; transition: border-color .3s; }
+  .ong-shot-map::after { display: none; }
+  .ong-shot-map::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(168,119,42,.07) 1px, transparent 1px), linear-gradient(0deg, rgba(168,119,42,.07) 1px, transparent 1px); background-size: 22px 22px; opacity: .5; }
+  .ong-shot-map:hover { border-color: var(--gold); }
+  .ong-shot-map .ong-shot-placeholder-inner p { color: var(--gold); opacity: 1; }
+  .ong-shot-map small { display: block; margin-top: 6px; font-family: var(--sans); font-size: .58rem; letter-spacing: .06em; color: var(--mid); }
+  .ong-badge-partial { border-color: var(--gold-light); }
+  @media (min-width: 1180px) { .ong-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } .ong-body { padding: 32px 30px 30px; } .ong-name { font-size: 2.1rem; } }
   .ong-badge { display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: .6rem; font-weight: 500; letter-spacing: .3em; color: var(--gold); padding: 7px 15px 6px; border: 1px solid var(--gold); text-transform: uppercase; margin-bottom: 30px; background: rgba(168,119,42,.06); }
   .ong-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: ong-pulse 1.8s ease-in-out infinite; }
   @keyframes ong-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
@@ -571,6 +586,9 @@
   .rv-card:hover img { transform: scale(1.08); filter: grayscale(0%) brightness(.5); }
   .rv-ov { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; opacity: 0; transform: translateY(16px); transition: opacity .4s, transform .4s; background: linear-gradient(0deg, rgba(13,13,13,.55) 0%, transparent 75%); }
   .rv-card:hover .rv-ov { opacity: 1; transform: translateY(0); }
+  .rv-card-draw { background: #f4f1ea; border: 1px solid rgba(168,119,42,.2); }
+  .rv-card-draw img { filter: none; object-position: 58% 45%; }
+  .bim-figure-draw { object-fit: contain !important; background: #f4f1ea; filter: none !important; border: 1px solid rgba(168,119,42,.22); }
   .rv-ov .t { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 8px; }
   .rv-ov .n { font-family: var(--serif); font-size: 1.3rem; color: #fff; line-height: 1.2; }
   .rv-ov .m { margin-top: 12px; font-size: .82rem; letter-spacing: .08em; color: var(--on-dark); border-top: 1px solid rgba(255,255,255,.28); padding-top: 10px; }
@@ -715,9 +733,10 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg" id="heroBg">
-    <div class="hero-slide active" data-local="img/slider-01.jpg" style="--img:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=80')"></div>
-    <div class="hero-slide" data-local="img/slider-02.jpg" style="--img:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=80')"></div>
-    <div class="hero-slide" data-local="img/slider-03.jpg" style="--img:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=80')"></div>
+    <div class="hero-slide active" style="--img:url('img/adec-lss-render.jpg')"></div>
+    <div class="hero-slide" style="--img:url('img/illus/hero-adec-lss-dark.svg')"></div>
+    <div class="hero-slide" style="--img:url('img/illus/hero-dekor-safari-dark.svg')"></div>
+    <div class="hero-slide" style="--img:url('img/illus/hero-adec-aqua-dark.svg')"></div>
     <div class="hero-slide" style="--img:url('img/slider-04.jpg')"></div>
   </div>
   <div class="hero-nav">
@@ -764,7 +783,7 @@
 <!-- ABOUT -->
 <section class="about" id="hakkimizda">
   <div class="about-img-wrap">
-    <img class="about-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="HMİ mimarlık ofisi" data-i18n-alt="about.imgAlt" decoding="async">
+    <img class="about-img about-img-draw" src="img/illus/anim-adec-lss-draw.svg" alt="Adec LSS Fabrikası aksonometrik konsept çizimi — çizgilerin kendini çizdiği animasyon" data-i18n-alt="about.imgAlt" decoding="async" width="1600" height="900">
     <div class="about-img-badge">
       <span>2022</span>
       <span data-i18n="about.badge">Kuruluş</span>
@@ -932,6 +951,13 @@
         <h3 data-i18n="prj.6.name">Texas Villa · Detay</h3>
       </div>
     </a>
+    <a class="project-card project-card-draw" href="#devam-eden">
+      <img src="img/illus/adec-aqua-site-axo.svg" alt="Adec LSS Akuakültür Tesisi — vaziyet aksonometrisi konsept çizimi" loading="lazy" decoding="async">
+      <div class="project-overlay">
+        <p data-i18n="prj.7.cat">Akuakültür · Milas / Muğla</p>
+        <h3 data-i18n="prj.7.name">Adec LSS Balık Çiftliği</h3>
+      </div>
+    </a>
   </div>
   </div>
 </section>
@@ -964,16 +990,19 @@
             <span class="ong-meta-value" data-i18n="ong.1.loc">EOSB · Eskişehir</span>
           </div>
         </div>
-        <div class="ong-shots">
+        <div class="ong-shots ong-shots-3">
           <a class="ong-shot" href="img/dekor-safari-02.jpg" target="_blank" rel="noopener" aria-label="Şantiye — donatı hazırlığı">
             <img src="img/dekor-safari-02.jpg" alt="Dekor Safari şantiyesi — alan hazırlığı ve donatı işleri" loading="lazy" decoding="async" width="1400" height="787">
+            <span class="ong-shot-cap" data-i18n="ong.cap.site">Şantiye</span>
           </a>
-          <div class="ong-shot ong-shot-placeholder" aria-hidden="true">
-            <div class="ong-shot-placeholder-inner">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="8" width="30" height="24"/><path d="M5 14 L35 14 M12 8 L12 32 M26 14 L26 32" opacity=".6"/></svg>
-              <p data-i18n="ong.render.soon">3D Görsel Yakında</p>
-            </div>
-          </div>
+          <a class="ong-shot ong-shot-draw" href="img/illus/dekor-safari-axo.svg" target="_blank" rel="noopener" aria-label="Aksonometrik konsept çizimi — büyüt">
+            <img src="img/illus/dekor-safari-axo.svg" alt="Dekor Safari Fabrikası — aksonometrik konsept çizimi, kuzeydoğu" loading="lazy" decoding="async" width="1600" height="900">
+            <span class="ong-shot-cap" data-i18n="ong.cap.axo">Aksonometri</span>
+          </a>
+          <a class="ong-shot ong-shot-draw" href="img/illus/dekor-safari-elev.svg" target="_blank" rel="noopener" aria-label="Güney cephesi konsept çizimi — büyüt">
+            <img src="img/illus/dekor-safari-elev.svg" alt="Dekor Safari Fabrikası — güney cephesi konsept çizimi" loading="lazy" decoding="async" width="1600" height="900">
+            <span class="ong-shot-cap" data-i18n="ong.cap.elev">Güney Cephesi</span>
+          </a>
         </div>
       </div>
     </article>
@@ -998,18 +1027,49 @@
           </div>
         </div>
         <div class="ong-shots">
-          <div class="ong-shot ong-shot-placeholder" aria-hidden="true">
-            <div class="ong-shot-placeholder-inner">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="8" width="30" height="24"/><path d="M5 14 L35 14 M12 8 L12 32 M26 14 L26 32" opacity=".6"/></svg>
-              <p data-i18n="ong.site.soon">Şantiye Kareleri Yakında</p>
-            </div>
+          <a class="ong-shot ong-shot-draw" href="img/illus/adec-lss-axo.svg" target="_blank" rel="noopener" aria-label="Aksonometrik konsept çizimi — büyüt">
+            <img src="img/illus/adec-lss-axo.svg" alt="Adec LSS Fabrikası — aksonometrik konsept çizimi, güneydoğu" loading="lazy" decoding="async" width="1600" height="900">
+            <span class="ong-shot-cap" data-i18n="ong.cap.axo">Aksonometri</span>
+          </a>
+          <a class="ong-shot ong-shot-draw" href="img/illus/adec-lss-elev.svg" target="_blank" rel="noopener" aria-label="Güney cephesi konsept çizimi — büyüt">
+            <img src="img/illus/adec-lss-elev.svg" alt="Adec LSS Fabrikası — güney cephesi konsept çizimi" loading="lazy" decoding="async" width="1600" height="900">
+            <span class="ong-shot-cap" data-i18n="ong.cap.elev">Güney Cephesi</span>
+          </a>
+        </div>
+      </div>
+    </article>
+    <article class="ong-card">
+      <a class="ong-hero ong-hero-draw" href="img/illus/adec-aqua-site-axo.svg" target="_blank" rel="noopener" aria-label="Vaziyet aksonometrisi — büyüt">
+        <img src="img/illus/adec-aqua-site-axo.svg" alt="Adec LSS Akuakültür Tesisi — 6 yapılı vaziyet aksonometrisi, Avşar / Milas" loading="lazy" decoding="async" width="1600" height="900">
+        <span class="ong-hero-tag" data-i18n="ong.siteplan">Vaziyet Aksonometrisi</span>
+      </a>
+      <div class="ong-body">
+        <div class="ong-badge ong-badge-partial" data-i18n="ong.status.partial">Kısmen Tamamlandı · Devam Ediyor</div>
+        <p class="ong-cat" data-i18n="ong.3.cat">Akuakültür Tesisi · Balık Çiftliği</p>
+        <h3 class="ong-name" data-i18n="ong.3.name">Adec LSS <em>Balık Çiftliği</em></h3>
+        <p class="ong-sub" data-i18n="ong.3.sub">Kuluçkadan paketlemeye kapalı devre (RAS) yetiştirme kompleksi</p>
+        <div class="ong-meta">
+          <div class="ong-meta-item">
+            <span class="ong-meta-label" data-i18n="ong.buildings">Yapı</span>
+            <span class="ong-meta-value">6 <em data-i18n="ong.buildings.unit">bina</em></span>
           </div>
-          <div class="ong-shot ong-shot-placeholder" aria-hidden="true">
-            <div class="ong-shot-placeholder-inner">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="20" cy="20" r="12"/><path d="M20 8 L20 32 M8 20 L32 20" opacity=".6"/></svg>
-              <p data-i18n="ong.plan.soon">Kesit &amp; Plan Yakında</p>
-            </div>
+          <div class="ong-meta-item">
+            <span class="ong-meta-label" data-i18n="ong.location">Lokasyon</span>
+            <span class="ong-meta-value" data-i18n="ong.3.loc">Avşar · Milas / Muğla</span>
           </div>
+        </div>
+        <div class="ong-shots">
+          <a class="ong-shot ong-shot-draw" href="img/illus/adec-aqua-ras-section.svg" target="_blank" rel="noopener" aria-label="RAS holü kesiti — büyüt">
+            <img src="img/illus/adec-aqua-ras-section.svg" alt="Adec LSS Akuakültür Tesisi — RAS holü enine kesit konsept çizimi" loading="lazy" decoding="async" width="1600" height="900">
+            <span class="ong-shot-cap" data-i18n="ong.cap.section">RAS Holü Kesiti</span>
+          </a>
+          <a class="ong-shot ong-shot-map" href="https://www.google.com/maps?q=37.257119,27.677975" target="_blank" rel="noopener" aria-label="Tesis konumunu haritada aç">
+            <div class="ong-shot-placeholder-inner">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 36 C20 36 8 24 8 15 a12 12 0 0 1 24 0 c0 9 -12 21 -12 21z"/><circle cx="20" cy="15" r="4"/></svg>
+              <p data-i18n="ong.map">Haritada Gör</p>
+              <small>37.257119 · 27.677975</small>
+            </div>
+          </a>
         </div>
       </div>
     </article>
@@ -1142,7 +1202,7 @@
       </div>
     </div>
     <div class="bim-figure">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1100&q=80" alt="Bilgisayar üzerinde BIM / Revit modelleme ve koordinasyon" decoding="async">
+      <img class="bim-figure-draw" src="img/illus/anim-adec-aqua-draw.svg" alt="Adec LSS Akuakültür Tesisi vaziyet aksonometrisi — model çizgilerinin kendini çizdiği animasyon" decoding="async" width="1600" height="900">
       <p class="cap" data-i18n="bim.cap">Revit · Mimari Modelleme &amp; Dokümantasyon</p>
     </div>
   </div>
@@ -1154,37 +1214,37 @@
   <h2 class="section-title" data-i18n="rv.title">Revit Mimari Proje<br><em>Çalışmalarımız</em></h2>
   <div class="rv-strip">
   <div class="rv-track" id="rvTrack">
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" alt="Rezidans bloğu mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.1.t">Konut · Mimari Revit</span><span class="n" data-i18n="rv.1.n">Rezidans Bloğu</span><span class="m" data-i18n="rv.1.m">Yaklaşık 14.500 m² · LOD 350</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/adec-lss-axo.svg" alt="Adec LSS Fabrikası — aksonometrik konsept çizimi" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.1.t">Endüstriyel · Mimari Revit</span><span class="n" data-i18n="rv.1.n">Adec LSS Fabrikası · Aksonometri</span><span class="m" data-i18n="rv.1.m">Milas OSB · 4.000 m² · LOD 300</span></div>
     </div>
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Ofis kulesi mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.2.t">Yüksek Yapı · Mimari Revit</span><span class="n" data-i18n="rv.2.n">Ofis Kulesi</span><span class="m" data-i18n="rv.2.m">Yaklaşık 32.000 m² · LOD 350</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/adec-lss-elev.svg" alt="Adec LSS Fabrikası — güney cephesi" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.2.t">Endüstriyel · Cephe Paftası</span><span class="n" data-i18n="rv.2.n">Adec LSS Fabrikası · Güney Cephesi</span><span class="m" data-i18n="rv.2.m">Giydirme cam · taş · tuğla pilastr</span></div>
     </div>
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80" alt="Karma kullanım AVM mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.3.t">Karma Kullanım · Mimari + Koordinasyon</span><span class="n" data-i18n="rv.3.n">AVM &amp; Çarşı</span><span class="m" data-i18n="rv.3.m">Yaklaşık 46.000 m²</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/dekor-safari-axo.svg" alt="Dekor Safari Fabrikası — aksonometrik konsept çizimi" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.3.t">Endüstriyel · Mimari Revit</span><span class="n" data-i18n="rv.3.n">Dekor Safari · Aksonometri</span><span class="m" data-i18n="rv.3.m">Eskişehir OSB · 2.282 m² · LOD 300</span></div>
     </div>
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" alt="Lüks villa mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.4.t">Konut · Mimari Revit &amp; Detay</span><span class="n" data-i18n="rv.4.n">Lüks Villa</span><span class="m" data-i18n="rv.4.m">Yaklaşık 1.250 m²</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/dekor-safari-elev.svg" alt="Dekor Safari Fabrikası — güney cephesi" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.4.t">Endüstriyel · Cephe Paftası</span><span class="n" data-i18n="rv.4.n">Dekor Safari · Güney Cephesi</span><span class="m" data-i18n="rv.4.m">Çelik hol · şerit pencere · ışıklık</span></div>
     </div>
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=800&q=80" alt="Kültür merkezi mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.5.t">Kültürel Yapı · Mimari Revit</span><span class="n" data-i18n="rv.5.n">Kültür Merkezi</span><span class="m" data-i18n="rv.5.m">Yaklaşık 8.400 m²</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/adec-aqua-site-axo.svg" alt="Adec LSS Akuakültür Tesisi — vaziyet aksonometrisi" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.5.t">Akuakültür · Vaziyet</span><span class="n" data-i18n="rv.5.n">Adec LSS Balık Çiftliği · Vaziyet</span><span class="m" data-i18n="rv.5.m">Avşar / Milas · 6 yapı</span></div>
     </div>
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&q=80" alt="Akvaryum yapısı mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.6.t">Tematik Yapı · Mimari Revit</span><span class="n" data-i18n="rv.6.n">Akvaryum Yapısı</span><span class="m" data-i18n="rv.6.m">Yaklaşık 6.800 m²</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/adec-aqua-ras-section.svg" alt="Adec LSS Akuakültür Tesisi — RAS holü kesiti" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.6.t">Akuakültür · Kesit Paftası</span><span class="n" data-i18n="rv.6.n">RAS Holü · Enine Kesit</span><span class="m" data-i18n="rv.6.m">Ø 4 m tanklar · biyofiltre · 20 m açıklık</span></div>
     </div>
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?w=800&q=80" alt="Kentsel dönüşüm konut sitesi mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.7.t">Kentsel Dönüşüm · Mimari Revit</span><span class="n" data-i18n="rv.7.n">Konut Sitesi</span><span class="m" data-i18n="rv.7.m">Yaklaşık 22.000 m²</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/anim-adec-lss-draw.svg" alt="Adec LSS Fabrikası — çizim animasyonu" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.7.t">Model Animasyonu · Revit</span><span class="n" data-i18n="rv.7.n">Adec LSS · Çizim Animasyonu</span><span class="m" data-i18n="rv.7.m">Kütleden pafta üretimine</span></div>
     </div>
-    <div class="rv-card">
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Otel mimari Revit modeli" decoding="async">
-      <div class="rv-ov"><span class="t" data-i18n="rv.8.t">Konaklama · Mimari Revit</span><span class="n" data-i18n="rv.8.n">Otel</span><span class="m" data-i18n="rv.8.m">Yaklaşık 17.500 m²</span></div>
+    <div class="rv-card rv-card-draw">
+      <img src="img/illus/anim-adec-aqua-draw.svg" alt="Adec LSS Akuakültür Tesisi — çizim animasyonu" loading="lazy" decoding="async" width="1600" height="900">
+      <div class="rv-ov"><span class="t" data-i18n="rv.8.t">Model Animasyonu · Revit</span><span class="n" data-i18n="rv.8.n">Balık Çiftliği · Çizim Animasyonu</span><span class="m" data-i18n="rv.8.m">Vaziyetten kesite</span></div>
     </div>
   </div>
   </div>
@@ -1632,7 +1692,7 @@ window.HMI_I18N = {
     'hero.cta1': "Our Services",
     'hero.cta2': "Get in Touch",
     'hero.scroll': "Scroll",
-    'about.imgAlt': "HMİ architecture office",
+    'about.imgAlt': "Adec LSS Factory axonometric concept drawing — self-drawing line animation",
     'about.badge': "Established",
     'about.label': "About Us",
     'about.title': "Architecture That Gives<br><em>Space Meaning</em>",
@@ -1694,6 +1754,16 @@ window.HMI_I18N = {
     'ong.render': "Architectural Render",
     'ong.site': "Site Progress",
     'ong.soon': "Visuals coming soon",
+    'ong.cap.site': "Site", 'ong.cap.axo': "Axonometric", 'ong.cap.elev': "South elevation", 'ong.cap.section': "RAS hall section",
+    'ong.siteplan': "Site Axonometric",
+    'ong.status.partial': "Partially Complete · In Progress",
+    'ong.3.cat': "Aquaculture Facility · Fish Farm",
+    'ong.3.name': "Adec LSS <em>Fish Farm</em>",
+    'ong.3.sub': "Hatchery-to-packing recirculating (RAS) growing complex",
+    'ong.buildings': "Buildings", 'ong.buildings.unit': "units",
+    'ong.3.loc': "Avşar · Milas / Muğla",
+    'ong.map': "View on map",
+    'prj.7.cat': "Aquaculture · Milas / Muğla", 'prj.7.name': "Adec LSS Fish Farm",
     'ong.render.soon': "3D render coming soon",
     'ong.site.soon': "Site photos coming soon",
     'ong.plan.soon': "Section &amp; plan coming soon",
@@ -1748,14 +1818,14 @@ window.HMI_I18N = {
     'bim.cap': "Revit · Architectural Modelling & Documentation",
     'rv.label': "Revit",
     'rv.title': "Our Revit Architectural<br><em>Project Work</em>",
-    'rv.1.t': "Residential · Architectural Revit", 'rv.1.n': "Residential Block", 'rv.1.m': "Approx. 14,500 m² · LOD 350",
-    'rv.2.t': "High-Rise · Architectural Revit", 'rv.2.n': "Office Tower", 'rv.2.m': "Approx. 32,000 m² · LOD 350",
-    'rv.3.t': "Mixed-Use · Architecture + Coordination", 'rv.3.n': "Mall & Bazaar", 'rv.3.m': "Approx. 46,000 m²",
-    'rv.4.t': "Residential · Architectural Revit & Detail", 'rv.4.n': "Luxury Villa", 'rv.4.m': "Approx. 1,250 m²",
-    'rv.5.t': "Cultural Building · Architectural Revit", 'rv.5.n': "Cultural Centre", 'rv.5.m': "Approx. 8,400 m²",
-    'rv.6.t': "Themed Structure · Architectural Revit", 'rv.6.n': "Aquarium Structure", 'rv.6.m': "Approx. 6,800 m²",
-    'rv.7.t': "Urban Transformation · Architectural Revit", 'rv.7.n': "Housing Estate", 'rv.7.m': "Approx. 22,000 m²",
-    'rv.8.t': "Hospitality · Architectural Revit", 'rv.8.n': "Hotel", 'rv.8.m': "Approx. 17,500 m²",
+    'rv.1.t': "Industrial · Architectural Revit", 'rv.1.n': "Adec LSS Factory · Axonometric", 'rv.1.m': "Milas OIZ · 4,000 m² · LOD 300",
+    'rv.2.t': "Industrial · Elevation Sheet", 'rv.2.n': "Adec LSS Factory · South Elevation", 'rv.2.m': "Curtain wall · stone · brick pilasters",
+    'rv.3.t': "Industrial · Architectural Revit", 'rv.3.n': "Dekor Safari · Axonometric", 'rv.3.m': "Eskişehir OIZ · 2,282 m² · LOD 300",
+    'rv.4.t': "Industrial · Elevation Sheet", 'rv.4.n': "Dekor Safari · South Elevation", 'rv.4.m': "Steel hall · ribbon windows · rooflights",
+    'rv.5.t': "Aquaculture · Site Plan", 'rv.5.n': "Adec LSS Fish Farm · Site Axonometric", 'rv.5.m': "Avşar / Milas · 6 buildings",
+    'rv.6.t': "Aquaculture · Section Sheet", 'rv.6.n': "RAS Hall · Cross Section", 'rv.6.m': "Ø 4 m tanks · biofilter · 20 m span",
+    'rv.7.t': "Model Animation · Revit", 'rv.7.n': "Adec LSS · Drawing Animation", 'rv.7.m': "From massing to sheet production",
+    'rv.8.t': "Model Animation · Revit", 'rv.8.n': "Fish Farm · Drawing Animation", 'rv.8.m': "From site plan to section",
     'ref.title': "Companies We Work With",
     'ct.label': "Contact",
     'ct.title': "Let's Discuss<br><em>Your Project</em>",
@@ -1837,7 +1907,7 @@ window.HMI_I18N = {
     'hero.cta1': "خدماتنا",
     'hero.cta2': "تواصل معنا",
     'hero.scroll': "مرّر",
-    'about.imgAlt': "مكتب هاشم أوغلو للهندسة المعمارية",
+    'about.imgAlt': "رسم أكسونومتري تصوري لمصنع Adec LSS — رسم متحرك يرسم خطوطه بنفسه",
     'about.badge': "سنة التأسيس",
     'about.label': "من نحن",
     'about.title': "عمارة تمنح<br><em>المكان معناه</em>",
@@ -1899,6 +1969,16 @@ window.HMI_I18N = {
     'ong.render': "تصور معماري",
     'ong.site': "مرحلة الموقع",
     'ong.soon': "الصور قريباً",
+    'ong.cap.site': "الموقع", 'ong.cap.axo': "أكسونومتري", 'ong.cap.elev': "الواجهة الجنوبية", 'ong.cap.section': "مقطع صالة RAS",
+    'ong.siteplan': "أكسونومتري الموقع العام",
+    'ong.status.partial': "مكتمل جزئياً · قيد التنفيذ",
+    'ong.3.cat': "منشأة استزراع مائي · مزرعة أسماك",
+    'ong.3.name': "Adec LSS <em>مزرعة الأسماك</em>",
+    'ong.3.sub': "مجمّع تربية بنظام إعادة التدوير (RAS) من التفريخ إلى التعبئة",
+    'ong.buildings': "المباني", 'ong.buildings.unit': "مبنى",
+    'ong.3.loc': "أفشار · ميلاس / موغلا",
+    'ong.map': "عرض على الخريطة",
+    'prj.7.cat': "استزراع مائي · ميلاس / موغلا", 'prj.7.name': "مزرعة أسماك Adec LSS",
     'ong.render.soon': "التصور ثلاثي الأبعاد قريباً",
     'ong.site.soon': "صور الموقع قريباً",
     'ong.plan.soon': "المقطع والمخطط قريباً",
@@ -1953,14 +2033,14 @@ window.HMI_I18N = {
     'bim.cap': "Revit · النمذجة المعمارية والتوثيق",
     'rv.label': "Revit",
     'rv.title': "أعمالنا في المشاريع<br><em>المعمارية على Revit</em>",
-    'rv.1.t': "سكني · Revit معماري", 'rv.1.n': "كتلة سكنية", 'rv.1.m': "نحو 14,500 م² · LOD 350",
-    'rv.2.t': "مبنى شاهق · Revit معماري", 'rv.2.n': "برج مكاتب", 'rv.2.m': "نحو 32,000 م² · LOD 350",
-    'rv.3.t': "استخدام مختلط · معماري + تنسيق", 'rv.3.n': "مركز تجاري وسوق", 'rv.3.m': "نحو 46,000 م²",
-    'rv.4.t': "سكني · Revit معماري وتفاصيل", 'rv.4.n': "فيلا فاخرة", 'rv.4.m': "نحو 1,250 م²",
-    'rv.5.t': "مبنى ثقافي · Revit معماري", 'rv.5.n': "مركز ثقافي", 'rv.5.m': "نحو 8,400 م²",
-    'rv.6.t': "مبنى ذو طابع خاص · Revit معماري", 'rv.6.n': "مبنى حوض مائي", 'rv.6.m': "نحو 6,800 م²",
-    'rv.7.t': "تحول حضري · Revit معماري", 'rv.7.n': "مجمّع سكني", 'rv.7.m': "نحو 22,000 م²",
-    'rv.8.t': "ضيافة · Revit معماري", 'rv.8.n': "فندق", 'rv.8.m': "نحو 17,500 م²",
+    'rv.1.t': "صناعي · Revit معماري", 'rv.1.n': "مصنع Adec LSS · أكسونومتري", 'rv.1.m': "منطقة ميلاس الصناعية · 4,000 م² · LOD 300",
+    'rv.2.t': "صناعي · لوحة واجهة", 'rv.2.n': "مصنع Adec LSS · الواجهة الجنوبية", 'rv.2.m': "واجهة زجاجية · حجر · أعمدة طوب",
+    'rv.3.t': "صناعي · Revit معماري", 'rv.3.n': "ديكور سفاري · أكسونومتري", 'rv.3.m': "منطقة إسكي شهير الصناعية · 2,282 م² · LOD 300",
+    'rv.4.t': "صناعي · لوحة واجهة", 'rv.4.n': "ديكور سفاري · الواجهة الجنوبية", 'rv.4.m': "صالة فولاذية · نوافذ شريطية · مناور سقفية",
+    'rv.5.t': "استزراع مائي · مخطط الموقع", 'rv.5.n': "مزرعة أسماك Adec LSS · أكسونومتري الموقع", 'rv.5.m': "أفشار / ميلاس · 6 مبانٍ",
+    'rv.6.t': "استزراع مائي · لوحة مقطع", 'rv.6.n': "صالة RAS · مقطع عرضي", 'rv.6.m': "خزانات Ø 4 م · مرشح حيوي · بحر 20 م",
+    'rv.7.t': "رسم متحرك للنموذج · Revit", 'rv.7.n': "Adec LSS · رسم متحرك", 'rv.7.m': "من الكتلة إلى إنتاج اللوحات",
+    'rv.8.t': "رسم متحرك للنموذج · Revit", 'rv.8.n': "مزرعة الأسماك · رسم متحرك", 'rv.8.m': "من مخطط الموقع إلى المقطع",
     'ref.title': "الشركات التي نتعاون معها",
     'ct.label': "تواصل معنا",
     'ct.title': "لنتحدّث عن<br><em>مشروعك</em>",
