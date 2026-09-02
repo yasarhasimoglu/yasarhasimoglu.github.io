@@ -5,9 +5,9 @@
 
   var STORE = 'hmi_lang';
   var LANGS = [
-    { code: 'tr', name: 'Türkçe',  flag: 'https://flagcdn.com/tr.svg' },
-    { code: 'en', name: 'English', flag: 'https://flagcdn.com/gb.svg' },
-    { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/sa.svg' }
+    { code: 'tr', name: 'Türkçe', label: 'TR' },
+    { code: 'en', name: 'English', label: 'EN' },
+    { code: 'ar', name: 'العربية', label: 'AR' }
   ];
 
   /* Tüm sayfalarda ortak metinler */
@@ -148,12 +148,7 @@
         b.setAttribute('data-lang', l.code);
         b.setAttribute('aria-label', l.name);
         b.setAttribute('title', l.name);
-        var img = document.createElement('img');
-        img.src = l.flag;
-        img.alt = l.name;
-        img.loading = 'lazy';
-        img.width = 22; img.height = 15;
-        b.appendChild(img);
+        b.textContent = l.label;
         b.addEventListener('click', function () { setLang(l.code); });
         host.appendChild(b);
       });
@@ -165,10 +160,9 @@
     if (document.getElementById('i18n-style')) return;
     var css =
       '.lang-switch{display:inline-flex;align-items:center;gap:5px}' +
-      '.lang-flag{padding:2px;border:1px solid transparent;background:none;cursor:pointer;line-height:0;border-radius:3px;opacity:.5;transition:opacity .2s,border-color .2s,transform .2s}' +
+      '.lang-flag{padding:4px;border:0;background:none;color:inherit;cursor:pointer;line-height:1;border-radius:0;opacity:.5;transition:opacity .2s,transform .2s}' +
       '.lang-flag:hover{opacity:1;transform:translateY(-1px)}' +
-      '.lang-flag.active{opacity:1;border-color:var(--gold)}' +
-      '.lang-flag img{height:15px;width:auto;display:block;border-radius:1px}' +
+      '.lang-flag.active{opacity:1;box-shadow:inset 0 -1px currentColor}' +
       '.dnav-actions{display:flex;align-items:center;gap:20px}' +
       '@media(max-width:980px){.dnav-actions{gap:14px}.lang-switch{gap:3px}}' +
       'html[dir="rtl"] body,html[dir="rtl"] input,html[dir="rtl"] textarea,html[dir="rtl"] select,html[dir="rtl"] button{font-family:"Tajawal",sans-serif}' +

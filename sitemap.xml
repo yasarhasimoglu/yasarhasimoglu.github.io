@@ -1,63 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hmimar.com/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://hmimar.com/img/slider-04.jpg</image:loc><image:title>Haşimoğlu Mimarlık — Texas Villa</image:title></image:image>
   </url>
   <url>
-    <loc>https://hmimar.com/ekip.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://hmimar.com/projeler/adec-lss-fabrikasi.html</loc>
+    <lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image><image:loc>https://hmimar.com/img/adec-lss-render.jpg</image:loc><image:title>Adec LSS Fabrikası</image:title></image:image>
   </url>
   <url>
-    <loc>https://hmimar.com/kariyer.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://hmimar.com/projeler/texas-villa.html</loc>
+    <lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image><image:loc>https://hmimar.com/img/texas-01.jpg</image:loc><image:title>Texas Villa</image:title></image:image>
   </url>
   <url>
-    <loc>https://hmimar.com/hizmetler/akvaryum-tasarimi.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://hmimar.com/projeler/dekor-safari-fabrikasi.html</loc>
+    <lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image><image:loc>https://hmimar.com/img/dekor-safari-01.jpg</image:loc><image:title>Dekor Safari Fabrikası</image:title></image:image>
   </url>
-  <url>
-    <loc>https://hmimar.com/hizmetler/mimari-tasarim.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hmimar.com/hizmetler/villa-rezidans-tower.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hmimar.com/hizmetler/ic-mekan-tasarimi.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hmimar.com/hizmetler/kentsel-donusum.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hmimar.com/hizmetler/proje-danismanligi.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hmimar.com/hizmetler/bim-revit.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://hmimar.com/projeler/tematik-macaw-papagan.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/projeler/tematik-anka-kusu.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/ekip.html</loc><lastmod>2026-09-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://hmimar.com/kariyer.html</loc><lastmod>2026-09-02</lastmod><priority>0.5</priority></url>
+  <url><loc>https://hmimar.com/hizmetler/akvaryum-tasarimi.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/hizmetler/mimari-tasarim.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/hizmetler/villa-rezidans-tower.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/hizmetler/ic-mekan-tasarimi.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/hizmetler/kentsel-donusum.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/hizmetler/proje-danismanligi.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://hmimar.com/hizmetler/bim-revit.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
 </urlset>
