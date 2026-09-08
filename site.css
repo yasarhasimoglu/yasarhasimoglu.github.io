@@ -96,7 +96,7 @@ button { color: inherit; }
 .main-nav > a:hover::after { transform: scaleX(1); transform-origin: left; }
 .header-actions { display: flex; align-items: center; gap: 1rem; }
 .lang-switch { display: inline-flex; gap: .12rem; }
-.mobile-language { display: none; }
+.mobile-language, .main-nav .mobile-language.lang-switch { display: none; }
 .lang-flag {
   min-width: 2rem; padding: .3rem .28rem; border: 0; background: transparent;
   color: inherit; cursor: pointer; font-size: .62rem; font-weight: 700; letter-spacing: .08em; opacity: .48;
@@ -311,8 +311,8 @@ html[dir="rtl"] .footer-legal { text-align: left; }
 
 @media (max-width: 740px) {
   .brand-copy small { display: none; }
-  .header-actions .lang-switch { display: none; }
-  .main-nav .mobile-language { display: flex; margin-top: 1rem; }
+  .header-actions .lang-switch, .header-actions [data-lang-switch] { display: none; }
+  .main-nav .mobile-language, .main-nav .mobile-language.lang-switch { display: flex; margin-top: 1rem; }
   .hero { position: relative; display: block; min-height: 100svh; background: #666; }
   .hero-copy {
     z-index: 3; width: 100%; min-height: 100svh; color: var(--white);
