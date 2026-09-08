@@ -2,11 +2,11 @@
   --coal: #f4f1eb; --off-black: #e9e4da; --graphite: #ffffff; --stone: #eee9df;
   --platinum: #494d47; --cream: #111310; --gold: #b36f42; --gold-light: #d79a73;
   --white: #111310; --mid: #6e716b; --ink: #111310; --on-dark: #ffffff;
-  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Barlow', sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Manrope', Arial, sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--coal); color: var(--cream); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
+body { background: var(--coal); color: var(--cream); font-family: var(--sans); font-weight: 400; overflow-x: hidden; }
 img { display: block; }
 
 .dnav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 22px 60px; background: rgba(244,241,235,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(17,19,16,.15); }
@@ -16,7 +16,7 @@ img { display: block; }
 .dnav-back { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--platinum); text-decoration: none; opacity: .8; transition: color .25s, opacity .25s; }
 .dnav-back:hover { color: var(--gold-light); opacity: 1; }
 
-.dhero { min-height: 78vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 60px 72px; overflow: hidden; }
+.dhero { min-height: 78vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 var(--pad, 60px) 72px; overflow: hidden; }
 .dhero-bg { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13,13,13,.92) 0%, rgba(13,13,13,.32) 55%, rgba(13,13,13,.7) 100%), var(--hero-img) center/cover no-repeat; animation: zo 8s ease forwards; }
 @keyframes zo { from { transform: scale(1.06); } to { transform: scale(1); } }
 .dcrumb { font-size: .64rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
@@ -26,7 +26,7 @@ img { display: block; }
 .dhero h1 em { font-style: italic; color: var(--gold-light); }
 .dhero-sub { margin-top: 24px; max-width: 580px; font-size: .96rem; line-height: 1.85; color: var(--on-dark); opacity: .92; text-shadow: 0 1px 14px rgba(0,0,0,.5); }
 
-section { padding: clamp(72px, 9vw, 132px) 60px; }
+section { padding: clamp(72px, 9vw, 132px) var(--pad, 60px); }
 .wrap { max-width: 1120px; margin: 0 auto; }
 .label { font-size: .64rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .title { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 400; letter-spacing: -.035em; line-height: .96; color: var(--white); }
@@ -91,3 +91,7 @@ section { padding: clamp(72px, 9vw, 132px) 60px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+
+/* Eskizler (SVG): kırpmadan, kağıt zemin üzerinde */
+.gal-grid img[src$=".svg"], .featured-img img[src$=".svg"] { object-fit: cover; object-position: 60% 46%; filter: none; background: #f4f1eb; }
+.dhero-bg { background-color: #111310; }

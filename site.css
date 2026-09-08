@@ -358,3 +358,7 @@ html[dir="rtl"] .footer-legal { text-align: left; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Eskiz paftaları: vaka galerisinde kırpmadan */
+.case-gallery figure.sketch img, .case-gallery figure.sketch:not(.wide) img { height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #f4f1eb; }
+.case-page .site-header:not(.is-scrolled):not(:has(.main-nav.is-open)) { color: #fff; border-color: rgba(255,255,255,.18); }
