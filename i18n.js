@@ -13,6 +13,8 @@
   /* Tüm sayfalarda ortak metinler */
   var COMMON = {
     en: {
+      'nav.projects': 'Projects', 'nav.expertise': 'Expertise', 'nav.studio': 'Studio', 'nav.team': 'Team', 'nav.contact': 'Contact',
+      'footer.note': 'Istanbul-based architecture, interiors, aquarium design and BIM studio.', 'footer.career': 'Careers', 'footer.rights': 'All rights reserved.',
       'nav.kurumsal': 'About',
       'nav.hizmetler': 'Services',
       'nav.portfoy': 'Portfolio',
@@ -37,6 +39,8 @@
       'd.foot.rights': '© 2022–2026 Haşimoğlu Mimarlık İnşaat Ltd. Şti. — All rights reserved.'
     },
     ar: {
+      'nav.projects': 'المشاريع', 'nav.expertise': 'الخبرات', 'nav.studio': 'الاستوديو', 'nav.team': 'الفريق', 'nav.contact': 'تواصل',
+      'footer.note': 'استوديو معماري وتصميم داخلي وأحواض مائية وBIM مقره إسطنبول.', 'footer.career': 'الوظائف', 'footer.rights': 'جميع الحقوق محفوظة.',
       'nav.kurumsal': 'من نحن',
       'nav.hizmetler': 'خدماتنا',
       'nav.portfoy': 'أعمالنا',
