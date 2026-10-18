@@ -14,7 +14,7 @@
   <link rel="icon" type="image/svg+xml" href="/logo.svg">
   <link rel="icon" type="image/png" sizes="512x512" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
-  <link rel="preload" as="image" href="/img/eskiz/hero-aquarium-axo-dark.svg">
+  <link rel="preload" as="image" href="/img/texas-01.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -92,8 +92,9 @@
 .service-priority:hover{background:var(--paper-deep);color:var(--ink)}
 @media(max-width:740px){.priority-grid{grid-template-columns:1fr}.service-priority+.service-priority{border-inline-start:0;border-top:1px solid var(--line)}.hero .display-title{font-size:clamp(2.6rem,10vw,4.5rem)}}
 </style>
+  <link rel="stylesheet" href="/portfolio.css">
 </head>
-<body>
+<body class="portfolio-home">
   <a class="skip-link" href="#icerik">İçeriğe geç</a>
   <header class="site-header" aria-label="Ana navigasyon">
     <div class="header-inner">
@@ -127,10 +128,9 @@
           <a class="button outline" href="#iletisim" data-i18n="hero.contact">Teklif Alın</a>
         </div>
       </div>
-      <div class="hero-media">
-        <img src="/img/eskiz/hero-aquarium-axo-dark.svg" width="2200" height="1238" alt="Akvaryum yapısının kavramsal mimari eskizi" fetchpriority="high">
-        <div class="hero-caption"><span data-i18n="hero.caption">Akvaryum mimarisi · Konsept eskiz</span><span>HMİ / 2026</span></div>
-      </div>
+      <div class="hero-media"><img src="/img/texas-01.jpg" width="2000" height="1125" alt="Texas Villa havuz ve bahçe cephesi" fetchpriority="high"></div>
+      <a class="hero-project-caption" href="/projeler/texas-villa.html">TEXAS VILLA / USA ↗</a>
+      <img class="hero-stamp" src="/logo.svg" width="48" height="48" alt="Haşimoğlu Mimarlık">
     </section>
 
     <section class="priority-services shell" aria-labelledby="services-title"><p class="eyebrow" id="services-title" data-i18n="services.eyebrow">Ne yapıyoruz?</p><div class="priority-grid"><a class="service-priority" href="/hizmetler/akvaryum-tasarimi.html"><span class="project-kicker">01</span><h2 data-i18n="e1.title">Akvaryum Projeleri</h2><p data-i18n="e1.text">Tünel akvaryum, tank ve akrilik detayları, tematik iç mekân, yaşam destek sistemleri (LSS) ve disiplinler arası koordinasyon.</p><span aria-hidden="true">↗</span></a><a class="service-priority" href="/hizmetler/mimari-tasarim.html"><span class="project-kicker">02</span><h2 data-i18n="e2.title">Mimari Proje Çizimi</h2><p data-i18n="e2.text">Konut, ticari ve endüstriyel yapılar için konsept, ruhsat ve uygulama projeleri; BIM / Revit ile koordineli çizimler.</p><span aria-hidden="true">↗</span></a><a class="service-priority" href="#iletisim"><span class="project-kicker">03</span><h2 data-i18n="permit.title">Ruhsat ve Belediye İşlemleri</h2><p data-i18n="permit.text">Ruhsat projelerinin hazırlanması, başvuru dosyalarının koordinasyonu, belediye takibi ve gerekli proje revizyonlarının yönetimi.</p><span aria-hidden="true">↗</span></a></div></section>
@@ -161,7 +161,7 @@
             </a>
             <div class="project-copy">
               <p class="project-kicker" data-i18n="p1.kicker">Endüstriyel yapı · Devam ediyor</p>
-              <h3>Adec LSS<br>Fabrikası</h3>
+              <h3>Adec LSS <br>Fabrikası</h3>
               <p data-i18n="p1.text">Üretim akışı ile kurumsal temsili aynı kabukta buluşturan; şeffaflık, doğal taş ve güçlü strüktürel ritim üzerine kurulu bir fabrika yapısı.</p>
               <div class="project-meta"><div><span data-i18n="meta.location">Konum</span><strong>Milas OSB · Muğla</strong></div><div><span data-i18n="meta.area">Alan</span><strong>4.000 m²</strong></div></div>
               <a class="text-link" href="/projeler/adec-lss-fabrikasi.html" data-i18n="work.view">Projeyi incele</a>
@@ -175,7 +175,7 @@
             </a>
             <div class="project-copy">
               <p class="project-kicker" data-i18n="p2.kicker">Konut · Mimari ve iç mekân</p>
-              <h3>Texas<br>Villa</h3>
+              <h3>Texas <br>Villa</h3>
               <p data-i18n="p2.text">İç ve dış yaşamı geniş açıklıklar, gölgeli teraslar ve güçlü peyzaj ilişkisiyle birbirine bağlayan çağdaş konut tasarımı.</p>
               <div class="project-meta"><div><span data-i18n="meta.location">Konum</span><strong>Texas · ABD</strong></div><div><span data-i18n="meta.scope">Kapsam</span><strong data-i18n="p2.scope">Mimari + İç Mimari</strong></div></div>
               <a class="text-link" href="/projeler/texas-villa.html" data-i18n="work.view">Projeyi incele</a>
@@ -189,7 +189,7 @@
             </a>
             <div class="project-copy">
               <p class="project-kicker" data-i18n="p3.kicker">Endüstriyel yapı · Şantiye</p>
-              <h3>Dekor Safari<br>Fabrikası</h3>
+              <h3>Dekor Safari <br>Fabrikası</h3>
               <p data-i18n="p3.text">Endüstriyel üretimin ihtiyaçlarına göre kurgulanan proje, uygulama ve saha koordinasyonuyla Eskişehir Organize Sanayi Bölgesi'nde yükseliyor.</p>
               <div class="project-meta"><div><span data-i18n="meta.location">Konum</span><strong>EOSB · Eskişehir</strong></div><div><span data-i18n="meta.area">Alan</span><strong>2.282 m²</strong></div></div>
               <a class="text-link" href="/projeler/dekor-safari-fabrikasi.html" data-i18n="work.view">Projeyi incele</a>
@@ -202,7 +202,7 @@
             </a>
             <div class="project-copy">
               <p class="project-kicker" data-i18n="p4.kicker">Sağlık yapısı · Dubai, BAE</p>
-              <h3>Sağlık<br>Merkezi</h3>
+              <h3>Sağlık <br>Merkezi</h3>
               <p data-i18n="p4.text">Dalgalı çatısı, ahşap kaplaması ve cam giriş köşesiyle klinik soğukluğu yerine sıcak bir karşılama kuran tek katlı sağlık pavyonu.</p>
               <div class="project-meta"><div><span data-i18n="meta.location">Konum</span><strong>Dubai · BAE</strong></div><div><span data-i18n="meta.scope">Kapsam</span><strong data-i18n="p4.scope">Konsept + Görselleştirme</strong></div></div>
               <a class="text-link" href="/projeler/saglik-merkezi-dubai.html" data-i18n="work.view">Projeyi incele</a>
@@ -216,7 +216,7 @@
             </a>
             <div class="project-copy">
               <p class="project-kicker" data-i18n="p5.kicker">Ürün tasarımı · Romanya'ya teslim</p>
-              <h3>Tematik<br>Kaydıraklar</h3>
+              <h3>Tematik <br>Kaydıraklar</h3>
               <p data-i18n="p5.text">Kurucu Baş Mimarımızın tasarladığı Macaw papağan ve Anka Kuşu figürlü cam elyafı su kaydırakları; kalıptan boyaya üretildi, Romanya'daki müşteriye teslim edildi.</p>
               <div class="project-meta"><div><span data-i18n="meta.location">Konum</span><strong>Romanya</strong></div><div><span data-i18n="meta.scope">Kapsam</span><strong data-i18n="p5.scope">Tasarım + İmalat</strong></div></div>
               <a class="text-link" href="/projeler/tematik-macaw-papagan.html" data-i18n="work.view">Projeyi incele</a>
@@ -226,6 +226,10 @@
       </div>
     </section>
 
+      <section class="concept-archive"><figure>
+        <img src="/img/eskiz/hero-aquarium-axo-dark.svg" width="2200" height="1238" alt="Akvaryum yapısının kavramsal mimari eskizi" loading="lazy">
+        <figcaption><span data-i18n="hero.caption">Akvaryum mimarisi · Konsept eskiz</span><span>HMİ / 2026</span></figcaption>
+      </figure></section>
     <section class="manifesto section">
       <div class="shell manifesto-inner reveal"><span class="manifesto-index" aria-hidden="true">H</span><blockquote data-i18n="manifesto">“İyi mimarlık, çizgiden önce <em>doğru soruyu</em> kurar.”</blockquote></div>
     </section>
