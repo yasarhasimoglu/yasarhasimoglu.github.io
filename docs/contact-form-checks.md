@@ -4,7 +4,7 @@
 
 - Starting revision: `7955090` on `main`; PR #2 was already merged and no open PR overlapped this work.
 - Production form: `https://hmimar.com/#iletisim`, endpoint `https://formspree.io/f/mbdwlwgd`.
-- The existing HTML, CSS, images, content, translations and endpoint are unchanged. Only contact-form behavior in `site.js` changes; development-only test files are added.
+- The existing layout, CSS, images, content, translations and endpoint are unchanged. Contact-form behavior in `site.js` changes; development-only test files are added. The homepage script URL is versioned so a recently cached script does not keep the old handler after deployment.
 
 ## Production desktop checks before the fix
 
@@ -51,4 +51,4 @@ Four focused regression checks (whitespace, uncertain network result, stalled re
 - The available cloud browser exposes no viewport/device-emulation control and cannot reach the local test server. A mobile-sized preview could not be opened because its URL protocol was blocked. No workaround was used.
 - Mobile CSS inspection confirms the existing single-column form rule at the small-screen breakpoint. This is **not a completed mobile-device test**. Android Chrome / iOS Safari keyboard, viewport, touch, native validation and one controlled submission remain to be checked on actual devices or an authorized mobile testing surface.
 - HTTP errors, network failures and timeout behavior were simulated locally, not induced against the production Formspree service. No load test or repeated production failure requests were made.
-- Post-deployment verification is tracked in the pull request; the desktop evidence above was collected before the fix.
+- Post-deployment verification is tracked in the pull requests. PR #3 deployed successfully; the production `/site.js` response matched the tested file byte for byte (SHA-256 `02e1025da07d1a44103e12b1b94b7d0ec282cf86c668b3b7e5030005cdebe6b4`). Its `max-age=600` cache header and the old behavior in the existing browser session prompted the homepage script URL version. The desktop evidence above was collected before the fix.
